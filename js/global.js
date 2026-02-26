@@ -40,7 +40,7 @@ function closeOtpModal() {
 
 // ====================== AUTH GLOBAL ======================
 
-const API_BASE_USER = "http://localhost:5000/api/users";
+const API_BASE_USER = "https://perfume-store-production.up.railway.app/api/users";
 
 // 🔹 Get token
 function getToken() {
@@ -142,7 +142,7 @@ async function restoreSession() {
 
 // 🔹 Google login redirect
 function loginWithGoogle() {
-  window.location.href = "http://localhost:5000/api/auth/google";
+  window.location.href = "https://perfume-store-production.up.railway.app/api/auth/google";
 }
 
 // 🔹 Handle Google redirect token
@@ -168,7 +168,7 @@ syncUserUI();
 // ---------- FACEBOOK LOGIN ----------
 function loginWithFacebook() {
   // Redirect browser to backend Facebook auth route
-  window.location.href = "http://localhost:5000/api/auth/facebook";
+  window.location.href = "https://perfume-store-production.up.railway.app/api/auth/facebook";
 }
 
 // 🔹 Run on every page
