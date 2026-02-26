@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html  lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hirah Attar - Premium Collections</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#C89B3F", 
+            "secondary": "#0A192F", 
+            "accent": "#F5F1E9", 
+            "bronze": "#A97142", 
+            "light-text": "#3D3D3D",
+            "dark-text": "#E0E0E0",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "body": ["Cairo", "sans-serif"],
+          },
+          borderRadius: {
+            "DEFAULT": "0.75rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          boxShadow: {
+            'glow-gold': '0 0 20px 0px rgba(200, 155, 63, 0.4)',
+            'glow-gold-lg': '0 0 30px 5px rgba(200, 155, 63, 0.5)',
+            'outline-bronze': '0 0 0 2px #A97142',
+          },
+          animation: {
+            'glow': 'glow 3s ease-in-out infinite',
+            'pulse-border': 'pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 2s infinite',
+            'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+            'slide-in': 'slide-in 0.8s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            glow: {
+              '0%, 100%': { textShadow: '0 0 5px rgba(200, 155, 63, 0.2), 0 0 10px rgba(200, 155, 63, 0.2)' },
+              '50%': { textShadow: '0 0 20px rgba(200, 155, 63, 0.6), 0 0 30px rgba(200, 155, 63, 0.4)' },
+            },
+            'pulse-border': {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(200, 155, 63, 0.7)' },
+              '50%': { boxShadow: '0 0 0 4px rgba(200, 155, 63, 0)' },
+            },
+            'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'slide-in': {
+                '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            'float': {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        },
+      },
+    }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24 }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .card-image-slider { position: relative; width: 100%; padding-top: 100%; }
+        .card-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
+        .card-image.active { opacity: 1; }
+    </style> <script>
+    (function () {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    })();
+  </script>
+  <script src="/assets/js/font.js"></script>
+</head>
+<body x-data class="bg-accent dark:bg-secondary font-body text-light-text dark:text-dark-text transition-colors duration-500 ease-in-out">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-accent/80 dark:bg-secondary/80 backdrop-blur-lg shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-4">
+    <a class="flex items-center gap-3" href="#">
+    <div class="h-8 w-8 text-bronze dark:text-primary">
+    <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path>
+    </svg>
+    </div>
+    <span class="text-xl font-bold font-display text-light-text dark:text-accent">Attar Store</span>
+    </a>
+    
+    <nav class="hidden md:flex items-center gap-8">
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="ProductListed.html">Product</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="Blogs.html">Blogs</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="AboutUS.html">About</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="contactUS.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2 sm:gap-4">
+      <button @click="toggleTheme()"  class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-bronze dark:text-primary transition-transform duration-500 ease-in-out hover:rotate-[360deg] hover:bg-bronze/10 dark:hover:bg-primary/10">
+        <span class="material-symbols-outlined hidden dark:inline">light_mode</span>
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        </button>
+    <button
+      onclick="window.location.href='cart.html'"
+      class="relative"
+    >
+      <span class="material-symbols-outlined text-2xl">
+        shopping_cart
+      </span>
+    
+      <span
+        id="cart-count"
+        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1"
+      >
+        0
+      </span>
+    </button>
+    <script>
+      function updateCartBadge() {
+      const badge = document.getElementById("cart-count");
+      if (!badge) return;
+    
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const count = cart.reduce((sum, i) => sum + i.qty, 0);
+    
+      badge.textContent = count;
+      badge.style.display = count > 0 ? "flex" : "none";
+    }
+    
+    window.addEventListener("cart-updated", updateCartBadge);
+    document.addEventListener("DOMContentLoaded", updateCartBadge);
+    
+    </script>
+    <div id="profile-area">
+      <!-- NOT logged in -->
+      <button id="guest-profile-btn"
+              onclick="openAuthModal()"
+              class="flex h-10 w-10 items-center justify-center rounded-full ">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    
+      <!-- logged in -->
+      <img id="user-profile-img"
+           data-user-avatar
+           onclick="goToProfile()"
+           class="hidden h-10 w-10 rounded-full cursor-pointer border-2 border-bronze object-cover">
+    </div>
+    <script>
+      function updateAuthUI() {
+        const user = getUser();
+    
+        const guestBtn = document.getElementById("guest-profile-btn");
+        const userImg = document.getElementById("user-profile-img");
+    
+        if (!guestBtn || !userImg) return;
+    
+        if (user) {
+          // logged in
+          guestBtn.classList.add("hidden");
+          userImg.classList.remove("hidden");
+        } else {
+          // guest
+          guestBtn.classList.remove("hidden");
+          userImg.classList.add("hidden");
+        }
+      }
+    </script>
+    
+    <script>
+      function getUser() {
+        const raw = localStorage.getItem("user");
+        if (!raw) return null;
+      
+        const user = JSON.parse(raw);
+      
+        // DEFAULT NAME FROM EMAIL
+        if (!user.name && user.email) {
+          user.name = user.email.split("@")[0];
+        }
+      
+        // DEFAULT AVATAR
+        if (!user.avatar) {
+          const initials = user.name
+            .split(" ")
+            .map(w => w[0])
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+      
+          user.avatar = `https://ui-avatars.com/api/?name=${initials}&background=8B5A2B&color=fff`;
+        }
+      
+        return user;
+      }
+      
+      function syncUserUI() {
+        const user = getUser();
+        if (!user) return;
+      
+        // PROFILE IMAGES
+        document.querySelectorAll("[data-user-avatar]").forEach(el => {
+          el.src = user.avatar;
+        });
+      
+        // NAME TEXT
+        document.querySelectorAll("[data-user-name]").forEach(el => {
+          el.textContent = user.name;
+        });
+      
+        // EMAIL TEXT
+        document.querySelectorAll("[data-user-email]").forEach(el => {
+          el.textContent = user.email;
+        });
+      }
+      </script>
+      
+      
+      <script>
+        function goToProfile() {
+          const user = localStorage.getItem("user");
+        
+          if (!user) {
+            openAuthModal();
+            return;
+          }
+        
+          const parsedUser = JSON.parse(user);
+        
+          if (parsedUser.role === "admin") {
+            window.location.href = "admin.html";
+          } else {
+            window.location.href = "profile.html";
+          }
+        }
+        
+          </script>
+      
+      
+        
+      
+    
+        
+    
+    <button class="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-bronze dark:text-primary" id="hamburger-button">
+    <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+    </div>
+    </div>
+    </header>
+    <div class="fixed inset-0 bg-black/50 z-[59] md:hidden opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out"
+     id="mobile-menu-overlay"></div>
+
+<!-- MOBILE MENU -->
+<div class="fixed top-0 right-0 h-full w-full max-w-xs bg-accent dark:bg-secondary shadow-lg z-[60]
+            transform translate-x-full md:hidden transition-transform duration-500 ease-in-out"
+     id="mobile-menu">
+
+  <!-- HEADER (LOGO + CLOSE) -->
+  <div class="flex items-center justify-between p-5 border-b border-bronze/20 dark:border-primary/20">
+
+    <!-- LOGO + NAME -->
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="h-8 w-8 text-bronze dark:text-primary">
+        <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355Z"></path>
+        </svg>
+      </div>
+      <span class="text-lg font-bold font-display text-light-text dark:text-accent">
+        Hirah Attar
+      </span>
+    </a>
+
+    <!-- CLOSE BUTTON -->
+    <button class="flex h-10 w-10 items-center justify-center rounded-full
+                   bg-transparent text-bronze dark:text-primary"
+            id="close-menu-button">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+  </div>
+
+  <!-- NAV LINKS -->
+  <div class="p-8 pt-10">
+    <nav class="flex flex-col items-center gap-6">
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="index.html">Home</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="ProductListed.html">Product</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="Blogs.html">Blogs</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="AboutUS.html">About</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="contactUS.html">Contact</a>
+
+    </nav>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburger-button");
+    const closeBtn = document.getElementById("close-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("mobile-menu-overlay");
+
+    if (!hamburgerBtn || !mobileMenu || !overlay) return;
+
+    // force closed state
+    mobileMenu.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+
+    function openMenu() {
+      mobileMenu.classList.remove("translate-x-full");
+
+      overlay.classList.remove("hidden");
+      overlay.classList.add("opacity-100");
+
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.add("translate-x-full");
+
+      overlay.classList.remove("opacity-100");
+      overlay.classList.add("hidden");
+
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    hamburgerBtn.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+  });
+</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+    
+        if (params.get("login") === "required") {
+          // ✅ open existing auth modal
+          openAuthModal();
+        }
+      });
+    </script>
+  
+      
+<div class="fixed inset-0 bg-black/50 z-[59] md:hidden opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out" id="mobile-menu-overlay"></div>
+<div class="fixed top-0 right-0 h-full w-full max-w-xs bg-accent dark:bg-secondary shadow-lg z-[60] transform translate-x-full md:hidden transition-transform duration-500 ease-in-out" id="mobile-menu">
+<div class="flex h-full flex-col">
+<div class="flex justify-end p-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-bronze dark:text-primary" id="close-menu-button">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="p-8 pt-0">
+<nav class="flex flex-col items-center gap-6">
+<a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-xl font-bold tracking-wide text-bronze dark:text-primary transition-colors" href="#">Products</a>
+<a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="#">About</a>
+<a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+</div>
+</div>
+<main class="flex-grow pt-8 sm:pt-16">
+<div class="container mx-auto px-4 md:px-8">
+  <section
+  x-data
+  x-init="$store.topSold.load()"
+  x-show="$store.topSold.product"
+  x-cloak
+  class="relative overflow-hidden rounded-2xl
+         bg-gradient-to-br from-accent/80 to-white/70
+         dark:from-secondary dark:to-[#112240]
+         p-8 md:p-12 mb-12
+         animate-fade-in-up
+         border border-bronze/20 dark:border-primary/20"
+>
+
+<div class="flex flex-row md:flex-row items-center justify-between gap-4 md:gap-10">
+
+  <!-- TEXT SIDE -->
+  <div class="relative z-10 md:w-1/2 text-left">
+
+    <!-- TAG -->
+    <span
+      class="inline-block px-3 py-0.5 md:px-4 md:py-1 rounded-full
+             bg-bronze/10 dark:bg-primary/10
+             text-bronze dark:text-primary
+             text-[10px] md:text-sm
+             font-bold tracking-widest uppercase mb-2 md:mb-4">
+      Top Sold Product
+    </span>
+
+    <!-- TITLE -->
+    <h1
+      x-text="$store.topSold.product?.name || 'Top Seller'"
+      class="text-lg sm:text-xl md:text-5xl lg:text-6xl
+             font-display font-bold
+             text-light-text dark:text-white
+             leading-snug md:leading-tight">
+    </h1>
+
+    <!-- QUALITY -->
+    <p
+      x-text="$store.topSold.product?.quality
+        ? $store.topSold.product.quality.toUpperCase() + ' Quality'
+        : 'Product Quality'"
+      class="mt-1 md:mt-3
+             text-sm md:text-lg
+             font-semibold
+             font-display text-bronze dark:text-primary">
+    </p>
+
+    <!-- DESCRIPTION -->
+    <p
+      x-text="$store.topSold.product?.description || 'Our most loved fragrance'"
+      class="mt-2 md:mt-4
+             max-w-lg
+             text-xs sm:text-sm md:text-base
+             text-light-text/70 dark:text-dark-text/70">
+    </p>
+
+    <!-- CTA BUTTON -->
+    <button
+      class="group mt-4 md:mt-8
+             inline-flex items-center justify-center
+             rounded-full
+             bg-bronze dark:bg-primary
+             px-5 py-2 md:px-9 md:py-3.5
+             text-xs md:text-base
+             font-semibold
+             text-white dark:text-secondary
+             transition-all duration-300 ease-in-out
+             hover:shadow-glow-gold hover:scale-105"
+      @click="
+        if ($store.topSold.product?.slug) {
+          window.location.href =
+            `product.html?slug=${$store.topSold.product.slug}`;
+        }
+      "
+    >
+      View Details
+      <span
+        class="material-symbols-outlined ml-1 md:ml-2
+               text-sm md:text-base
+               transition-transform duration-300
+               group-hover:translate-x-1">
+        arrow_forward
+      </span>
+    </button>
+
+  </div>
+
+  <!-- IMAGE SIDE -->
+  <div class="relative md:w-1/2 flex items-center justify-center">
+
+    <!-- Glow -->
+    <div class="absolute inset-0
+                bg-primary/20 dark:bg-primary/20
+                rounded-full blur-[90px]">
+    </div>
+
+    <!-- Image Frame -->
+    <div
+      class="relative z-10
+             bg-white/70 dark:bg-secondary/60
+             backdrop-blur-md
+             p-3 md:p-4
+             rounded-xl md:rounded-2xl
+             border border-bronze/20 dark:border-primary/20
+             shadow-lg">
+
+      <img
+        alt="Top Sold Product"
+        class="w-28 sm:w-32 md:w-64 h-auto
+               object-contain
+               rounded-lg md:rounded-xl
+               transition-transform duration-300
+               hover:scale-105"
+        :src="$store.topSold.product?.images?.[0]
+          ? `https://perfume-store-production.up.railway.app/${$store.topSold.product.images[0]}`
+          : 'placeholder.png'"
+      />
+
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+<script>
+document.addEventListener("alpine:init", () => {
+
+  Alpine.store("topSold", {
+    product: null,
+
+    async load() {
+      try {
+        const quality =
+          Alpine.store("catalog")?.filter || "normal";
+
+        const res = await fetch(
+          `https://perfume-store-production.up.railway.app/api/products/top-sold?quality=${quality}`
+        );
+
+        const data = await res.json();
+        if (data.success) {
+          this.product = data.product;
+        }
+
+      } catch (err) {
+        console.error("Top sold load error:", err);
+      }
+    }
+  });
+
+  Alpine.effect(() => {
+    const filter = Alpine.store("catalog")?.filter;
+    if (filter) Alpine.store("topSold").load();
+  });
+
+});
+</script>
+
+  
+<section class="mb-12" id="filters">
+  <div class="space-y-6">
+
+    <!-- SEARCH -->
+    <div class="relative">
+      <input
+      x-model.debounce.300ms="$store.catalog.searchQuery"
+      @keydown.enter.prevent="$store.catalog.applySearch()"
+
+        class="w-full pl-12 pr-4 py-4 rounded-full
+               bg-white/60 dark:bg-secondary/40
+               border border-bronze/30 dark:border-primary/30
+               focus:ring-2 focus:ring-bronze dark:focus:ring-primary
+               focus:border-bronze dark:focus:border-primary
+               transition-all duration-300
+               placeholder-light-text/50 dark:placeholder-dark-text/50"
+        placeholder="Search by name, category, or notes..."
+        type="text"
+      />
+      <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2
+                   text-bronze dark:text-primary pointer-events-none">
+        search
+      </span>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="flex flex-col sm:flex-row items-center gap-6">
+
+      <!-- TAG FILTER BAR -->
+<div class="w-full overflow-x-auto no-scrollbar mt-4">
+  <div class="flex items-center gap-2 pb-2">
+
+    <template x-for="tag in $store.catalog.tags" :key="tag">
+      <button
+      @click="$store.catalog.activeTag = tag"
+      class="flex-shrink-0 px-5 py-2 text-sm font-semibold rounded-full
+             transition-all duration-300 border-2
+             border-bronze dark:border-primary"
+      :class="
+        $store.catalog.activeTag === tag
+          ? 'bg-bronze text-white dark:bg-primary dark:text-secondary scale-105 shadow-md'
+          : 'bg-transparent hover:bg-bronze/10 dark:hover:bg-primary/10'
+      "
+      x-text="tag === 'all' ? 'All' : tag"
+    ></button>
+    
+    
+    </template>
+
+  </div>
+</div>
+
+
+      <!-- SORT DROPDOWN -->
+      <div class="relative w-full sm:w-auto sm:ml-auto">
+        <select
+          class="h-12 w-full sm:w-64 appearance-none
+                 pl-6 pr-12 rounded-full
+                 bg-white/60 dark:bg-secondary/40
+                 border border-bronze/30 dark:border-primary/30
+                 focus:ring-2 focus:ring-bronze dark:focus:ring-primary
+                 focus:border-bronze dark:focus:border-primary
+                 transition-all duration-300
+                 text-sm font-semibold"
+               
+                 :value="$store.catalog.filter"
+                 @change="$store.catalog.setQuality($event.target.value)"
+               
+               
+          >
+          <option value="normal">Normal</option>
+          <option value="original">Original</option>
+        </select>
+      
+        <span
+          class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2
+                 text-bronze dark:text-primary pointer-events-none">
+          expand_more
+        </span>
+      </div>
+      
+
+    </div>
+  </div>
+</section>
+
+<section
+  id="product-grid"
+  x-data
+  x-init="$store.catalog.init()"
+>
+<div
+  x-show="$store.catalog.filteredProducts().length === 0"
+  class="w-full py-20 text-center"
+>
+  <h2 class="text-2xl font-bold text-bronze dark:text-primary">
+    No products available for this quality
+  </h2>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  <template x-for="product in $store.catalog.filteredProducts()" :key="product._id">
+    <div
+      class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 ease-in-out
+             hover:shadow-glow-gold hover:-translate-y-2 hover:border-bronze
+             border border-bronze/10 dark:border-primary/20 dark:bg-secondary/50"
+    >
+
+      <!-- IMAGE -->
+      <img
+        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
+        :src="product.images?.[0]
+          ? `https://perfume-store-production.up.railway.app/${product.images[0]}`
+          : '/placeholder.png'"
+        alt="Product image"
+      />
+
+      <!-- CONTENT -->
+      <div class="p-6 text-center">
+        <h3
+          class="text-xl font-display font-bold text-light-text dark:text-white"
+          x-text="product.name"
+        ></h3>
+
+        <p
+          class="text-sm font-semibold text-bronze dark:text-primary mt-1"
+          x-text="product.quality"
+        ></p>
+
+        <p
+        class="text-sm text-light-text/70 dark:text-dark-text/70 mt-2
+               line-clamp-4 overflow-hidden"
+        x-text="product.description"
+      ></p>
+      
+      </div>
+
+      <!-- HOVER ACTION -->
+      <div
+        class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center gap-4
+               opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <button
+          class="bg-primary text-secondary font-bold py-2 px-5 rounded-full"
+          @click="window.location.href = `product.html?id=${product._id}&slug=${product.slug}`"
+        >
+          View Product
+        </button>
+      </div>
+
+    </div>
+  </template>
+
+</div>
+
+<!-- LOAD MORE -->
+<div class="text-center py-12" x-show="$store.catalog.hasMore()">
+  <button
+    @click="$store.catalog.loadMore()"
+    class="group mt-8 inline-flex items-center justify-center rounded-full
+           bg-transparent px-8 py-3 text-lg font-semibold
+           text-bronze dark:text-primary
+           border-2 border-bronze dark:border-primary
+           transition-all duration-300 ease-in-out
+           hover:bg-bronze hover:text-white
+           dark:hover:bg-primary dark:hover:text-secondary
+           hover:shadow-lg dark:hover:shadow-glow-gold"
+  >
+    Load More
+  </button>
+</div>
+
+</section>
+<script>
+  document.addEventListener("alpine:init", () => {
+    Alpine.store("catalog", {
+      /* ================= STATE ================= */
+      products: [],
+      tags: [],
+      searchQuery: '',
+      limit: 12,
+      skip: 0,
+      total: 0,
+      loading: false,
+  
+      activeTag: "all",   // MASTER
+      filter: "normal",   // SECONDARY (quality)
+  
+      /* ================= INIT ================= */
+      async init() {
+  // ✅ restore quality from session
+  const savedQuality = sessionStorage.getItem("product_quality");
+  if (savedQuality) {
+    this.filter = savedQuality;
+  }
+
+  await this.loadTags();
+  await this.loadInitial();
+},
+  
+      /* ================= LOAD TAGS (GLOBAL) ================= */
+      async loadTags() {
+        try {
+          const res = await fetch(
+            "https://perfume-store-production.up.railway.app/api/products/primary-tags"
+          );
+          const data = await res.json();
+  
+          if (data.success) {
+            this.tags = ["all", ...data.tags];
+          }
+        } catch (e) {
+          console.error("Failed to load tags", e);
+        }
+      },
+  
+      /* ================= INITIAL PRODUCT LOAD ================= */
+      async loadInitial() {
+        this.products = [];
+        this.skip = 0;
+        await this.loadMore();
+      },
+  
+      /* ================= LOAD MORE PRODUCTS ================= */
+      async loadMore() {
+        if (this.loading) return;
+        this.loading = true;
+  
+        const url =
+          `https://perfume-store-production.up.railway.app/api/products` +
+          `?limit=${this.limit}` +
+          `&skip=${this.skip}` +
+          `&quality=${this.filter}`;
+  
+        const res = await fetch(url);
+        const data = await res.json();
+  
+        if (data.success) {
+          this.products.push(...data.products);
+          this.total = data.total;
+          this.skip += this.limit;
+        }
+  
+        this.loading = false;
+      },
+  
+      /* ================= QUALITY CHANGE ================= */
+      async setQuality(type) {
+  if (this.filter === type) return;
+
+  this.filter = type;
+
+  // ✅ persist selection
+  sessionStorage.setItem("product_quality", type);
+
+  await this.loadInitial();
+},
+applySearch() {
+  // Intentionally empty.
+  // Search is already reactive via searchQuery.
+  // This exists purely for UX (Enter key expectation).
+},
+/* ================= FILTERED PRODUCTS ================= */
+filteredProducts() {
+  return this.products.filter(p => {
+
+    // 🔒 QUALITY FILTER
+    if (
+      p.quality?.toLowerCase() !== this.filter.toLowerCase()
+    ) {
+      return false;
+    }
+
+    // 🔒 PRIMARY TAG FILTER
+    if (
+      this.activeTag !== "all" &&
+      p.fragranceVariants?.[0] !== this.activeTag
+    ) {
+      return false;
+    }
+
+    // 🔍 NAME SEARCH
+    if (
+      this.searchQuery.trim() !== "" &&
+      !p.name
+        ?.toLowerCase()
+        .includes(this.searchQuery.toLowerCase())
+    ) {
+      return false;
+    }
+
+    return true;
+  });
+},
+
+/* ================= HELPERS ================= */
+      hasMore() {
+        return this.products.length < this.total;
+      }
+    });
+  });
+  </script>
+  
+  
+  
+<div class="text-center py-12">
+<button class="group mt-8 inline-flex items-center justify-center rounded-full bg-transparent px-8 py-3 text-lg font-semibold text-bronze dark:text-primary border-2 border-bronze dark:border-primary transition-all duration-300 ease-in-out hover:bg-bronze hover:text-white dark:hover:bg-primary dark:hover:text-secondary hover:shadow-lg dark:hover:shadow-glow-gold">
+                        Load More
+                    </button>
+</div>
+</div>
+</main>
+<footer class="bg-accent/50 dark:bg-secondary/50 pt-20 pb-8">
+  <div class="container mx-auto px-4 md:px-8">
+
+    <!-- TOP GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+
+      <!-- BRAND -->
+      <div class="md:col-span-1 flex flex-col items-center md:items-start">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 text-bronze dark:text-primary">
+            <svg fill="currentColor" viewBox="0 0 48 48">
+              <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"/>
+            </svg>
+          </div>
+          <span class="text-xl font-bold font-display text-light-text dark:text-accent">
+            Hirah Attar
+          </span>
+        </div>
+
+        <p class="mt-4 max-w-xs text-light-text/70 dark:text-dark-text/70 text-sm">
+          Luxury attars crafted with purity, tradition, and elegance — delivering timeless fragrance experiences.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+          Quick Links
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="ProductListed.html" class="footer-link">Products</a></li>
+          <li><a href="Blogs.html" class="footer-link">Blogs</a></li>
+          <li><a href="cart.html" class="footer-link">Cart</a></li>
+          <li><a href="contactUS.html" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+          Company
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="AboutUS.html" class="footer-link">About Us</a></li>
+          <li><a href="FAQ.html" class="footer-link">FAQ</a></li>
+          <li><a href="contactUS.html" class="footer-link">Support</a></li>
+        </ul>
+      </div>
+
+    <!-- SOCIAL + CONNECT -->
+<div>
+  <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+    Connect
+  </h3>
+ 
+  <!-- SOCIAL ICONS -->
+  <div class="mt-6 flex justify-center md:justify-start gap-4">
+    <!-- WhatsApp -->
+    <a href="#" aria-label="WhatsApp"
+       class="social-outline hover:border-green-500 hover:text-green-500">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+      </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a href="#" aria-label="Facebook"
+       class="social-outline hover:border-blue-600 hover:text-blue-600">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+      </svg>
+    </a>
+
+    <!-- Instagram -->
+    <a href="#" aria-label="Instagram"
+       class="social-outline hover:border-pink-500 hover:text-pink-500">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+      </svg>
+    </a>
+
+    <!-- TikTok -->
+    <a href="#" aria-label="TikTok"
+       class="social-outline hover:border-black hover:text-black dark:hover:border-white dark:hover:text-white">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M21 8.1c-1.5 0-3-.5-4.2-1.4v8.4a6.5 6.5 0 1 1-5.7-6.4v3.4a3.1 3.1 0 1 0 2.3 3V0h3.4c.2 1.2.8 2.4 1.7 3.3 1 1 2.3 1.6 3.7 1.8v3z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+    </div>
+
+  <!-- BOTTOM -->
+<div class="mt-12 border-t border-bronze/20 dark:border-primary/20 pt-6
+flex flex-col md:flex-row items-center md:justify-between
+text-sm text-light-text/60 dark:text-dark-text/60 gap-4">
+
+<!-- Copyright -->
+<div class="text-center md:text-left">
+© 2026 Hirah Attar. All Rights Reserved.
+</div>
+
+<!-- LEGAL LINKS (BOTTOM RIGHT) -->
+<div class="flex gap-6">
+<a href="privacyPolicy.html" class="footer-link hover:underline">
+Privacy Policy
+</a>
+<a href="terms.html" class="footer-link hover:underline">
+Terms of Service
+</a>
+</div>
+
+</div>
+
+  </div>
+</footer>
+
+<style>
+  .social-outline {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(0,0,0,0.25);
+    color: #000;
+    transition: all 0.25s ease;
+  }
+
+  .dark .social-outline {
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+  }
+
+  /* ================= DARK MODE SOCIAL HOVER FIX ================= */
+
+  .dark a[aria-label="WhatsApp"]:hover {
+    color: #22c55e;
+    border-color: #22c55e;
+  }
+
+  .dark a[aria-label="Facebook"]:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+  }
+
+  .dark a[aria-label="Instagram"]:hover {
+    color: #ec4899;
+    border-color: #ec4899;
+  }
+
+  .dark a[aria-label="TikTok"]:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+</style>
+</div>
+<script>
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      
+        function openMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.add('opacity-100');
+            mobileMenuOverlay.classList.remove('pointer-events-none');
+            document.body.classList.add('overflow-hidden');
+        }
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.remove('opacity-100');
+            mobileMenuOverlay.classList.add('pointer-events-none');
+            document.body.classList.remove('overflow-hidden');
+        }
+        hamburgerButton.addEventListener('click', openMenu);
+        closeMenuButton.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        // Image Slider for Product Cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.card-image-slider');
+            sliders.forEach(slider => {
+                const images = slider.querySelectorAll('.card-image');
+                let currentIndex = 0;
+                if (images.length > 1) {
+                    setInterval(() => {
+                        images[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add('active');
+                    }, 4000); 
+                }
+            });
+        });
+    </script>
+ <script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains("dark");
+
+    if (isDark) {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  }
+</script>
+
+<!-- AUTH MODAL -->
+<div id="authModal" class="fixed inset-0 z-[999] hidden items-center justify-center">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeAuthModal()"></div>
+
+  <!-- Modal -->
+  <div class="relative w-full max-w-[440px] mx-auto">
+    <div class="bg-white dark:bg-[#181611] text-black dark:text-white border border-gray-200 dark:border-border-dark rounded-2xl shadow-2xl overflow-hidden flex flex-col group max-h-[90vh]">
+
+      <!-- Header -->
+      <div class="pt-8 px-8 pb-3 text-center">
+        <div class="group-has-[#tab-signup:checked]:hidden">
+          <h2 class="text-3xl font-extrabold">Welcome Back</h2>
+          <p class="text-gray-500 dark:text-text-muted text-sm">
+            Sign in to continue
+          </p>
+        </div>
+        <div class="hidden group-has-[#tab-signup:checked]:block">
+          <h2 class="text-3xl font-extrabold">Create Account</h2>
+          <p class="text-gray-500 dark:text-text-muted text-sm">
+            Join Hirah Attar today
+          </p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="px-8 pb-5">
+        <div class="flex h-12 rounded-xl bg-gray-100 dark:bg-surface-dark p-1">
+          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
+            has-[:checked]:bg-primary has-[:checked]:text-black">
+            Log In
+            <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
+          </label>
+          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
+            has-[:checked]:bg-primary has-[:checked]:text-black">
+            Sign Up
+            <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
+          </label>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="overflow-y-auto flex-1 px-8 pb-6">
+
+    <!-- LOGIN FORM -->
+<div class="hidden group-has-[#tab-login:checked]:block">
+  <form onsubmit="event.preventDefault()" class="space-y-4">
+    <input id="loginEmail"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Email">
+
+    <input id="loginPassword" type="password"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Password">
+
+    <button type="button" onclick="loginUser()"
+      class="w-full h-12 bg-primary text-black rounded-xl font-bold">
+      Log In
+    </button>
+  </form>
+</div>
+
+<!-- SIGNUP FORM -->
+<div id="signupBox" class="hidden group-has-[#tab-signup:checked]:block">
+  <form onsubmit="event.preventDefault()" class="space-y-4">
+    <input id="signupEmail"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Email">
+
+    <input id="signupPassword" type="password"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Password">
+
+    <input id="signupConfirm" type="password"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Confirm Password">
+
+    <button   id="signupBtn"
+    type="button" onclick="signupUser()"
+      class="w-full h-12 bg-primary text-black rounded-xl font-bold">
+      Sign Up
+    </button>
+  </form>
+</div>
+
+
+        <!-- Divider -->
+        <div class="flex items-center my-6">
+          <div class="flex-1 h-px bg-gray-300 dark:bg-border-dark"></div>
+          <span class="mx-3 text-xs text-gray-400 uppercase font-bold">
+            or continue with
+          </span>
+          <div class="flex-1 h-px bg-gray-300 dark:bg-border-dark"></div>
+        </div>
+
+        <!-- Social Login -->
+        <div class="grid grid-cols-2 gap-4">
+          <button
+          onclick="loginWithGoogle()"
+          class="h-12 flex items-center justify-center gap-2 rounded-xl
+          border border-gray-300 dark:border-border-dark
+          hover:bg-gray-100 dark:hover:bg-[#27241b]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866.549 3.921 1.453l2.814-2.814C17.503 2.988 15.139 2 12.545 2 7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748z"/>
+            </svg>
+            Google
+          </button>
+
+          <button class="h-12 flex items-center justify-center gap-2 rounded-xl
+            border border-gray-300 dark:border-border-dark
+            hover:bg-gray-100 dark:hover:bg-[#27241b]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Facebook
+          </button>
+        </div>
+<!-- VERIFY OTP -->
+
+      </div>
+
+
+      <!-- Footer -->
+      <div class="py-4 text-center border-t border-gray-200 dark:border-border-dark">
+        <p class="group-has-[#tab-signup:checked]:hidden text-sm">
+          Don’t have an account?
+          <label for="tab-signup" class="text-primary font-bold cursor-pointer">
+            Sign Up
+          </label>
+        </p>
+        <p class="hidden group-has-[#tab-signup:checked]:block text-sm">
+          Already have an account?
+          <label for="tab-login" class="text-primary font-bold cursor-pointer">
+            Log In
+          </label>
+        </p>
+      </div>
+
+      <!-- Close -->
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-xl opacity-60 hover:opacity-100">
+        ✕
+      </button>
+
+    </div>
+  </div>
+</div>
+<!-- OTP MODAL -->
+<div id="otpModal" class="fixed inset-0 z-[1000] hidden items-center justify-center">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeOtpModal()"></div>
+
+  <!-- Box -->
+  <div class="relative w-full max-w-[360px] mx-auto bg-white dark:bg-[#181611]
+              text-black dark:text-white rounded-2xl shadow-2xl p-6">
+
+    <h2 class="text-2xl font-extrabold text-center mb-2">Verify Email</h2>
+    <p class="text-center text-sm text-gray-500 mb-4">
+      Enter the 4-digit code sent to your email
+    </p>
+
+    <input id="otpCode"
+      maxlength="4"
+      class="w-full h-12 text-center text-2xl tracking-widest rounded-xl
+             bg-gray-100 dark:bg-[#27241b]"
+      placeholder="____">
+
+    <button onclick="verifyOTP()"
+      class="w-full h-12 bg-primary text-black rounded-xl font-bold mt-4">
+      Verify
+    </button>
+
+    <div class="flex justify-between text-sm mt-4">
+      <button onclick="closeOtpModal()" class="text-primary font-semibold">
+        Cancel
+      </button>
+      <button onclick="resendOTP()" class="text-primary font-semibold">
+        Resend
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  const AUTH_API = "https://perfume-store-production.up.railway.app/api/auth";
+
+  function restrictedAction(e) {
+    if (!localStorage.getItem("token")) {
+      e.preventDefault();
+      openAuthModal(); // from global.js
+    }
+  }
+
+  /* ---------------- LOGIN ---------------- */
+
+  async function loginUser() {
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value.trim();
+
+    if (!email || !password) {
+      alert("Email and password are required");
+      return;
+    }
+
+    const res = await fetch(`${AUTH_API}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
+
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    closeAuthModal(); // from global.js
+  }
+  updateAuthUI();
+  syncUserUI();
+  /* ---------------- SIGNUP ---------------- */
+
+  async function signupUser() {
+  const email = signupEmail.value.trim();
+  const password = signupPassword.value.trim();
+  const confirm = signupConfirm.value.trim();
+
+  if (!email || !password || !confirm) {
+    alert("All fields required");
+    return;
+  }
+
+  if (password !== confirm) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  // ✅ UX: show loading immediately
+  const btn = document.getElementById("signupBtn");
+  btn.disabled = true;
+  btn.innerText = "Sending OTP...";
+
+  try {
+    const res = await fetch(`${AUTH_API}/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok && !data.requiresOTP) {
+      alert(data.message);
+      return;
+    }
+
+    window.pendingEmail = email;
+    closeAuthModal();
+    openOtpModal();
+
+  } finally {
+    // ✅ restore button state
+    btn.disabled = false;
+    btn.innerText = "Sign Up";
+  }
+}
+
+  /* ---------------- VERIFY OTP ---------------- */
+
+  async function verifyOTP() {
+    const code = otpCode.value.trim();
+    if (code.length !== 4) {
+      alert("Enter 4-digit code");
+      return;
+    }
+
+    const res = await fetch(`${AUTH_API}/verify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: window.pendingEmail,
+        code
+      })
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
+
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    closeOtpModal(); // from global.js
+  }
+</script>
+<script src="js/global.js"></script>
+
+
+</body></html>

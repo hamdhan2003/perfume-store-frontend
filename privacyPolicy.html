@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hirah Attar – Privacy Policy</title>
+      
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+      
+        <!-- Tailwind Config (MATCHES INDEX PAGE) -->
+        <script>
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  primary: "#C89B3F",
+                  secondary: "#0A192F",
+                  accent: "#F5F1E9",
+                  bronze: "#A97142",
+                  "light-text": "#3D3D3D",
+                  "dark-text": "#E0E0E0",
+                },
+                fontFamily: {
+                  display: ["Playfair Display", "serif"],
+                  body: ["Cairo", "sans-serif"],
+                },
+              },
+            },
+          };
+        </script>
+      
+        <!-- Base styles -->
+        <style>
+          html {
+            scroll-behavior: smooth;
+          }
+          body {
+            transition: background-color 0.4s ease, color 0.4s ease;
+          }
+       /* === TOC ACTIVE LINK FIX === */
+.toc-link {
+  display: block;
+  padding-left: 1rem;
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.toc-link.active {
+  font-weight: 700;
+  color: #A97142; /* bronze */
+  border-left-color: #A97142;
+  background: rgba(169, 113, 66, 0.08);
+}
+
+.dark .toc-link.active {
+  color: #C89B3F; /* gold */
+  border-left-color: #C89B3F;
+  background: rgba(200, 155, 63, 0.15);
+}
+        </style>
+      
+        <!-- Theme bootstrap (MUST be here, before body renders) -->
+        <script>
+          (function () {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+          })();
+        </script>
+        <script src="/assets/js/font.js"></script>
+      </head>
+      <body class="bg-accent text-light-text dark:bg-secondary dark:text-dark-text transition-colors duration-300"><div class="progress-bar"></div>
+<header class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-accent/80 dark:bg-secondary/80 backdrop-blur-lg shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-4">
+    <a class="flex items-center gap-3" href="#">
+    <div class="h-8 w-8 text-bronze dark:text-primary">
+    <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path>
+    </svg>
+    </div>
+    <span class="text-xl font-bold font-display text-light-text dark:text-accent">Attar Store</span>
+    </a>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const tocLinks = document.querySelectorAll("#toc a");
+          const sections = Array.from(tocLinks)
+            .map(link => document.querySelector(link.getAttribute("href")))
+            .filter(Boolean);
+        
+          function updateActiveLink() {
+            let currentSectionId = null;
+        
+            sections.forEach(section => {
+              const rect = section.getBoundingClientRect();
+              if (rect.top <= 220 && rect.bottom > 220) {
+                currentSectionId = section.id;
+              }
+            });
+        
+            tocLinks.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${currentSectionId}`
+              );
+            });
+          }
+        
+          window.addEventListener("scroll", updateActiveLink);
+          updateActiveLink(); // initial run
+        });
+        </script>
+    <nav class="hidden md:flex items-center gap-8">
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="ProductListed.html">Product</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="Blogs.html">Blogs</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="AboutUS.html">About</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="contactUS.html">Contact</a>
+    
+    </nav>
+    <div class="flex items-center gap-2 sm:gap-4">
+        <button
+        onclick="toggleTheme()"
+        class="flex h-10 w-10 items-center justify-center rounded-full
+               text-bronze dark:text-primary
+               transition-transform duration-500 ease-in-out
+               hover:rotate-[360deg]
+               hover:bg-bronze/10 dark:hover:bg-primary/10">
+        <span class="material-symbols-outlined hidden dark:inline">light_mode</span>
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+      </button>
+      <script>
+        function toggleTheme() {
+          const html = document.documentElement;
+          const icon = document.querySelector("#theme-toggle .material-symbols-outlined");
+      
+          const isDark = html.classList.contains("dark");
+      
+          if (isDark) {
+            html.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            if (icon) icon.textContent = "dark_mode";
+          } else {
+            html.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            if (icon) icon.textContent = "light_mode";
+          }
+        }
+      </script>
+    <button
+      onclick="window.location.href='cart.html'"
+      class="relative"
+    >
+      <span class="material-symbols-outlined text-2xl">
+        shopping_cart
+      </span>
+    
+      <span
+        id="cart-count"
+        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1"
+      >
+        0
+      </span>
+    </button>
+    <script>
+      function updateCartBadge() {
+      const badge = document.getElementById("cart-count");
+      if (!badge) return;
+    
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const count = cart.reduce((sum, i) => sum + i.qty, 0);
+    
+      badge.textContent = count;
+      badge.style.display = count > 0 ? "flex" : "none";
+    }
+    
+    window.addEventListener("cart-updated", updateCartBadge);
+    document.addEventListener("DOMContentLoaded", updateCartBadge);
+    
+    </script>
+    <div id="profile-area">
+      <!-- NOT logged in -->
+      <button id="guest-profile-btn"
+              onclick="openAuthModal()"
+              class="flex h-10 w-10 items-center justify-center rounded-full ">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    
+      <!-- logged in -->
+      <img id="user-profile-img"
+           data-user-avatar
+           onclick="goToProfile()"
+           class="hidden h-10 w-10 rounded-full cursor-pointer border-2 border-bronze object-cover">
+    </div>
+    <script>
+      function updateAuthUI() {
+        const user = getUser();
+    
+        const guestBtn = document.getElementById("guest-profile-btn");
+        const userImg = document.getElementById("user-profile-img");
+    
+        if (!guestBtn || !userImg) return;
+    
+        if (user) {
+          // logged in
+          guestBtn.classList.add("hidden");
+          userImg.classList.remove("hidden");
+        } else {
+          // guest
+          guestBtn.classList.remove("hidden");
+          userImg.classList.add("hidden");
+        }
+      }
+    </script>
+    
+    <script>
+      function getUser() {
+        const raw = localStorage.getItem("user");
+        if (!raw) return null;
+      
+        const user = JSON.parse(raw);
+      
+        // DEFAULT NAME FROM EMAIL
+        if (!user.name && user.email) {
+          user.name = user.email.split("@")[0];
+        }
+      
+        // DEFAULT AVATAR
+        if (!user.avatar) {
+          const initials = user.name
+            .split(" ")
+            .map(w => w[0])
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+      
+          user.avatar = `https://ui-avatars.com/api/?name=${initials}&background=8B5A2B&color=fff`;
+        }
+      
+        return user;
+      }
+      
+      function syncUserUI() {
+        const user = getUser();
+        if (!user) return;
+      
+        // PROFILE IMAGES
+        document.querySelectorAll("[data-user-avatar]").forEach(el => {
+          el.src = user.avatar;
+        });
+      
+        // NAME TEXT
+        document.querySelectorAll("[data-user-name]").forEach(el => {
+          el.textContent = user.name;
+        });
+      
+        // EMAIL TEXT
+        document.querySelectorAll("[data-user-email]").forEach(el => {
+          el.textContent = user.email;
+        });
+      }
+      </script>
+      
+      
+    <script>
+    function goToProfile() {
+      const user = localStorage.getItem("user");
+    
+      if (!user) {
+        openAuthModal();
+        return;
+      }
+    
+      const parsedUser = JSON.parse(user);
+    
+      if (parsedUser.role === "admin") {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "profile.html";
+      }
+    }
+    function handleSuspendedUser(responseData) {
+      if (responseData?.reason === "SUSPENDED") {
+        localStorage.clear(); // 🔥 logout user
+    
+        showModal(
+          "Account Suspended",
+          "Your account has been suspended. Please contact support."
+        );
+    
+        return true;
+      }
+      return false;
+    }
+    
+      </script>
+      
+      <script>
+        async function checkSessionStatus() {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+    
+      try {
+        const res = await fetch("https://perfume-store-production.up.railway.app/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+    
+        // 🔥 USER IS BLOCKED OR TOKEN INVALID
+        if (res.status === 401 || res.status === 403) {
+          const data = await res.json();
+    
+          // 🔴 CLEAR AUTH DATA IMMEDIATELY
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          localStorage.removeItem("cart");
+    
+          // 🔴 SHOW SUSPENDED MESSAGE
+          if (data?.reason === "SUSPENDED") {
+            showModal(
+              "Account Suspended",
+              "Your account has been suspended. Please contact support."
+            );
+          }
+    
+          // 🔴 HARD RESET UI STATE
+          setTimeout(() => {
+            window.location.reload();
+          }, 300);
+    
+          return;
+        }
+    
+      } catch (err) {
+        console.error("Session check failed", err);
+      }
+    }
+    
+        </script>
+        
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        checkSessionStatus();
+      });
+      
+      </script>
+          
+          <script>
+            function showModal(title, message) {
+              document.getElementById("modalTitle").innerText = title;
+              document.getElementById("modalMessage").innerText = message;
+              document.getElementById("alertModal").style.display = "block";
+            }
+            
+            function closeModal() {
+              document.getElementById("alertModal").style.display = "none";
+            }
+            </script>
+    <div id="alertModal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+    ">
+    <div style="
+      background:#fff;
+      padding:20px;
+      max-width:400px;
+      margin:15% auto;
+      border-radius:8px;
+      text-align:center;
+    ">
+      <h3 id="modalTitle"></h3>
+      <p id="modalMessage"></p>
+      <button onclick="closeModal()">OK</button>
+    </div>
+    </div>
+          
+      
+    
+        
+    
+    <button class="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-bronze dark:text-primary" id="hamburger-button">
+    <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+    </div>
+    </div>
+    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const currentPage = location.pathname.split("/").pop();
+          document.querySelectorAll("nav a").forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("text-bronze", "dark:text-primary", "font-bold");
+            }
+          });
+        });
+      </script>
+<script>
+    (function () {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    })();
+    </script>
+<section class="relative pt-24 pb-16 px-6 overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute inset-0 -z-10 opacity-20 dark:opacity-10">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px]
+               bg-gradient-to-b from-bronze dark:from-primary
+               to-transparent blur-3xl rounded-full transition-all">
+      </div>
+    </div>
+  
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Title -->
+      <h1
+        class="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6
+               text-light-text dark:text-white leading-tight">
+        Privacy Policy
+      </h1>
+  
+      <!-- Meta info -->
+      <div
+        class="flex items-center justify-center gap-4
+               text-bronze dark:text-primary
+               font-medium tracking-widest uppercase text-xs">
+        <span>Last Updated: July 2024</span>
+        <span class="h-px w-8 bg-bronze/30 dark:bg-primary/30"></span>
+        <span>Hirah Attar</span>
+      </div>
+  
+      <!-- Intro text -->
+      <p
+        class="mt-8 max-w-2xl mx-auto leading-relaxed text-lg
+               text-light-text dark:text-dark-text/70">
+        At <strong>Hirah Attar</strong>, your privacy is respected with the same
+        care and integrity that goes into crafting our attars. This Privacy Policy
+        explains how we collect, use, and protect your personal information when
+        you visit our website or interact with our services.
+      </p>
+    </div>
+  </section>
+<main class="max-w-7xl mx-auto px-6 lg:px-20 pb-32 grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <aside class="hidden lg:block lg:col-span-3 sticky top-32 h-fit">
+  
+        <!-- Title -->
+        <h3
+          class="font-bold text-sm uppercase tracking-widest mb-8
+                 text-light-text dark:text-white
+                 flex items-center gap-2">
+          <span class="w-4 h-px bg-bronze dark:bg-primary"></span>
+          Contents
+        </h3>
+      
+        <!-- TOC -->
+        <ul class="space-y-4" id="toc">
+          <li>
+            <a class="toc-link px-2 py-2 text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#intro">
+              1. Introduction
+            </a>
+          </li>
+          <li>
+            <a class="toc-link px-2 py-2   text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#collection">
+              2. Information Collection
+            </a>
+          </li>
+          <li>
+            <a class="toc-link px-2 py-2  text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#usage">
+              3. Use of Personal Data
+            </a>
+          </li>
+          <li>
+            <a class="toc-link px-2 py-2  text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#protection">
+              4. Data Protection & Security
+            </a>
+          </li>
+          <li>
+            <a class="toc-link px-2 py-2  text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#sharing">
+              5. Third-Party Sharing
+            </a>
+          </li>
+          <li>
+            <a class="toc-link px-2 py-2  text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#cookies">
+              6. Cookies & Tracking
+            </a>
+          </li>
+          <li>
+            <a class="toc-link px-2 py-2  text-light-text/60 dark:text-dark-text/60
+                      hover:text-bronze dark:hover:text-primary"
+               href="#rights">
+              7. Your Legal Rights
+            </a>
+          </li>
+        </ul>
+      
+        <!-- Support box -->
+        <div class="mt-12 p-6 rounded-xl glass-card">
+          <p
+            class="text-xs leading-relaxed mb-4
+                   text-light-text/60 dark:text-dark-text/60">
+            Need clarification or official documentation related to our privacy
+            practices?
+          </p>
+      
+          <a
+            href="contactUS.html"
+            class="w-full flex items-center justify-center gap-2
+                   bg-bronze/10 dark:bg-primary/10
+                   hover:bg-bronze/20 dark:hover:bg-primary/20
+                   text-bronze dark:text-primary
+                   py-3 rounded-lg text-sm font-bold transition-all">
+            <span class="material-symbols-outlined text-base">support_agent</span>
+            Contact Support
+          </a>
+        </div>
+      
+      </aside>
+<div class="lg:col-span-9 space-y-16">
+<div class="lg:hidden p-4 glass-card rounded-xl flex items-center justify-between mb-8">
+<span class="text-sm font-bold text-text-charcoal dark:text-white uppercase tracking-wider">Navigate Sections</span>
+<span class="material-symbols-outlined text-primary-bronze dark:text-primary-gold">unfold_more</span>
+</div>
+<section
+  id="intro"
+  class="glass-card rounded-xl p-8 lg:p-12 relative overflow-hidden"
+>
+  <!-- Decorative accent -->
+  <div
+    class="absolute top-0 right-0 w-32 h-32
+           bg-bronze/5 dark:bg-primary/5
+           rounded-bl-full">
+  </div>
+
+  <!-- Heading -->
+  <h2
+    class="text-3xl font-display font-bold mb-6
+           text-light-text dark:text-white">
+    1. Introduction
+  </h2>
+
+  <!-- Content -->
+  <div
+    class="space-y-6 leading-loose text-lg 
+           text-light-text dark:text-dark-text/70">
+
+    <p>
+      Welcome to <strong>Hirah Attar</strong>. We value your trust and are
+      committed to protecting your personal information. This Privacy Policy
+      explains how we collect, use, and safeguard your data when you visit our
+      website or interact with our services.
+    </p>
+
+    <p>
+      By using our website, contacting us, or placing an order, you agree to the
+      practices described in this policy. We handle your information responsibly
+      and transparently, with the same care and integrity that define our
+      fragrances and customer relationships.
+    </p>
+
+  </div>
+</section>
+
+<section id="collection" class="space-y-8">
+
+  <!-- Section heading -->
+  <h2
+    class="text-3xl font-display font-bold pl-4 border-l-4
+           border-bronze dark:border-primary
+           text-light-text dark:text-white">
+    2. Information We Collect
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Personal information -->
+    <div
+      class="glass-card p-8 rounded-xl
+             border-l-2 border-bronze dark:border-primary">
+
+      <h3
+        class="font-bold uppercase tracking-widest text-sm mb-4
+               text-bronze dark:text-primary">
+        Personal Information
+      </h3>
+
+      <ul class="space-y-3">
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Full name used for orders and communication
+        </li>
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Delivery and billing address details
+        </li>
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Email address for order updates and support
+        </li>
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Phone number used for delivery coordination
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- Technical / automated data -->
+    <div class="glass-card p-8 rounded-xl">
+
+      <h3
+        class="font-bold uppercase tracking-widest text-sm mb-4
+               text-light-text/60 dark:text-dark-text/60">
+        Technical & Usage Data
+      </h3>
+
+      <ul class="space-y-3">
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          IP address and approximate location (for security purposes)
+        </li>
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Browser type, device type, and operating system
+        </li>
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Website interaction data (pages visited, time spent)
+        </li>
+        <li class="diamond-bullet text-light-text dark:text-dark-text/70">
+          Cookies and similar tracking technologies
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+<section class="glass-card rounded-xl p-8 lg:p-12" id="usage">
+
+    <h2 class="text-3xl font-display font-bold text-bronze dark:text-primary mb-6">
+      3. How We Use Your Data
+    </h2>
+  
+    <p class="text-light-text dark:text-dark-text/80 mb-8 leading-relaxed">
+      We use the information we collect to operate, improve, and secure our services,
+      and to ensure smooth order processing and customer support.
+    </p>
+  
+    <div class="space-y-4">
+  
+      <!-- Logistics -->
+      <div
+        class="flex gap-4 p-4 rounded-lg
+               bg-black/5 dark:bg-white/5
+               hover:bg-black/10 dark:hover:bg-white/10
+               transition-colors">
+  
+        <div class="text-bronze dark:text-primary mt-1">
+          <span class="material-symbols-outlined">local_shipping</span>
+        </div>
+  
+        <div>
+          <h4 class="text-light-text dark:text-white font-bold mb-1">
+            Order Processing & Fulfillment
+          </h4>
+          <p class="text-sm text-light-text/80 dark:text-dark-text/70">
+            Confirming orders, processing payments, arranging delivery,
+            and sending invoices or order updates.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Personalization -->
+      <div
+        class="flex gap-4 p-4 rounded-lg
+               bg-black/5 dark:bg-white/5
+               hover:bg-black/10 dark:hover:bg-white/10
+               transition-colors">
+  
+        <div class="text-bronze dark:text-primary mt-1">
+          <span class="material-symbols-outlined">auto_awesome</span>
+        </div>
+  
+        <div>
+          <h4 class="text-light-text dark:text-white font-bold mb-1">
+            Product Recommendations
+          </h4>
+          <p class="text-sm text-light-text/80 dark:text-dark-text/70">
+            Suggesting attars and fragrance products based on
+            browsing behavior and previous purchases.
+          </p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="relative group" id="protection">
+
+    <div class="absolute -inset-1
+                bg-gradient-to-r from-primary-bronze/20 dark:from-primary-gold/20
+                to-transparent blur opacity-25
+                group-hover:opacity-50 transition duration-1000">
+    </div>
+  
+    <div class="relative glass-card rounded-xl p-8 lg:p-12">
+  
+      <h2 class="text-3xl font-display font-bold text-bronze dark:text-primary mb-6">
+        4. Artisanal Digital Security
+      </h2>
+  
+      <p class="text-light-text dark:text-dark-text/80 leading-loose">
+        We implement appropriate administrative, technical, and physical safeguards
+        to protect your personal information from unauthorized access, misuse,
+        alteration, or disclosure. These measures are designed to preserve the
+        confidentiality and integrity of your data throughout its lifecycle.
+      </p>
+  
+      <div class="mt-8 flex items-center gap-6">
+  
+        <div class="flex -space-x-2">
+          <div
+            class="w-10 h-10 rounded-full
+                   border-2 border-accent dark:border-secondary
+                   bg-white dark:bg-[#12110d]
+                   flex items-center justify-center
+                   text-bronze dark:text-primary">
+            <span class="material-symbols-outlined text-sm">lock</span>
+          </div>
+  
+          <div
+            class="w-10 h-10 rounded-full
+                   border-2 border-accent dark:border-secondary
+                   bg-white dark:bg-[#12110d]
+                   flex items-center justify-center
+                   text-bronze dark:text-primary">
+            <span class="material-symbols-outlined text-sm">encrypted</span>
+          </div>
+        </div>
+  
+        <span class="text-xs uppercase tracking-widest
+                     text-light-text/80 dark:text-dark-text/60
+                     font-bold">
+          Secure encryption & access controls in use
+        </span>
+  
+      </div>
+  
+    </div>
+  </section>
+  <section class="space-y-6" id="sharing">
+
+    <h2 class="text-3xl font-display font-bold text-bronze dark:text-primary">
+      5. Third-Party Partnerships
+    </h2>
+  
+    <div class="overflow-hidden rounded-xl
+                border border-bronze/20 dark:border-white/10
+                glass-card">
+  
+      <table class="w-full text-left text-sm">
+  
+        <thead
+          class="bg-black/5 dark:bg-white/5
+                 text-light-text dark:text-dark-text
+                 uppercase tracking-wider font-bold">
+          <tr>
+            <th class="px-6 py-4">Partner Type</th>
+            <th class="px-6 py-4">Purpose</th>
+            <th class="px-6 py-4">Data Shared</th>
+          </tr>
+        </thead>
+  
+        <tbody
+          class="divide-y divide-bronze/10 dark:divide-white/10
+                 text-light-text/90 dark:text-dark-text/70">
+  
+          <tr>
+            <td class="px-6 py-4 font-semibold text-light-text dark:text-white font-display">
+              Logistics & Courier Services
+            </td>
+            <td class="px-6 py-4">
+              Order fulfillment and delivery coordination
+            </td>
+            <td class="px-6 py-4">
+              Name, shipping address, contact number
+            </td>
+          </tr>
+  
+          <tr>
+            <td class="px-6 py-4 font-semibold text-light-text dark:text-white font-display">
+              Payment Processors
+            </td>
+            <td class="px-6 py-4">
+              Secure transaction handling
+            </td>
+            <td class="px-6 py-4">
+              Transaction references and payment status
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+  
+    </div>
+  
+  </section>
+  <section class="glass-card rounded-xl p-8 lg:p-12" id="cookies">
+
+    <h2 class="text-3xl font-display font-bold text-bronze dark:text-primary mb-6">
+      6. Cookies &amp; Tracking Technology
+    </h2>
+  
+    <div class="space-y-8 text-light-text/90 dark:text-dark-text/70 leading-relaxed">
+  
+      <p>
+        To provide a refined and seamless browsing experience, Hirah Attar uses cookies and similar tracking technologies. These tools help us remember your preferences, improve site performance, and ensure a smooth purchasing journey.
+      </p>
+  
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  
+        <div class="p-5 bg-black/5 dark:bg-white/5 rounded-lg
+                    border border-bronze/10 dark:border-white/5">
+          <h4 class="text-light-text dark:text-white font-bold text-sm mb-2 uppercase tracking-wide">
+            Essential
+          </h4>
+          <p class="text-xs text-light-text/80 dark:text-dark-text/70">
+            Required for core functionality such as cart operations, secure checkout, and order processing.
+          </p>
+        </div>
+  
+        <div class="p-5 bg-black/5 dark:bg-white/5 rounded-lg
+                    border border-bronze/10 dark:border-white/5">
+          <h4 class="text-light-text dark:text-white font-bold text-sm mb-2 uppercase tracking-wide">
+            Functional
+          </h4>
+          <p class="text-xs text-light-text/80 dark:text-dark-text/70">
+            Stores preferences like language, region, and recently viewed products to enhance usability.
+          </p>
+        </div>
+  
+        <div class="p-5 bg-black/5 dark:bg-white/5 rounded-lg
+                    border border-bronze/10 dark:border-white/5">
+          <h4 class="text-light-text dark:text-white font-bold text-sm mb-2 uppercase tracking-wide">
+            Analytical
+          </h4>
+          <p class="text-xs text-light-text/80 dark:text-dark-text/70">
+            Helps us analyze traffic and interaction patterns so we can improve performance and content relevance.
+          </p>
+        </div>
+  
+      </div>
+  
+      <p class="text-sm italic border-l-2 border-bronze/30 dark:border-primary/30 pl-4 text-light-text/80 dark:text-dark-text/70">
+        You may control or disable cookies through your browser settings. Please note that restricting essential cookies may affect site functionality and order completion.
+      </p>
+  
+    </div>
+  
+  </section>
+  <section class="glass-card rounded-xl p-8 lg:p-12" id="rights">
+
+    <h2 class="text-3xl font-display font-bold text-bronze dark:text-primary mb-6">
+      7. Your Legal Rights &amp; Data Portability
+    </h2>
+  
+    <div class="space-y-8">
+  
+      <p class="text-light-text/90 dark:text-dark-text/70 leading-relaxed">
+        Hirah Attar respects your full control over your personal information. We operate in alignment with global data protection standards, including GDPR (EU/UK) and CCPA, regardless of your geographic location.
+      </p>
+  
+      <div class="grid grid-cols-1 gap-4">
+  
+        <!-- RIGHT TO ACCESS -->
+        <div class="flex items-start gap-4 p-4 rounded-lg bg-black/5 dark:bg-white/5">
+          <span class="diamond-bullet mt-2"></span>
+          <div>
+            <h4 class="text-light-text dark:text-white font-bold font-display">
+              Right to Access &amp; Rectification
+            </h4>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/70">
+              You may request a detailed summary of the personal data we hold about you and ask for corrections if any information is inaccurate or incomplete.
+            </p>
+          </div>
+        </div>
+  
+        <!-- RIGHT TO ERASURE -->
+        <div class="flex items-start gap-4 p-4 rounded-lg bg-black/5 dark:bg-white/5">
+          <span class="diamond-bullet mt-2"></span>
+          <div>
+            <h4 class="text-light-text dark:text-white font-bold font-display">
+              Right to Erasure (Right to Be Forgotten)
+            </h4>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/70">
+              You may request deletion of your personal data from our systems, except where retention is required for legal, accounting, or security obligations.
+            </p>
+          </div>
+        </div>
+  
+        <!-- DATA PORTABILITY -->
+        <div class="flex items-start gap-4 p-4 rounded-lg bg-black/5 dark:bg-white/5">
+          <span class="diamond-bullet mt-2"></span>
+          <div>
+            <h4 class="text-light-text dark:text-white font-bold font-display">
+              Data Portability &amp; Processing Objections
+            </h4>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/70">
+              You may obtain your data in a commonly used, machine-readable format or object to specific processing activities such as promotional communications.
+            </p>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+  <section 
+  class="rounded-2xl p-12 text-center
+         bg-bg-cream dark:bg-bg-obsidian
+         border border-primary-bronze/30 dark:border-primary-gold/30
+         shadow-xl transition-all">
+
+  <div class="size-16 mx-auto mb-8
+              rounded-full flex items-center justify-center
+              bg-primary-bronze/15 dark:bg-primary-gold/15">
+    <span class="material-symbols-outlined text-3xl
+                 text-primary-bronze dark:text-primary-gold">
+      gavel
+    </span>
+  </div>
+
+  <h2 class="text-3xl font-display font-bold
+             text-text-charcoal dark:text-white mb-4">
+    Exercising Your Rights
+  </h2>
+
+  <p class="max-w-xl mx-auto mb-10 leading-relaxed
+            text-slate-700 dark:text-slate-400">
+    Our Privacy Officer handles all requests confidentially.
+    Most inquiries receive a response within 24–48 hours.
+  </p>
+
+  <!-- BUTTONS -->
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+    <!-- PRIMARY ACTION -->
+    <a
+      href="contactUS.html"
+      class="
+        inline-flex items-center justify-center gap-2
+        px-10 py-4 rounded-xl
+        text-sm font-bold uppercase tracking-widest
+  
+        bg-bronze
+        text-white
+  
+        dark:bg-primary
+        dark:text-secondary
+  
+        shadow-md
+        hover:shadow-lg
+        hover:brightness-110
+        transition-all
+      "
+    >
+      <span class="material-symbols-outlined text-base">mail</span>
+      Privacy Inquiry
+    </a>
+  
+    <!-- SECONDARY ACTION -->
+    <a
+      href="ProductListed.html"
+      class="
+        inline-flex items-center justify-center
+        px-10 py-4 rounded-xl
+        text-sm font-bold uppercase tracking-widest
+  
+        bg-white
+        text-light-text
+        border-2 border-bronze
+  
+        dark:bg-secondary
+        dark:text-accent
+        dark:border-primary
+  
+        hover:bg-bronze
+        hover:text-white
+  
+        dark:hover:bg-primary
+        dark:hover:text-secondary
+  
+        transition-all
+      "
+    >
+      Continue Shopping
+    </a>
+  
+  </div>
+</section>
+
+</div>
+</main>
+<footer class="bg-accent/50 dark:bg-secondary/50 pt-20 pb-8">
+    <div class="container mx-auto px-4 md:px-8">
+  
+      <!-- TOP GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+  
+        <!-- BRAND -->
+        <div class="md:col-span-1 flex flex-col items-center md:items-start">
+          <div class="flex items-center gap-3">
+            <div class="h-8 w-8 text-bronze dark:text-primary">
+              <svg fill="currentColor" viewBox="0 0 48 48">
+                <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"/>
+              </svg>
+            </div>
+            <span class="text-xl font-bold font-display text-light-text dark:text-accent">
+              Hirah Attar
+            </span>
+          </div>
+  
+          <p class="mt-4 max-w-xs text-light-text dark:text-dark-text/70 text-sm">
+            Luxury attars crafted with purity, tradition, and elegance — delivering timeless fragrance experiences.
+          </p>
+        </div>
+  
+        <!-- QUICK LINKS -->
+        <div>
+          <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+            Quick Links
+          </h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="ProductListed.html" class="footer-link">Products</a></li>
+            <li><a href="Blogs.html" class="footer-link">Blogs</a></li>
+            <li><a href="cart.html" class="footer-link">Cart</a></li>
+            <li><a href="contactUS.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+  
+        <!-- COMPANY -->
+        <div>
+          <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+            Company
+          </h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="AboutUS.html" class="footer-link">About Us</a></li>
+            <li><a href="FAQ.html" class="footer-link">FAQ</a></li>
+            <li><a href="contactUS.html" class="footer-link">Support</a></li>
+          </ul>
+        </div>
+  
+      <!-- SOCIAL + CONNECT -->
+  <div>
+    <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+      Connect
+    </h3>
+   
+    <!-- SOCIAL ICONS -->
+    <div class="mt-6 flex justify-center md:justify-start gap-4">
+      <!-- WhatsApp -->
+      <a href="#" aria-label="WhatsApp"
+         class="social-outline hover:border-green-500 hover:text-green-500">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+      </a>
+  
+      <!-- Facebook -->
+      <a href="#" aria-label="Facebook"
+         class="social-outline hover:border-blue-600 hover:text-blue-600">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+        </svg>
+      </a>
+  
+      <!-- Instagram -->
+      <a href="#" aria-label="Instagram"
+         class="social-outline hover:border-pink-500 hover:text-pink-500">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+        </svg>
+      </a>
+  
+      <!-- TikTok -->
+      <a href="#" aria-label="TikTok"
+         class="social-outline hover:border-black hover:text-black dark:hover:border-white dark:hover:text-white">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21 8.1c-1.5 0-3-.5-4.2-1.4v8.4a6.5 6.5 0 1 1-5.7-6.4v3.4a3.1 3.1 0 1 0 2.3 3V0h3.4c.2 1.2.8 2.4 1.7 3.3 1 1 2.3 1.6 3.7 1.8v3z"/>
+        </svg>
+      </a>
+  
+    </div>
+  </div>
+  
+      </div>
+  
+    <!-- BOTTOM -->
+  <div class="mt-12 border-t border-bronze/20 dark:border-primary/20 pt-6
+  flex flex-col md:flex-row items-center md:justify-between
+  text-sm text-light-text/60 dark:text-dark-text/60 gap-4">
+  
+  <!-- Copyright -->
+  <div class="text-center md:text-left">
+  © 2026 Hirah Attar. All Rights Reserved.
+  </div>
+  
+  <!-- LEGAL LINKS (BOTTOM RIGHT) -->
+  <div class="flex gap-6">
+  <a href="privacyPolicy.html" class="footer-link hover:underline">
+  Privacy Policy
+  </a>
+  <a href="terms.html" class="footer-link hover:underline">
+  Terms of Service
+  </a>
+  </div>
+  
+  </div>
+  
+    </div>
+  </footer>
+  
+  <style>
+    .social-outline {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(0,0,0,0.25);
+      color: #000;
+      transition: all 0.25s ease;
+    }
+  
+    .dark .social-outline {
+      border-color: rgba(255,255,255,0.3);
+      color: #fff;
+    }
+  
+    /* ================= DARK MODE SOCIAL HOVER FIX ================= */
+  
+    .dark a[aria-label="WhatsApp"]:hover {
+      color: #22c55e;
+      border-color: #22c55e;
+    }
+  
+    .dark a[aria-label="Facebook"]:hover {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+  
+    .dark a[aria-label="Instagram"]:hover {
+      color: #ec4899;
+      border-color: #ec4899;
+    }
+  
+    .dark a[aria-label="TikTok"]:hover {
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+  </style>
+  <!-- AUTH MODAL -->
+<div id="authModal" class="fixed inset-0 z-[999] hidden items-center justify-center">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeAuthModal()"></div>
+  
+    <!-- Modal -->
+    <div class="relative w-full max-w-[440px] mx-auto">
+      <div class="bg-white dark:bg-[#181611] text-black dark:text-white border border-gray-200 dark:border-border-dark rounded-2xl shadow-2xl overflow-hidden flex flex-col group max-h-[90vh]">
+  
+        <!-- Header -->
+        <div class="pt-8 px-8 pb-3 text-center">
+          <div class="group-has-[#tab-signup:checked]:hidden">
+            <h2 class="text-3xl font-extrabold">Welcome Back</h2>
+            <p class="text-gray-500 dark:text-text-muted text-sm">
+              Sign in to continue
+            </p>
+          </div>
+          <div class="hidden group-has-[#tab-signup:checked]:block">
+            <h2 class="text-3xl font-extrabold">Create Account</h2>
+            <p class="text-gray-500 dark:text-text-muted text-sm">
+              Join Hirah Attar today
+            </p>
+          </div>
+        </div>
+  
+        <!-- Tabs -->
+        <div class="px-8 pb-5">
+          <div class="flex h-12 rounded-xl bg-gray-100 dark:bg-surface-dark p-1">
+            <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
+              has-[:checked]:bg-primary has-[:checked]:text-black">
+              Log In
+              <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
+            </label>
+  
+            <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
+              has-[:checked]:bg-primary has-[:checked]:text-black">
+              Sign Up
+              <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
+            </label>
+          </div>
+        </div>
+  
+        <!-- Content -->
+        <div class="overflow-y-auto flex-1 px-8 pb-6">
+  
+      <!-- LOGIN FORM -->
+  <div class="hidden group-has-[#tab-login:checked]:block">
+    <form onsubmit="event.preventDefault()" class="space-y-4">
+      <input id="loginEmail"
+        class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+        placeholder="Email">
+  
+      <input id="loginPassword" type="password"
+        class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+        placeholder="Password">
+  <div class="text-right">
+    <a href="forgot-password.html"
+       class="text-sm text-primary hover:underline">
+      Forgot password?
+    </a>
+  </div>
+  
+      <button type="button" onclick="loginUser()"
+        class="w-full h-12 bg-primary text-black rounded-xl font-bold">
+        Log In
+      </button>
+    </form>
+  </div>
+  
+  <!-- SIGNUP FORM -->
+  <div id="signupBox" class="hidden group-has-[#tab-signup:checked]:block">
+    <form onsubmit="event.preventDefault()" class="space-y-4">
+      <input id="signupEmail"
+        class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+        placeholder="Email">
+  
+      <input id="signupPassword" type="password"
+        class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+        placeholder="Password">
+  
+      <input id="signupConfirm" type="password"
+        class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+        placeholder="Confirm Password">
+  
+      <button   id="signupBtn"
+      type="button" onclick="signupUser()"
+        class="w-full h-12 bg-primary text-black rounded-xl font-bold">
+        Sign Up
+      </button>
+    </form>
+  </div>
+  
+  
+          <!-- Divider -->
+          <div class="flex items-center my-6">
+            <div class="flex-1 h-px bg-gray-300 dark:bg-border-dark"></div>
+            <span class="mx-3 text-xs text-gray-400 uppercase font-bold">
+              or continue with
+            </span>
+            <div class="flex-1 h-px bg-gray-300 dark:bg-border-dark"></div>
+          </div>
+  
+          <!-- Social Login -->
+          <div class="grid grid-cols-2 gap-4">
+            <button
+            onclick="loginWithGoogle()"
+            class="h-12 flex items-center justify-center gap-2 rounded-xl
+            border border-gray-300 dark:border-border-dark
+            hover:bg-gray-100 dark:hover:bg-[#27241b]">
+          
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866.549 3.921 1.453l2.814-2.814C17.503 2.988 15.139 2 12.545 2 7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748z"/>
+              </svg>
+              Google
+            </button>
+         
+            
+            <button   onclick="loginWithFacebook()"
+            class="h-12 flex items-center justify-center gap-2 rounded-xl
+              border border-gray-300 dark:border-border-dark
+              hover:bg-gray-100 dark:hover:bg-[#27241b]">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              Facebook
+            </button>
+          </div>
+  <!-- VERIFY OTP -->
+  
+        </div>
+  
+  
+        <!-- Footer -->
+        <div class="py-4 text-center border-t border-gray-200 dark:border-border-dark">
+          <p class="group-has-[#tab-signup:checked]:hidden text-sm">
+            Don’t have an account?
+            <label for="tab-signup" class="text-primary font-bold cursor-pointer">
+              Sign Up
+            </label>
+          </p>
+          <p class="hidden group-has-[#tab-signup:checked]:block text-sm">
+            Already have an account?
+            <label for="tab-login" class="text-primary font-bold cursor-pointer">
+              Log In
+            </label>
+          </p>
+        </div>
+  
+        <!-- Close -->
+        <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-xl opacity-60 hover:opacity-100">
+          ✕
+        </button>
+  
+      </div>
+    </div>
+  </div>
+  <!-- OTP MODAL -->
+  <div id="otpModal" class="fixed inset-0 z-[1000] hidden items-center justify-center">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeOtpModal()"></div>
+  
+    <!-- Box -->
+    <div class="relative w-full max-w-[360px] mx-auto bg-white dark:bg-[#181611]
+                text-black dark:text-white rounded-2xl shadow-2xl p-6">
+  
+      <h2 class="text-2xl font-extrabold text-center mb-2">Verify Email</h2>
+      <p class="text-center text-sm text-gray-500 mb-4">
+        Enter the 4-digit code sent to your email
+      </p>
+  
+      <input id="otpCode"
+        maxlength="4"
+        class="w-full h-12 text-center text-2xl tracking-widest rounded-xl
+               bg-gray-100 dark:bg-[#27241b]"
+        placeholder="____">
+  
+      <button onclick="verifyOTP()"
+        class="w-full h-12 bg-primary text-black rounded-xl font-bold mt-4">
+        Verify
+      </button>
+  
+      <div class="flex justify-between text-sm mt-4">
+        <button onclick="closeOtpModal()" class="text-primary font-semibold">
+          Cancel
+        </button>
+        <button onclick="resendOTP()" class="text-primary font-semibold">
+          Resend
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const AUTH_API = "https://perfume-store-production.up.railway.app/api/auth";
+  
+    function restrictedAction(e) {
+      if (!localStorage.getItem("token")) {
+        e.preventDefault();
+        openAuthModal(); // from global.js
+      }
+    }
+  
+    /* ---------- LOGIN ---------- */
+    async function loginUser() {
+      const email = loginEmail.value.trim();
+      const password = loginPassword.value.trim();
+  
+      if (!email || !password) {
+        alert("Email and password are required");
+        return;
+      }
+  
+      const res = await fetch(`${AUTH_API}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+  
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.message);
+        return;
+      }
+  
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+  
+      closeAuthModal(); // global.js
+    }
+  
+    /* ---------- SIGNUP ---------- */
+    async function signupUser() {
+    const email = signupEmail.value.trim();
+    const password = signupPassword.value.trim();
+    const confirm = signupConfirm.value.trim();
+  
+    if (!email || !password || !confirm) {
+      alert("All fields required");
+      return;
+    }
+  
+    if (password !== confirm) {
+      alert("Passwords do not match");
+      return;
+    }
+  
+    // ✅ UX: show loading immediately
+    const btn = document.getElementById("signupBtn");
+    btn.disabled = true;
+    btn.innerText = "Sending OTP...";
+  
+    try {
+      const res = await fetch(`${AUTH_API}/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+  
+      const data = await res.json();
+  
+      if (!res.ok && !data.requiresOTP) {
+        alert(data.message);
+        return;
+      }
+  
+      window.pendingEmail = email;
+      closeAuthModal();
+      openOtpModal();
+  
+    } finally {
+      // ✅ restore button state
+      btn.disabled = false;
+      btn.innerText = "Sign Up";
+    }
+  }
+  
+    /* ---------- VERIFY OTP ---------- */
+  /* ---------- VERIFY OTP ---------- */
+  async function verifyOTP() {
+    const code = otpCode.value.trim();
+    if (code.length !== 4) {
+      alert("Enter 4-digit code");
+      return;
+    }
+  
+    const res = await fetch(`${AUTH_API}/verify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: window.pendingEmail,
+        code
+      })
+    });
+  
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
+  
+    // ✅ Save login
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+  
+    closeOtpModal(); // from global.js
+  
+    // ✅ IMPORTANT: Update UI immediately
+    updateAuthUI();
+    syncUserUI();
+  }
+  
+  </script>
+<script src="js/global.js"></script>
+
+
+</body></html>

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hirah Attar - Our Story</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#C89B3F", // Royal Gold
+            "secondary": "#0A192F", // Deep Navy
+            "accent": "#F5F1E9", // Soft Beige
+            "bronze": "#A97142", // Bronze
+            "light-text": "#3D3D3D",
+            "dark-text": "#E0E0E0",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "body": ["Cairo", "sans-serif"],
+          },
+          borderRadius: {
+            "DEFAULT": "0.75rem", // 12px
+            "lg": "1rem", // 16px
+            "xl": "1.5rem", // 24px
+            "full": "9999px"
+          },
+          boxShadow: {
+            'glow-gold': '0 0 20px 0px rgba(200, 155, 63, 0.4)',
+            'glow-gold-lg': '0 0 30px 5px rgba(200, 155, 63, 0.5)',
+            'outline-bronze': '0 0 0 2px #A97142',
+            'gold-edge': '0 0 15px rgba(200, 155, 63, 0.7)',
+          },
+          animation: {
+            'glow': 'glow 3s ease-in-out infinite',
+            'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-gentle': 'bounce-gentle 2.5s infinite',
+            'fade-in-up': 'fade-in-up 1s ease-out forwards',
+            'slide-in-left': 'slide-in-left 0.8s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+            'mist': 'mist 20s linear infinite alternate',
+          },
+          keyframes: {
+            glow: {
+              '0%, 100%': { textShadow: '0 0 5px rgba(200, 155, 63, 0.2), 0 0 10px rgba(200, 155, 63, 0.2)' },
+              '50%': { textShadow: '0 0 20px rgba(200, 155, 63, 0.6), 0 0 30px rgba(200, 155, 63, 0.4)' },
+            },
+            'pulse-subtle': {
+              '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+              '50%': { transform: 'scale(1.05)', opacity: '0.8' },
+            },
+            'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'slide-in-left': {
+                '0%': { transform: 'translateX(-30px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            'float': {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+            },
+             'bounce-gentle': {
+                '0%, 100%': { transform: 'translateY(-15%)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
+                '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+            },
+            mist: {
+              '0%': { transform: 'translateX(-10%) translateY(5%)' },
+              '100%': { transform: 'translateX(10%) translateY(-5%)' }
+            },
+          }
+        },
+      },
+    }
+    </script>
+<style type="text/tailwindcss">
+  :root {
+      --primary: #D4AF37;
+      --obsidian: #050505;
+      --glass: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(212, 175, 55, 0.1);
+  }
+  body {
+      @apply bg-[#050505] text-[#E0E0E0] overflow-x-hidden selection:bg-[var(--primary)] selection:text-black;
+      font-family: 'Montserrat', sans-serif;
+  }
+  .font-display {
+      font-family: 'Playfair Display', serif;
+  }
+  .gold-outline-text {
+      -webkit-text-stroke: 1px rgba(212, 175, 55, 0.3);
+      color: transparent;
+  }
+  .glass-morphism {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .panel-expand {
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .panel-container:hover .panel-expand {
+      width: 25%;
+  }
+  .panel-container .panel-expand:hover {
+      width: 50%;
+  }
+  .perfumer-image {
+      filter: grayscale(100%) contrast(110%);
+      transition: all 0.7s ease;
+  }
+  .perfumer-container:hover .perfumer-image {
+      filter: grayscale(0%) contrast(100%);
+  }
+  .timeline-scroll {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+  }
+  .timeline-item {
+      flex: 0 0 100vw;
+      scroll-snap-align: start;
+  }
+  @keyframes float-subtle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+  }
+  .floating-element {
+      animation: float-subtle 8s ease-in-out infinite;
+  }
+</style>
+<script src="/assets/js/font.js"></script>
+</head>
+<body x-data
+ class="bg-accent dark:bg-secondary font-body text-light-text dark:text-dark-text transition-colors duration-500 ease-in-out">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-accent/80 dark:bg-secondary/80 backdrop-blur-lg shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-4">
+    <a class="flex items-center gap-3" href="#">
+    <div class="h-8 w-8 text-bronze dark:text-primary">
+    <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path>
+    </svg>
+    </div>
+    <span class="text-xl font-bold font-display text-light-text dark:text-accent">Attar Store</span>
+    </a>
+    
+    <nav class="hidden md:flex items-center gap-8">
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="ProductListed.html">Product</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="Blogs.html">Blogs</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="AboutUS.html">About</a>
+    <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="contactUS.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2 sm:gap-4">
+      <button @click="toggleTheme()"  class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-bronze dark:text-primary transition-transform duration-500 ease-in-out hover:rotate-[360deg] hover:bg-bronze/10 dark:hover:bg-primary/10">
+        <span class="material-symbols-outlined hidden dark:inline">light_mode</span>
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        </button>
+    <button
+      onclick="window.location.href='cart.html'"
+      class="relative"
+    >
+      <span class="material-symbols-outlined text-2xl">
+        shopping_cart
+      </span>
+    
+      <span
+        id="cart-count"
+        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1"
+      >
+        0
+      </span>
+    </button>
+   
+    <div id="profile-area">
+      <!-- NOT logged in -->
+      <button id="guest-profile-btn"
+              onclick="openAuthModal()"
+              class="flex h-10 w-10 items-center justify-center rounded-full ">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    
+      <!-- logged in -->
+      <img id="user-profile-img"
+           data-user-avatar
+           onclick="goToProfile()"
+           class="hidden h-10 w-10 rounded-full cursor-pointer border-2 border-bronze object-cover">
+    </div>
+    <script>
+      function updateCartBadge() {
+      const badge = document.getElementById("cart-count");
+      if (!badge) return;
+    
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const count = cart.reduce((sum, i) => sum + i.qty, 0);
+    
+      badge.textContent = count;
+      badge.style.display = count > 0 ? "flex" : "none";
+    }
+    
+    window.addEventListener("cart-updated", updateCartBadge);
+    document.addEventListener("DOMContentLoaded", updateCartBadge);
+    
+    </script>
+
+
+    
+  
+      <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("login") === "required") {
+      // ✅ open existing auth modal
+      openAuthModal();
+    }
+  });
+</script>
+
+      
+      <script>
+        function goToProfile() {
+          const user = localStorage.getItem("user");
+        
+          if (!user) {
+            openAuthModal();
+            return;
+          }
+        
+          const parsedUser = JSON.parse(user);
+        
+          if (parsedUser.role === "admin") {
+            window.location.href = "admin.html";
+          } else {
+            window.location.href = "profile.html";
+          }
+        }
+        
+          </script>
+      
+      
+      <script>
+        const AUTH_API = "https://perfume-store-production.up.railway.app/api/auth";
+      
+        function restrictedAction(e) {
+          if (!localStorage.getItem("token")) {
+            e.preventDefault();
+            openAuthModal(); // from global.js
+          }
+        }
+      
+        /* ---------------- LOGIN ---------------- */
+      
+        async function loginUser() {
+          const email = loginEmail.value.trim();
+          const password = loginPassword.value.trim();
+      
+          if (!email || !password) {
+            alert("Email and password are required");
+            return;
+          }
+      
+          const res = await fetch(`${AUTH_API}/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+          });
+      
+          const data = await res.json();
+          if (!res.ok) {
+            alert(data.message);
+            return;
+          }
+      
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user));
+      
+          closeAuthModal(); // from global.js
+        }
+      
+        /* ---------------- SIGNUP ---------------- */
+      
+        async function signupUser() {
+  const email = signupEmail.value.trim();
+  const password = signupPassword.value.trim();
+  const confirm = signupConfirm.value.trim();
+
+  if (!email || !password || !confirm) {
+    alert("All fields required");
+    return;
+  }
+
+  if (password !== confirm) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  // ✅ UX: show loading immediately
+  const btn = document.getElementById("signupBtn");
+  btn.disabled = true;
+  btn.innerText = "Sending OTP...";
+
+  try {
+    const res = await fetch(`${AUTH_API}/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok && !data.requiresOTP) {
+      alert(data.message);
+      return;
+    }
+
+    window.pendingEmail = email;
+    closeAuthModal();
+    openOtpModal();
+
+  } finally {
+    // ✅ restore button state
+    btn.disabled = false;
+    btn.innerText = "Sign Up";
+  }
+}
+
+       
+        updateAuthUI();
+        syncUserUI();
+        /* ---------------- VERIFY OTP ---------------- */
+      
+        async function verifyOTP() {
+          const code = otpCode.value.trim();
+          if (code.length !== 4) {
+            alert("Enter 4-digit code");
+            return;
+          }
+      
+          const res = await fetch(`${AUTH_API}/verify`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: window.pendingEmail,
+              code
+            })
+          });
+      
+          const data = await res.json();
+          if (!res.ok) {
+            alert(data.message);
+            return;
+          }
+      
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user));
+      
+          closeOtpModal(); // from global.js
+        }
+      </script>
+      
+      
+      
+      
+    
+        
+    
+    <button class="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-bronze dark:text-primary" id="hamburger-button">
+    <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+    </div>
+    </div>
+    </header>
+
+  
+<!-- OVERLAY -->
+<div class="fixed inset-0 bg-black/50 z-[59] md:hidden opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out"
+     id="mobile-menu-overlay"></div>
+
+<!-- MOBILE MENU -->
+<div class="fixed top-0 right-0 h-full w-full max-w-xs bg-accent dark:bg-secondary shadow-lg z-[60]
+            transform translate-x-full md:hidden transition-transform duration-500 ease-in-out"
+     id="mobile-menu">
+
+  <!-- HEADER (LOGO + CLOSE) -->
+  <div class="flex items-center justify-between p-5 border-b border-bronze/20 dark:border-primary/20">
+
+    <!-- LOGO + NAME -->
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="h-8 w-8 text-bronze dark:text-primary">
+        <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355Z"></path>
+        </svg>
+      </div>
+      <span class="text-lg font-bold font-display text-light-text dark:text-accent">
+        Hirah Attar
+      </span>
+    </a>
+
+    <!-- CLOSE BUTTON -->
+    <button class="flex h-10 w-10 items-center justify-center rounded-full
+                   bg-transparent text-bronze dark:text-primary"
+            id="close-menu-button">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+  </div>
+
+  <!-- NAV LINKS -->
+  <div class="p-8 pt-10">
+    <nav class="flex flex-col items-center gap-6">
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="index.html">Home</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="ProductListed.html">Product</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="Blogs.html">Blogs</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="AboutUS.html">About</a>
+
+      <a class="text-xl font-semibold tracking-wide text-light-text/80 dark:text-accent/80
+                hover:text-bronze dark:hover:text-primary transition-colors"
+         href="contactUS.html">Contact</a>
+
+    </nav>
+  </div>
+</div>
+<main class="flex-grow">
+<section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7DyOF_sB2Xqf9Rm6JsZQ5Prxd7BLqIty_rH60pTv9nji256shI_y5mvhv9iZQpdPNrQRJBryg_w_8FPtf2OGzeUT9QXSLlHo8HhJtRpVp-zhk6sXtQOg73w3bH-yHEbDeJf5wyifyhE43giiYeJEasokM3xBV96-ZCpYgXrorKnwAKryR_SNzTw1MWUHnMKlbk1KvwSK4w34BOylusZaKiFqmdnP07RpFxBD3NsugW-mPHTQ5hFmSbNAh0oMy090z81btKQKvTgST');"></div>
+<div class="absolute inset-0 bg-black/60"></div>
+<div class="absolute inset-0 opacity-10 dark:opacity-20 animate-mist" style="background-image: radial-gradient(circle, #C89B3F 2%, transparent 60%);"></div>
+<div class="absolute inset-0 opacity-10 dark:opacity-20 animate-mist" style="animation-direction: reverse; animation-duration: 25s; background-image: radial-gradient(ellipse, #C89B3F 1%, transparent 50%);"></div>
+<div class="relative z-10 container mx-auto px-4 md:px-8 text-white">
+<div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+<h1 class="text-5xl md:text-7xl font-display font-bold animate-glow">Crafted Drops. Timeless Scents.</h1>
+<p class="mt-6 text-xl md:text-2xl max-w-3xl mx-auto text-accent/90">We curate and blend premium fragrance oils with care — creating elegant attars designed for daily wear, spiritual moments, and personal identity.</p>
+</div>
+
+</div>
+</section>
+<section class="py-20 sm:py-28 bg-accent dark:bg-secondary overflow-hidden" id="timeline">
+<div class="container mx-auto px-4 md:px-8">
+<div class="text-center mb-16 animate-fade-in-up">
+<h2 class="text-4xl md:text-5xl font-display font-bold text-light-text dark:text-white">Our Journey Through Time</h2>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-light-text/70 dark:text-dark-text/70">From a humble beginning to a Domestic legacy of fragrance.</p>
+</div>
+<div class="relative wrap overflow-hidden p-10 h-full">
+<div class="absolute h-full border-2 border-primary/30 border-dashed" style="left: 50%"></div>
+<div class="absolute h-full border-2 border-primary/30 border-dashed left-8 md:hidden"></div>
+<div class="mb-8 flex justify-between md:items-center w-full flex-row-reverse md:flex-row animate-fade-in-up">
+<div class="order-1 w-5/12 md:w-5/12"></div>
+<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+<span class="material-symbols-outlined mx-auto text-secondary text-2xl">foundation</span>
+</div>
+<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full ml-8 md:ml-0 md:w-5/12 p-6">
+<p class="mb-3 text-sm font-bold text-primary">2024</p>
+<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">Brand Foundation</h3>
+<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">Hirah Attar was founded with a simple vision: make refined attars accessible without compromising purity or presentation.</p>
+</div>
+</div>
+<div class="mb-8 flex justify-between items-center w-full animate-fade-in-up" style="animation-delay: 0.2s;">
+<div class="order-1 w-5/12"></div>
+<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+<span class="material-symbols-outlined mx-auto text-secondary text-2xl">spa</span>
+</div>
+<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full mr-8 md:mr-0 md:w-5/12 p-6">
+<p class="mb-3 text-sm font-bold text-primary">Early 2024s</p>
+<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">First Signature Blends</h3>
+<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">Our early collections focused on balance — combining premium fragrance oils with BB oil to ensure smooth wear and longevity.</p>
+</div>
+</div>
+<div class="mb-8 flex justify-between md:items-center w-full flex-row-reverse md:flex-row animate-fade-in-up" style="animation-delay: 0.4s;">
+<div class="order-1 w-5/12 md:w-5/12"></div>
+<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+<span class="material-symbols-outlined mx-auto text-secondary text-2xl">local_florist</span>
+</div>
+<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full ml-8 md:ml-0 md:w-5/12 p-6">
+<p class="mb-3 text-sm font-bold text-primary">2025</p>
+<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">Customer-Driven Refinement</h3>
+<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">We refined our blends based on customer feedback, improving projection, smoothness, and consistency.</p>
+</div>
+</div>
+
+<div class="mb-8 flex justify-between md:items-center w-full flex-row-reverse md:flex-row animate-fade-in-up" style="animation-delay: 0.8s;">
+<div class="order-1 w-5/12 md:w-5/12"></div>
+<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+<span class="material-symbols-outlined mx-auto text-secondary text-2xl">local_shipping</span>
+</div>
+<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full ml-8 md:ml-0 md:w-5/12 p-6">
+<p class="mb-3 text-sm font-bold text-primary">Present</p>
+<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">Expanding Collections</h3>
+<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">Today, Hirah Attar continues to curate new blends, focusing on quality, affordability, and elegant packaging.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="h-screen bg-primary-dark bg-primary-light flex flex-col">
+  <div class="p-12">
+  <h2 class="text-xs tracking-[1em] uppercase text-[var(--primary)]">Alchemy &amp; Art</h2>
+  </div>
+  <div class="flex-grow flex panel-container">
+  <div class="panel-expand relative h-full w-1/3 border-r border-white/5 overflow-hidden group">
+  <img alt="Raw Wood" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu0qnI4LDWlKqcwsQ4l8UyaE-CrQ736uWpunFgsI6lVuQeOf2EoCglqRpiPKe-z7Wq1LNPX_hrRKWpELrpB7BBE1o8C7729VMsOjttxE9oqLh-0lVCJ0O6LokAECl53tE5bpLdHRhX1KxSIcjfcARyQO84Cnuf2_hr3ks1-z3n7dGeP62-kzask9QoFqVstJqOROd2CqZ3bYwjFP6UOwQebc3DO7s6CAATsDI_jtTfrCK80QcZ4QD-n5cotEa9s6AGgOIcsV8_2wA9"/>
+  <div class="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0"></div>
+  <div class="absolute bottom-12 left-12 right-12">
+  <span class="text-5xl font-display text-[var(--primary)] mb-4 block">I</span>
+  <h3 class="text-2xl font-light tracking-[0.2em] text-white mb-4 uppercase">The Sourcing</h3>
+  <p class="text-xs text-white/0 group-hover:text-white/60 transition-all duration-500 max-w-xs leading-loose">We carefully select high-quality fragrance oils from trusted suppliers, choosing profiles that feel rich, smooth, and long-lasting.</p>
+  </div>
+  </div>
+  <div class="panel-expand relative h-full w-1/3 border-r border-white/5 overflow-hidden group">
+  <img alt="Distillation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMCpW-IwTwQGhq7L-9_jQaUoB6mRFcrxYmWt6eF-WwgHAmXEJV84qOe8L_oFRFWFguY3qrlod-CqLMicDHv5KruGudBn6X1b8ER6N8uK81mEjsTK0k-oahPM3TVACVauCLPJ5T9H8fWWD5e8KfKKXiokOjfIgaRyp7nUFtLBP_p8MrNJA5tjB43LKpZkld3gOE7qvPSm3MROSc0tDdGnaaIEVtP9OHsISoFg2omljiBOfsZw-aEufpfFTTnZOeovl5E64qxsZXNBmz"/>
+  <div class="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0"></div>
+  <div class="absolute bottom-12 left-12 right-12">
+  <span class="text-5xl font-display text-[var(--primary)] mb-4 block">II</span>
+  <h3 class="text-2xl font-light tracking-[0.2em] text-white mb-4 uppercase">The Blending</h3>
+  <p class="text-xs text-white/0 group-hover:text-white/60 transition-all duration-500 max-w-xs leading-loose">Each attar is blended in small batches using BB oil as a carrier, ensuring skin-friendly application and consistent performance.</p>
+  </div>
+  </div>
+  <div class="panel-expand relative h-full w-1/3 overflow-hidden group">
+  <img alt="Aging" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoUHZZ7vkVVRRbmoFUxBO0S3gXvc2krhXuwTFnEglpL2y7Smzdz2GIwQYmCthxKN_qItPCOlhKAx5qItpZdGx_asG9Tb3CNNz8G3NHFd_FjHCR83lXpcvcrgz3k_loiGUFUnwOxfgbi0dQN7OifxB7byXmkPIP4UO8tJcGHR2P6YqO0Ls5bCiZeDJYCxbgShsMNZT4hk7Gfx9IPyliy7oCf1i-Oz3OV9uPs6F0QaqlGTXXIif1rIwYSO4wrZCqnB0OuZDbOYiJd4U3"/>
+  <div class="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0"></div>
+  <div class="absolute bottom-12 left-12 right-12">
+  <span class="text-5xl font-display text-[var(--primary)] mb-4 block">III</span>
+  <h3 class="text-2xl font-light tracking-[0.2em] text-white mb-4 uppercase">The Maturation</h3>
+  <p class="text-xs text-white/0 group-hover:text-white/60 transition-all duration-500 max-w-xs leading-loose">In obsidian glass, our blends find their final form, maturing in the shadows until the scent becomes a story.</p>
+  </div>
+  </div>
+  </div>
+  </section>
+<section class="py-20 sm:py-28 bg-accent dark:bg-secondary overflow-hidden">
+<div class="container mx-auto px-4 md:px-8">
+<div class="text-center mb-16 animate-fade-in-up">
+<h2 class="text-4xl md:text-5xl font-display font-bold text-light-text dark:text-white">The Maturation</h2>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-light-text/70 dark:text-dark-text/70">Our blends are rested and evaluated before packaging, allowing notes to settle and harmonize into a balanced scent.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+<div class="bg-white/50 dark:bg-secondary/40 p-8 rounded-xl shadow-lg border border-bronze/10 dark:border-primary/10 transform transition-transform duration-300 hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.2s;">
+<div class="mx-auto w-20 h-20 mb-6 flex items-center justify-center bg-primary/10 rounded-full animate-pulse-subtle">
+<span class="material-symbols-outlined text-4xl text-primary">eco</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-light-text dark:text-white">Premium Fragrance Oils</h3>
+<p class="mt-2 text-light-text/80 dark:text-dark-text/80">We use carefully selected fragrance oils known for their stability, richness, and skin compatibility.</p>
+</div>
+<div class="bg-white/50 dark:bg-secondary/40 p-8 rounded-xl shadow-lg border border-bronze/10 dark:border-primary/10 transform transition-transform duration-300 hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.4s;">
+  <div class="mx-auto w-20 h-20 mb-6 flex items-center justify-center bg-primary/10 rounded-full animate-pulse-subtle" style="animation-delay: 0.2s;">
+    <span class="material-symbols-outlined text-4xl text-primary">filter_vintage</span>
+  </div>
+  <h3 class="text-2xl font-display font-bold text-light-text dark:text-white">
+    Floral Inspirations
+  </h3>
+  <p class="mt-2 text-light-text/80 dark:text-dark-text/80">
+    Inspired by timeless florals such as rose, jasmine, and white blossoms, our blends are crafted using carefully selected fragrance oils chosen for smoothness, depth, and everyday wear.
+  </p>
+</div>
+<div class="bg-white/50 dark:bg-secondary/40 p-8 rounded-xl shadow-lg border border-bronze/10 dark:border-primary/10 transform transition-transform duration-300 hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.6s;">
+<div class="mx-auto w-20 h-20 mb-6 flex items-center justify-center bg-primary/10 rounded-full animate-pulse-subtle" style="animation-delay: 0.4s;">
+<span class="material-symbols-outlined text-4xl text-primary">science</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-light-text dark:text-white">Quality Control</h3>
+<p class="mt-2 text-light-text/80 dark:text-dark-text/80">Every batch is checked for consistency in scent, texture, and presentation before reaching our customers.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 sm:py-28 bg-accent/50 dark:bg-secondary/50 overflow-hidden">
+<div class="container mx-auto px-4 md:px-8">
+<div class="text-center mb-16 animate-fade-in-up">
+  <h2 class="text-4xl md:text-5xl font-display font-bold text-light-text dark:text-white">
+    Our Signature Blends
+  </h2>
+  <p class="mt-4 max-w-2xl mx-auto text-lg text-light-text/70 dark:text-dark-text/70">
+    Each blend reflects a distinct scent character, thoughtfully balanced for elegance, comfort, and identity.
+  </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+  <!-- CARD 1 -->
+  <div class="perfumer-card group animate-fade-in-up" style="animation-delay: 0.2s;">
+    <div
+      class="perfumer-card-inner relative overflow-hidden rounded-xl
+             bg-white dark:bg-secondary/60 shadow-lg text-center p-8
+             border-2 border-transparent group-hover:border-primary
+             transition-all duration-300 group-hover:shadow-gold-edge">
+
+      <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+      <!-- ICON -->
+      <div class="mx-auto w-20 h-20 mb-6 flex items-center justify-center
+                  rounded-full bg-primary/10 text-primary">
+        <span class="material-symbols-outlined text-4xl">
+          science
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-display font-bold text-light-text dark:text-white">
+        Our Blending Process
+      </h3>
+
+      <p class="text-primary font-semibold">
+        Precision · Balance · Consistency
+      </p>
+
+      <p class="mt-4 text-light-text/80 dark:text-dark-text/80">
+        We carefully blend premium fragrance oils using proven ratios and
+        neutral carriers to achieve long-lasting, skin-friendly attars.
+        Every batch follows a controlled and repeatable process.
+      </p>
+
+      <p class="mt-4 font-bold text-sm">
+        Focus: Stability & Longevity
+      </p>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="perfumer-card group animate-fade-in-up" style="animation-delay: 0.4s;">
+    <div
+      class="perfumer-card-inner relative overflow-hidden rounded-xl
+             bg-white dark:bg-secondary/60 shadow-lg text-center p-8
+             border-2 border-transparent group-hover:border-primary
+             transition-all duration-300 group-hover:shadow-gold-edge">
+
+      <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+      <!-- ICON -->
+      <div class="mx-auto w-20 h-20 mb-6 flex items-center justify-center
+                  rounded-full bg-primary/10 text-primary">
+        <span class="material-symbols-outlined text-4xl">
+          spa
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-display font-bold text-light-text dark:text-white">
+        Quality Ingredients
+      </h3>
+
+      <p class="text-primary font-semibold">
+        Carefully Selected Oils
+      </p>
+
+      <p class="mt-4 text-light-text/80 dark:text-dark-text/80">
+        We source high-quality fragrance oils and combine them with
+        skin-safe base oils. Each ingredient is chosen for aroma clarity,
+        smooth application, and reliable performance.
+      </p>
+
+      <p class="mt-4 font-bold text-sm">
+        Focus: Purity & Comfort
+      </p>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="perfumer-card group animate-fade-in-up" style="animation-delay: 0.6s;">
+    <div
+      class="perfumer-card-inner relative overflow-hidden rounded-xl
+             bg-white dark:bg-secondary/60 shadow-lg text-center p-8
+             border-2 border-transparent group-hover:border-primary
+             transition-all duration-300 group-hover:shadow-gold-edge">
+
+      <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+      <!-- ICON -->
+      <div class="mx-auto w-20 h-20 mb-6 flex items-center justify-center
+                  rounded-full bg-primary/10 text-primary">
+        <span class="material-symbols-outlined text-4xl">
+          auto_awesome
+        </span>
+      </div>
+
+      <h3 class="text-2xl font-display font-bold text-light-text dark:text-white">
+        Crafted for Everyday Use
+      </h3>
+
+      <p class="text-primary font-semibold">
+        Simple · Elegant · Reliable
+      </p>
+
+      <p class="mt-4 text-light-text/80 dark:text-dark-text/80">
+        Our attars are designed for daily wear — subtle, pleasant,
+        and suitable for all occasions. We prioritize consistency
+        over complexity.
+      </p>
+
+      <p class="mt-4 font-bold text-sm">
+        Focus: Practical Luxury
+      </p>
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+<section class="py-20 sm:py-28 bg-accent dark:bg-secondary overflow-hidden">
+<div class="container mx-auto px-4 md:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="animate-fade-in-up">
+<span class="material-symbols-outlined text-6xl text-primary animate-glow">workspace_premium</span>
+<p class="text-5xl font-display font-bold text-light-text dark:text-white mt-4">2+</p>
+<p class="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">Years in Business</p>
+</div>
+<div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+<span class="material-symbols-outlined text-6xl text-primary animate-glow" style="animation-delay: 0.5s;">public</span>
+<p class="text-5xl font-display font-bold text-light-text dark:text-white mt-4">15+</p>
+<p class="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">District Reached</p>
+</div>
+<div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+<span class="material-symbols-outlined text-6xl text-primary animate-glow" style="animation-delay: 1s;">groups</span>
+<p class="text-5xl font-display font-bold text-light-text dark:text-white mt-4">500+</p>
+<p class="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">Wholesale Clients</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 sm:py-28 bg-accent/50 dark:bg-secondary/50 overflow-hidden">
+<div class="container mx-auto px-4 md:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+<div class="p-8 rounded-xl bg-white/50 dark:bg-secondary/40 animate-slide-in-left">
+<h2 class="text-4xl font-display font-bold text-light-text dark:text-white mb-6">Our Vision</h2>
+<p class="text-lg text-light-text/80 dark:text-dark-text/80">To build a trusted attar brand known for quality blends, honest pricing, and elegant presentation.</p>
+</div>
+<div class="p-8 rounded-xl bg-white/50 dark:bg-secondary/40 animate-slide-in-left" style="animation-delay: 0.2s;">
+<h2 class="text-4xl font-display font-bold text-light-text dark:text-white mb-6">Our Mission</h2>
+<p class="text-lg text-light-text/80 dark:text-dark-text/80">To curate and blend attars that are comfortable to wear, thoughtfully packaged, and accessible to everyone who values fragrance.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-accent/50 dark:bg-secondary/50 pt-20 pb-8">
+  <div class="container mx-auto px-4 md:px-8">
+
+    <!-- TOP GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+
+      <!-- BRAND -->
+      <div class="md:col-span-1 flex flex-col items-center md:items-start">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 text-bronze dark:text-primary">
+            <svg fill="currentColor" viewBox="0 0 48 48">
+              <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"/>
+            </svg>
+          </div>
+          <span class="text-xl font-bold font-display text-light-text dark:text-accent">
+            Hirah Attar
+          </span>
+        </div>
+
+        <p class="mt-4 max-w-xs text-light-text/70 dark:text-dark-text/70 text-sm">
+          Luxury attars crafted with purity, tradition, and elegance — delivering timeless fragrance experiences.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+          Quick Links
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="ProductListed.html" class="footer-link">Products</a></li>
+          <li><a href="Blogs.html" class="footer-link">Blogs</a></li>
+          <li><a href="cart.html" class="footer-link">Cart</a></li>
+          <li><a href="contactUS.html" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+          Company
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="AboutUS.html" class="footer-link">About Us</a></li>
+          <li><a href="FAQ.html" class="footer-link">FAQ</a></li>
+          <li><a href="contactUS.html" class="footer-link">Support</a></li>
+        </ul>
+      </div>
+
+    <!-- SOCIAL + CONNECT -->
+<div>
+  <h3 class="text-lg font-bold font-display text-light-text dark:text-white mb-4">
+    Connect
+  </h3>
+ 
+  <!-- SOCIAL ICONS -->
+  <div class="mt-6 flex justify-center md:justify-start gap-4">
+    <!-- WhatsApp -->
+    <a href="#" aria-label="WhatsApp"
+       class="social-outline hover:border-green-500 hover:text-green-500">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+      </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a href="#" aria-label="Facebook"
+       class="social-outline hover:border-blue-600 hover:text-blue-600">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+      </svg>
+    </a>
+
+    <!-- Instagram -->
+    <a href="#" aria-label="Instagram"
+       class="social-outline hover:border-pink-500 hover:text-pink-500">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+      </svg>
+    </a>
+
+    <!-- TikTok -->
+    <a href="#" aria-label="TikTok"
+       class="social-outline hover:border-black hover:text-black dark:hover:border-white dark:hover:text-white">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M21 8.1c-1.5 0-3-.5-4.2-1.4v8.4a6.5 6.5 0 1 1-5.7-6.4v3.4a3.1 3.1 0 1 0 2.3 3V0h3.4c.2 1.2.8 2.4 1.7 3.3 1 1 2.3 1.6 3.7 1.8v3z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+    </div>
+
+  <!-- BOTTOM -->
+<div class="mt-12 border-t border-bronze/20 dark:border-primary/20 pt-6
+flex flex-col md:flex-row items-center md:justify-between
+text-sm text-light-text/60 dark:text-dark-text/60 gap-4">
+
+<!-- Copyright -->
+<div class="text-center md:text-left">
+© 2026 Hirah Attar. All Rights Reserved.
+</div>
+
+<!-- LEGAL LINKS (BOTTOM RIGHT) -->
+<div class="flex gap-6">
+<a href="privacyPolicy.html" class="footer-link hover:underline">
+Privacy Policy
+</a>
+<a href="terms.html" class="footer-link hover:underline">
+Terms of Service
+</a>
+</div>
+
+</div>
+
+  </div>
+</footer>
+
+<style>
+  .social-outline {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(0,0,0,0.25);
+    color: #000;
+    transition: all 0.25s ease;
+  }
+
+  .dark .social-outline {
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+  }
+
+  /* ================= DARK MODE SOCIAL HOVER FIX ================= */
+
+  .dark a[aria-label="WhatsApp"]:hover {
+    color: #22c55e;
+    border-color: #22c55e;
+  }
+
+  .dark a[aria-label="Facebook"]:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+  }
+
+  .dark a[aria-label="Instagram"]:hover {
+    color: #ec4899;
+    border-color: #ec4899;
+  }
+
+  .dark a[aria-label="TikTok"]:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+</style>
+</div>
+<script>
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    
+    function openMenu() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.add('opacity-100');
+        mobileMenuOverlay.classList.remove('pointer-events-none');
+        document.body.classList.add('overflow-hidden');
+    }
+    function closeMenu() {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.remove('opacity-100');
+        mobileMenuOverlay.classList.add('pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+    }
+    hamburgerButton.addEventListener('click', openMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+</script>
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains("dark");
+
+    if (isDark) {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  }
+</script>
+<script>
+  (function () {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  })();
+</script>
+<!-- AUTH MODAL -->
+<div id="authModal" class="fixed inset-0 z-[999] hidden items-center justify-center">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeAuthModal()"></div>
+
+  <!-- Modal -->
+  <div class="relative w-full max-w-[440px] mx-auto">
+    <div class="bg-white dark:bg-[#181611] text-black dark:text-white border border-gray-200 dark:border-border-dark rounded-2xl shadow-2xl overflow-hidden flex flex-col group max-h-[90vh]">
+
+      <!-- Header -->
+      <div class="pt-8 px-8 pb-3 text-center">
+        <div class="group-has-[#tab-signup:checked]:hidden">
+          <h2 class="text-3xl font-extrabold">Welcome Back</h2>
+          <p class="text-gray-500 dark:text-text-muted text-sm">
+            Sign in to continue
+          </p>
+        </div>
+        <div class="hidden group-has-[#tab-signup:checked]:block">
+          <h2 class="text-3xl font-extrabold">Create Account</h2>
+          <p class="text-gray-500 dark:text-text-muted text-sm">
+            Join Hirah Attar today
+          </p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="px-8 pb-5">
+        <div class="flex h-12 rounded-xl bg-gray-100 dark:bg-surface-dark p-1">
+          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
+            has-[:checked]:bg-primary has-[:checked]:text-black">
+            Log In
+            <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
+          </label>
+          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
+            has-[:checked]:bg-primary has-[:checked]:text-black">
+            Sign Up
+            <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
+          </label>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="overflow-y-auto flex-1 px-8 pb-6">
+
+    <!-- LOGIN FORM -->
+<div class="hidden group-has-[#tab-login:checked]:block">
+  <form onsubmit="event.preventDefault()" class="space-y-4">
+    <input id="loginEmail"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Email">
+
+    <input id="loginPassword" type="password"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Password">
+
+    <button type="button" onclick="loginUser()"
+      class="w-full h-12 bg-primary text-black rounded-xl font-bold">
+      Log In
+    </button>
+  </form>
+</div>
+
+<!-- SIGNUP FORM -->
+<div id="signupBox" class="hidden group-has-[#tab-signup:checked]:block">
+  <form onsubmit="event.preventDefault()" class="space-y-4">
+    <input id="signupEmail"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Email">
+
+    <input id="signupPassword" type="password"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Password">
+
+    <input id="signupConfirm" type="password"
+      class="w-full h-12 rounded-xl px-4 bg-gray-100 dark:bg-[#27241b]"
+      placeholder="Confirm Password">
+
+    <button   id="signupBtn"
+    type="button" onclick="signupUser()"
+      class="w-full h-12 bg-primary text-black rounded-xl font-bold">
+      Sign Up
+    </button>
+  </form>
+</div>
+
+
+        <!-- Divider -->
+        <div class="flex items-center my-6">
+          <div class="flex-1 h-px bg-gray-300 dark:bg-border-dark"></div>
+          <span class="mx-3 text-xs text-gray-400 uppercase font-bold">
+            or continue with
+          </span>
+          <div class="flex-1 h-px bg-gray-300 dark:bg-border-dark"></div>
+        </div>
+
+        <!-- Social Login -->
+        <div class="grid grid-cols-2 gap-4">
+          <button
+          onclick="loginWithGoogle()"
+          class="h-12 flex items-center justify-center gap-2 rounded-xl
+          border border-gray-300 dark:border-border-dark
+          hover:bg-gray-100 dark:hover:bg-[#27241b]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866.549 3.921 1.453l2.814-2.814C17.503 2.988 15.139 2 12.545 2 7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748z"/>
+            </svg>
+            Google
+          </button>
+
+          <button class="h-12 flex items-center justify-center gap-2 rounded-xl
+            border border-gray-300 dark:border-border-dark
+            hover:bg-gray-100 dark:hover:bg-[#27241b]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Facebook
+          </button>
+        </div>
+<!-- VERIFY OTP -->
+
+      </div>
+
+
+      <!-- Footer -->
+      <div class="py-4 text-center border-t border-gray-200 dark:border-border-dark">
+        <p class="group-has-[#tab-signup:checked]:hidden text-sm">
+          Don’t have an account?
+          <label for="tab-signup" class="text-primary font-bold cursor-pointer">
+            Sign Up
+          </label>
+        </p>
+        <p class="hidden group-has-[#tab-signup:checked]:block text-sm">
+          Already have an account?
+          <label for="tab-login" class="text-primary font-bold cursor-pointer">
+            Log In
+          </label>
+        </p>
+      </div>
+
+      <!-- Close -->
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-xl opacity-60 hover:opacity-100">
+        ✕
+      </button>
+
+    </div>
+  </div>
+</div>
+<!-- OTP MODAL -->
+<div id="otpModal" class="fixed inset-0 z-[1000] hidden items-center justify-center">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeOtpModal()"></div>
+
+  <!-- Box -->
+  <div class="relative w-full max-w-[360px] mx-auto bg-white dark:bg-[#181611]
+              text-black dark:text-white rounded-2xl shadow-2xl p-6">
+
+    <h2 class="text-2xl font-extrabold text-center mb-2">Verify Email</h2>
+    <p class="text-center text-sm text-gray-500 mb-4">
+      Enter the 4-digit code sent to your email
+    </p>
+
+    <input id="otpCode"
+      maxlength="4"
+      class="w-full h-12 text-center text-2xl tracking-widest rounded-xl
+             bg-gray-100 dark:bg-[#27241b]"
+      placeholder="____">
+
+    <button onclick="verifyOTP()"
+      class="w-full h-12 bg-primary text-black rounded-xl font-bold mt-4">
+      Verify
+    </button>
+
+    <div class="flex justify-between text-sm mt-4">
+      <button onclick="closeOtpModal()" class="text-primary font-semibold">
+        Cancel
+      </button>
+      <button onclick="resendOTP()" class="text-primary font-semibold">
+        Resend
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/global.js"></script>
+</body></html>
