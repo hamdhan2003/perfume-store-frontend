@@ -2032,10 +2032,11 @@ x-text="user.status.charAt(0).toUpperCase() + user.status.slice(1)"
 
       <!-- Product -->
       <td class="p-4 flex items-center gap-3">
-        <div
-  class="w-12 h-12 rounded-lg bg-center bg-cover"
-  :style="`background-image:url('${resolveProductImage(item.image)}')`"
-></div></div>
+        <img
+  class="w-12 h-12 rounded-lg object-cover border"
+  :src="item.image || '/placeholder.png'"
+  alt="Product"
+/>
         <span class="font-semibold" x-text="item.name"></span>
       </td>
 
@@ -8542,11 +8543,4 @@ function globalModal() {
     </div>
   </div>
 </div>
-<script>
-  function resolveProductImage(img) {
-  if (!img) return "/assets/placeholder-product.png";
-  if (img.startsWith("http")) return img;
-  return `${API_BASE_URL}/${img}`;
-}
-</script>
 </body></html>
