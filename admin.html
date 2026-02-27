@@ -352,14 +352,10 @@ class="sidebar-group flex items-center p-3 rounded-lg hover:bg-bronze/5 dark:hov
     Settings
   </span>
 </a>
-<button
-  onclick="localStorage.clear(); sessionStorage.clear(); location.reload();"
-  class="px-3 py-1 text-xs rounded bg-danger text-white"
->
-  Reset Local Data
-</button>
 
-<a class="sidebar-group flex items-center p-3 rounded-lg hover:bg-bronze/5 dark:hover:bg-primary/5 transition-all duration-200 text-danger" href="#" style="--hover-color: #dc3545;" x-bind:class="{ 'dark: [--hover-color:#dc3545]': true }">
+
+<a   onclick="adminLogout()"
+class="sidebar-group flex items-center p-3 rounded-lg hover:bg-bronze/5 dark:hover:bg-primary/5 transition-all duration-200 text-danger" href="#" style="--hover-color: #dc3545;" x-bind:class="{ 'dark: [--hover-color:#dc3545]': true }">
 <span class="material-symbols-outlined sidebar-icon transition-transform duration-200">logout</span>
 <span :class="{'opacity-100 w-auto': sidebarOpen, 'opacity-0 w-0': !sidebarOpen}" class="ml-4 font-semibold sidebar-label whitespace-nowrap overflow-hidden transition-all duration-200">Logout</span>
 </a>
@@ -8360,15 +8356,27 @@ async function uploadProductImage(event) {
   </a>
 
   <!-- LOGOUT -->
-  <button
-    @click="handleLogout(); mobileMenuOpen = false"
-    class="w-full flex items-center p-3 rounded-lg text-red-600
-           hover:bg-red-500/10 transition"
-  >
-    <span class="material-symbols-outlined">logout</span>
-    <span class="ml-4 font-semibold">Logout</span>
-  </button>
+<!-- LOGOUT -->
+<button
+  onclick="adminLogout(); mobileMenuOpen = false"
+  class="w-full flex items-center p-3 rounded-lg text-red-600
+         hover:bg-red-500/10 transition"
+>
+  <span class="material-symbols-outlined">logout</span>
+  <span class="ml-4 font-semibold">Logout</span>
+</button>
 
+<script>
+  function adminLogout() {
+    // Clear auth data
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    sessionStorage.clear();
+
+    // Always redirect to site root index
+    window.location.replace("/index.html");
+  }
+</script>
 </div>
 </div>
 </aside>
