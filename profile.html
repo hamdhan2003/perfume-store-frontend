@@ -3,7 +3,7 @@
   <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hirah Attar - User Profile</title>
+<title>Attar Store - User Profile</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -483,11 +483,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="flex min-h-screen overflow-x-hidden">
   <aside :class="{'w-72': sidebarOpen, 'w-20': !sidebarOpen}" class="fixed left-0 top-0 h-full bg-accent dark:bg-secondary text-light-text dark:text-dark-text shadow-lg z-30 transition-all duration-300 ease-in-out hidden lg:flex flex-col border-r border-bronze/10 dark:border-primary/10">
 <div :class="{'px-6': sidebarOpen, 'px-0': !sidebarOpen}" class="flex items-center justify-center h-20 border-b border-bronze/10 dark:border-primary/10 transition-all duration-300">
-<a class="flex items-center gap-3" href="#">
+<a class="flex items-center gap-3" href="index.html">
 <div class="h-8 w-8 text-bronze dark:text-primary flex-shrink-0">
-<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path></svg>
-</div>
-<span :class="{'opacity-100': sidebarOpen, 'opacity-0': !sidebarOpen}" class="text-xl font-bold font-display text-light-text dark:text-accent whitespace-nowrap overflow-hidden transition-opacity duration-200">Hirah Attar</span>
+  <img
+  src="assets/images/logo.png"
+  alt="Attar Store Logo"
+  class="h-8 w-8 object-cover rounded-full"
+  /></div>
+<span :class="{'opacity-100': sidebarOpen, 'opacity-0': !sidebarOpen}" class="text-xl font-bold font-display text-light-text dark:text-accent whitespace-nowrap overflow-hidden transition-opacity duration-200">attar store</span>
 </a>
 </div>
 <div :class="{
@@ -581,8 +584,24 @@ setTimeout(openOrdersView, 0);
   class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 text-[10px]
          flex items-center justify-center rounded-full bg-danger text-white"
 ></span></button>
-<div @click.outside="open = false" class="absolute right-0 mt-2 w-72 bg-accent dark:bg-secondary rounded-lg shadow-lg overflow-hidden border border-bronze/10 dark:border-primary/10 z-50" x-cloak="" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-end="opacity-100 scale-100" x-transition:enter-start="opacity-0 scale-95" x-transition:leave="transition ease-in duration-75" x-transition:leave-end="opacity-0 scale-95" x-transition:leave-start="opacity-100 scale-100">
-<div class="p-3 font-semibold border-b border-bronze/10 dark:border-primary/10">Order Updates</div>
+<div
+  @click.outside="open = false"
+  class="absolute mt-2 w-80 max-w-[90vw]
+         left-1/2 -translate-x-1/2
+         sm:left-auto sm:translate-x-0 sm:right-0
+         bg-accent dark:bg-secondary
+         rounded-lg shadow-lg overflow-hidden
+         border border-bronze/10 dark:border-primary/10
+         z-50"
+  x-cloak
+  x-show="open"
+  x-transition:enter="transition ease-out duration-200"
+  x-transition:enter-start="opacity-0 scale-95"
+  x-transition:enter-end="opacity-100 scale-100"
+  x-transition:leave="transition ease-in duration-75"
+  x-transition:leave-start="opacity-100 scale-100"
+  x-transition:leave-end="opacity-0 scale-95"
+><div class="p-3 font-semibold border-b border-bronze/10 dark:border-primary/10">Order Updates</div>
 <div
   class="max-h-72 overflow-y-auto divide-y divide-bronze/10 dark:divide-primary/10"
 >
@@ -1554,8 +1573,14 @@ Delete Account
              shadow-2xl
              overflow-y-auto">
              <div class="flex items-center justify-between h-20 px-6 border-b border-bronze/10 dark:border-primary/10">
-<a class="flex items-center gap-3" href="#">
-<div class="h-8 w-8 text-bronze dark:text-primary"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path></svg></div>
+<a class="flex items-center gap-3" href="index.html">
+<div class="h-8 w-8 text-bronze dark:text-primary">
+  <img
+  src="assets/images/logo.png"
+  alt="Attar Store Logo"
+  class="h-8 w-8 object-cover rounded-full"
+  />
+</div>
 <span class="text-xl font-bold font-display text-light-text dark:text-accent">Hirah Attar</span>
 </a>
 <button @click="mobileMenuOpen = false"><span class="material-symbols-outlined">close</span></button>

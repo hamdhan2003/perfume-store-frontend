@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hirah Attar - Experience the Essence of Purity</title>
+<title>Attar Store - Experience the Essence of Purity</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -106,11 +106,13 @@
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 <header class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-accent/80 dark:bg-secondary/80 backdrop-blur-lg shadow-sm">
 <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-4">
-<a class="flex items-center gap-3" href="#">
+<a class="flex items-center gap-3" href="index.html">
 <div class="h-8 w-8 text-bronze dark:text-primary">
-<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path>
-</svg>
+  <img
+  src="assets/images/logo.png"
+  alt="Attar Store Logo"
+  class="h-8 w-8 object-cover rounded-full"
+  />
 </div>
 <span class="text-xl font-bold font-display text-light-text dark:text-accent">Attar Store</span>
 </a>
@@ -397,9 +399,11 @@ z-index:9999;
     <!-- LOGO + NAME -->
     <a href="index.html" class="flex items-center gap-3">
       <div class="h-8 w-8 text-bronze dark:text-primary">
-        <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355Z"></path>
-        </svg>
+        <img
+          src="assets/images/logo.png"
+          alt="Attar Store Logo"
+          class="h-8 w-8 object-cover rounded-full"
+          />
       </div>
       <span class="text-lg font-bold font-display text-light-text dark:text-accent">
         Hirah Attar
@@ -450,28 +454,43 @@ z-index:9999;
 >
 
   <!-- BACKGROUND VIDEO (clear view) -->
-  <video 
-    class="absolute inset-0 w-full h-full object-cover opacity-30 dark:opacity-40"
-    style="filter: blur(1px);" 
-    src="./homevideo.mp4"
-    autoplay
-    loop
-    muted
-    playsinline
-  ></video>
+<!-- HERO BACKGROUND -->
+
+<!-- MOBILE FALLBACK IMAGE -->
+<img
+  src="/assets/images/hero.png"
+  alt="Hirah Attar Luxury Fragrance"
+  class="absolute inset-0 w-full h-full object-cover md:hidden"
+/>
+
+<!-- DESKTOP VIDEO -->
+<video
+  class="absolute inset-0 w-full h-full object-cover opacity-30 dark:opacity-40 hidden md:block"
+  src="./homevideo.mp4"
+  autoplay
+  loop
+  muted
+  playsinline
+></video>
 
   <!-- Ultra-light overlay -->
   <div class="absolute inset-0 bg-black/0 dark:bg-black/5"></div>
 
   <!-- Content -->
   <div class="container mx-auto px-4 md:px-8 text-center relative z-10 flex flex-col items-center">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-light-text dark:text-white animate-glow">
-          Experience the Essence of Hirah
-      </h1>
-
-      <p class="mt-4 max-w-2xl text-lg text-light-text dark:text-dark-text font-body">
-          Discover Sri Lanka's luxury fragrances, crafted with tradition and elegance for our exclusive wholesale partners.
-      </p>
+    <h1
+    class="text-4xl md:text-6xl lg:text-7xl font-display font-bold
+           text-white animate-glow drop-shadow-lg"
+  >
+    Experience the Essence of Hirah
+  </h1>
+  
+  <p
+    class="mt-4 max-w-2xl text-lg font-body
+           text-white/90 drop-shadow-md"
+  >
+    Discover Sri Lanka's luxury fragrances, crafted with tradition and elegance for our exclusive wholesale partners.
+  </p>
   
   
 <script>
@@ -531,56 +550,63 @@ z-index:9999;
 <div
   class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
 >
-  <template x-for="product in $store.shop.products" :key="product._id">
-    <div
-      class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 ease-in-out
-             hover:shadow-glow-gold hover:-translate-y-2 hover:border-bronze
-             border border-bronze/10 dark:border-primary/20 dark:bg-secondary/50"
-    >
-      <!-- IMAGE -->
-      <img
-        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
-        :src="product.images?.[0]
-          ? `https://perfume-store-production.up.railway.app/${product.images[0]}`
-          : '/placeholder.png'"
-        alt="Product image"
-      />
+<template x-for="product in $store.shop.products" :key="product._id">
+  <div
+    class="relative overflow-hidden rounded-xl shadow-lg
+           border border-bronze/10 dark:border-primary/20
+           dark:bg-secondary/50"
+  >
 
-      <!-- CONTENT -->
-      <div class="p-6">
-        <h3
-          class="text-xl font-display font-bold text-light-text dark:text-white"
-          x-text="product.name"
-        ></h3>
+    <!-- IMAGE -->
+    <img
+    class="w-full h-72 object-cover"
+    :src="product.images?.[0] || '/placeholder.png'"
+    alt="Product image"
+  />
 
-        <!-- TEMP: flavour / quality -->
-        <p
-          class="text-sm font-semibold text-bronze dark:text-primary mt-1"
-          x-text="product.quality"
-        ></p>
+    <!-- CONTENT -->
+    <div class="p-6 text-center">
 
-        <!-- DESCRIPTION -->
-        <p
+      <h3
+        class="text-xl font-display font-bold text-light-text dark:text-white"
+        x-text="product.name"
+      ></h3>
+
+      <!-- QUALITY -->
+      <p
+        class="text-sm font-semibold text-bronze dark:text-primary mt-1"
+        x-text="product.quality"
+      ></p>
+
+      <!-- DESCRIPTION -->
+      <p
         class="text-sm text-light-text/70 dark:text-dark-text/70 mt-2
-               line-clamp-4 overflow-hidden"
+               line-clamp-3"
         x-text="product.description"
       ></p>
-      
-      </div>
 
-      <!-- HOVER ACTION -->
-      <div
-        class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center gap-4
-               opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      <!-- VIEW PRODUCT BUTTON (ALWAYS VISIBLE) -->
+      <button
+        class="mt-5 inline-flex items-center justify-center
+               rounded-full
+               bg-bronze dark:bg-primary
+               px-6 py-2.5
+               text-sm font-semibold
+               text-white dark:text-secondary
+               transition-all duration-300 ease-in-out
+               hover:shadow-glow-gold hover:scale-105
+               active:scale-95"
+        @click="window.location.href = `product.html?id=${product._id}&slug=${product.slug}`"
       >
-        <button
-          class="bg-primary text-secondary font-bold py-2 px-5 rounded-full"
-          @click="window.location.href = `product.html?id=${product._id}&slug=${product.slug}          `">
-          View Product
-        </button>
-      </div>
+        View Product
+        <span class="material-symbols-outlined ml-2 text-sm transition-transform duration-300 group-hover:translate-x-1">
+          arrow_forward
+        </span>
+      </button>
+
     </div>
-  </template>
+  </div>
+</template>
 </div>
 
 </div>
@@ -907,13 +933,14 @@ function featuredReviews() {
       <div class="md:col-span-1 flex flex-col items-center md:items-start">
         <div class="flex items-center gap-3">
           <div class="h-8 w-8 text-bronze dark:text-primary">
-            <svg fill="currentColor" viewBox="0 0 48 48">
-              <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"/>
-            </svg>
+            <img
+          src="assets/images/logo.png"
+          alt="Attar Store Logo"
+          class="h-8 w-8 object-cover rounded-full"
+          />
           </div>
           <span class="text-xl font-bold font-display text-light-text dark:text-accent">
-            Hirah Attar
-          </span>
+            Attar Store          </span>
         </div>
 
         <p class="mt-4 max-w-xs text-light-text/70 dark:text-dark-text/70 text-sm">
@@ -1117,21 +1144,40 @@ Terms of Service
       </div>
 
       <!-- Tabs -->
-      <div class="px-8 pb-5">
-        <div class="flex h-12 rounded-xl bg-gray-100 dark:bg-surface-dark p-1">
-          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
-            has-[:checked]:bg-primary has-[:checked]:text-black">
-            Log In
-            <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
-          </label>
+<div class="px-8 pb-5">
+  <div
+    class="flex h-12 rounded-xl p-1
+           bg-gray-100 dark:bg-[#23201a]"
+  >
 
-          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
-            has-[:checked]:bg-primary has-[:checked]:text-black">
-            Sign Up
-            <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
-          </label>
-        </div>
-      </div>
+    <!-- LOG IN -->
+    <label
+      class="flex-1 flex items-center justify-center cursor-pointer rounded-lg
+             font-bold transition-all duration-300
+             text-gray-700 dark:text-gray-300
+             has-[:checked]:bg-primary
+             has-[:checked]:text-secondary
+             has-[:checked]:shadow-glow-gold"
+    >
+      Log In
+      <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
+    </label>
+
+    <!-- SIGN UP -->
+    <label
+      class="flex-1 flex items-center justify-center cursor-pointer rounded-lg
+             font-bold transition-all duration-300
+             text-gray-700 dark:text-gray-300
+             has-[:checked]:bg-primary
+             has-[:checked]:text-secondary
+             has-[:checked]:shadow-glow-gold"
+    >
+      Sign Up
+      <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
+    </label>
+
+  </div>
+</div>
 
       <!-- Content -->
       <div class="overflow-y-auto flex-1 px-8 pb-6">

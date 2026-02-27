@@ -3,7 +3,7 @@
   <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hirah Attar - Our Story</title>
+<title>Attar Store - Our Story</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -151,14 +151,16 @@
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
   <header class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-accent/80 dark:bg-secondary/80 backdrop-blur-lg shadow-sm">
     <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-4">
-    <a class="flex items-center gap-3" href="#">
-    <div class="h-8 w-8 text-bronze dark:text-primary">
-    <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"></path>
-    </svg>
-    </div>
-    <span class="text-xl font-bold font-display text-light-text dark:text-accent">Attar Store</span>
-    </a>
+      <a href="/index.html" class="flex items-center gap-3">
+        <img
+          src="assets/images/logo.png"
+          alt="Attar Store Logo"
+          class="h-8 w-8 object-cover rounded-full"
+          />
+        <span class="text-xl font-bold font-display text-light-text dark:text-accent">
+          Attar Store
+        </span>
+      </a>
     
     <nav class="hidden md:flex items-center gap-8">
     <a class="font-semibold tracking-wide text-light-text/80 dark:text-accent/80 hover:text-bronze dark:hover:text-primary transition-colors" href="index.html">Home</a>
@@ -404,13 +406,14 @@
     <!-- LOGO + NAME -->
     <a href="index.html" class="flex items-center gap-3">
       <div class="h-8 w-8 text-bronze dark:text-primary">
-        <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355Z"></path>
-        </svg>
+        <img
+        src="assets/images/logo.png"
+        alt="Attar Store Logo"
+        class="h-8 w-8 object-cover rounded-full"
+        />
       </div>
       <span class="text-lg font-bold font-display text-light-text dark:text-accent">
-        Hirah Attar
-      </span>
+        Attar Store      </span>
     </a>
 
     <!-- CLOSE BUTTON -->
@@ -450,8 +453,17 @@
 </div>
 <main class="flex-grow">
 <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7DyOF_sB2Xqf9Rm6JsZQ5Prxd7BLqIty_rH60pTv9nji256shI_y5mvhv9iZQpdPNrQRJBryg_w_8FPtf2OGzeUT9QXSLlHo8HhJtRpVp-zhk6sXtQOg73w3bH-yHEbDeJf5wyifyhE43giiYeJEasokM3xBV96-ZCpYgXrorKnwAKryR_SNzTw1MWUHnMKlbk1KvwSK4w34BOylusZaKiFqmdnP07RpFxBD3NsugW-mPHTQ5hFmSbNAh0oMy090z81btKQKvTgST');"></div>
-<div class="absolute inset-0 bg-black/60"></div>
+<!-- MOBILE HERO IMAGE -->
+<div
+  class="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+  style="background-image: url('/assets/images/hero-aboutUS.png');">
+</div>
+
+<!-- DESKTOP HERO IMAGE -->
+<div
+  class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 hidden md:block"
+  style="background-image: url('/assets/images/desktop-about.png');">
+</div><div class="absolute inset-0 bg-black/60"></div>
 <div class="absolute inset-0 opacity-10 dark:opacity-20 animate-mist" style="background-image: radial-gradient(circle, #C89B3F 2%, transparent 60%);"></div>
 <div class="absolute inset-0 opacity-10 dark:opacity-20 animate-mist" style="animation-direction: reverse; animation-duration: 25s; background-image: radial-gradient(ellipse, #C89B3F 1%, transparent 50%);"></div>
 <div class="relative z-10 container mx-auto px-4 md:px-8 text-white">
@@ -462,70 +474,333 @@
 
 </div>
 </section>
-<section class="py-20 sm:py-28 bg-accent dark:bg-secondary overflow-hidden" id="timeline">
-<div class="container mx-auto px-4 md:px-8">
-<div class="text-center mb-16 animate-fade-in-up">
-<h2 class="text-4xl md:text-5xl font-display font-bold text-light-text dark:text-white">Our Journey Through Time</h2>
-<p class="mt-4 max-w-2xl mx-auto text-lg text-light-text/70 dark:text-dark-text/70">From a humble beginning to a Domestic legacy of fragrance.</p>
-</div>
-<div class="relative wrap overflow-hidden p-10 h-full">
-<div class="absolute h-full border-2 border-primary/30 border-dashed" style="left: 50%"></div>
-<div class="absolute h-full border-2 border-primary/30 border-dashed left-8 md:hidden"></div>
-<div class="mb-8 flex justify-between md:items-center w-full flex-row-reverse md:flex-row animate-fade-in-up">
-<div class="order-1 w-5/12 md:w-5/12"></div>
-<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
-<span class="material-symbols-outlined mx-auto text-secondary text-2xl">foundation</span>
-</div>
-<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full ml-8 md:ml-0 md:w-5/12 p-6">
-<p class="mb-3 text-sm font-bold text-primary">2024</p>
-<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">Brand Foundation</h3>
-<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">Hirah Attar was founded with a simple vision: make refined attars accessible without compromising purity or presentation.</p>
-</div>
-</div>
-<div class="mb-8 flex justify-between items-center w-full animate-fade-in-up" style="animation-delay: 0.2s;">
-<div class="order-1 w-5/12"></div>
-<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
-<span class="material-symbols-outlined mx-auto text-secondary text-2xl">spa</span>
-</div>
-<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full mr-8 md:mr-0 md:w-5/12 p-6">
-<p class="mb-3 text-sm font-bold text-primary">Early 2024s</p>
-<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">First Signature Blends</h3>
-<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">Our early collections focused on balance — combining premium fragrance oils with BB oil to ensure smooth wear and longevity.</p>
-</div>
-</div>
-<div class="mb-8 flex justify-between md:items-center w-full flex-row-reverse md:flex-row animate-fade-in-up" style="animation-delay: 0.4s;">
-<div class="order-1 w-5/12 md:w-5/12"></div>
-<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
-<span class="material-symbols-outlined mx-auto text-secondary text-2xl">local_florist</span>
-</div>
-<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full ml-8 md:ml-0 md:w-5/12 p-6">
-<p class="mb-3 text-sm font-bold text-primary">2025</p>
-<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">Customer-Driven Refinement</h3>
-<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">We refined our blends based on customer feedback, improving projection, smoothness, and consistency.</p>
-</div>
-</div>
+<section
+  class="py-20 sm:py-28 bg-accent dark:bg-secondary overflow-hidden"
+  id="timeline"
+>
+  <div class="container mx-auto px-4 md:px-8">
 
-<div class="mb-8 flex justify-between md:items-center w-full flex-row-reverse md:flex-row animate-fade-in-up" style="animation-delay: 0.8s;">
-<div class="order-1 w-5/12 md:w-5/12"></div>
-<div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
-<span class="material-symbols-outlined mx-auto text-secondary text-2xl">local_shipping</span>
-</div>
-<div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-full ml-8 md:ml-0 md:w-5/12 p-6">
-<p class="mb-3 text-sm font-bold text-primary">Present</p>
-<h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">Expanding Collections</h3>
-<p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">Today, Hirah Attar continues to curate new blends, focusing on quality, affordability, and elegant packaging.</p>
-</div>
-</div>
-</div>
-</div>
+    <!-- TITLE -->
+    <div class="text-center mb-16 animate-fade-in-up">
+      <h2 class="text-4xl md:text-5xl font-display font-bold text-light-text dark:text-white">
+        Our Journey Through Time
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-light-text/70 dark:text-dark-text/70">
+        From a humble beginning to a Domestic legacy of fragrance.
+      </p>
+    </div>
+
+    <!-- ================= MOBILE SLIDER ================= -->
+    <div class="md:hidden">
+      <div
+        id="timelineSlider"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6"
+      >
+
+        <!-- 2024 -->
+        <div class="snap-center shrink-0 w-full animate-fade-in-up">
+          <div class="bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-primary text-3xl">
+                foundation
+              </span>
+              <p class="text-sm font-bold text-primary">2024</p>
+            </div>
+            <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+              Brand Foundation
+            </h3>
+            <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+              Hirah Attar was founded with a simple vision: make refined attars
+              accessible without compromising purity or presentation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Early 2024 -->
+        <div class="snap-center shrink-0 w-full animate-fade-in-up">
+          <div class="bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-primary text-3xl">
+                spa
+              </span>
+              <p class="text-sm font-bold text-primary">Early 2024</p>
+            </div>
+            <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+              First Signature Blends
+            </h3>
+            <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+              Our early collections focused on balance — combining premium
+              fragrance oils with BB oil to ensure smooth wear and longevity.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="snap-center shrink-0 w-full animate-fade-in-up">
+          <div class="bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-primary text-3xl">
+                local_florist
+              </span>
+              <p class="text-sm font-bold text-primary">2025</p>
+            </div>
+            <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+              Customer-Driven Refinement
+            </h3>
+            <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+              We refined our blends based on customer feedback, improving
+              projection, smoothness, and consistency.
+            </p>
+          </div>
+        </div>
+
+        <!-- Present -->
+        <div class="snap-center shrink-0 w-full animate-fade-in-up">
+          <div class="bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-primary text-3xl">
+                local_shipping
+              </span>
+              <p class="text-sm font-bold text-primary">Present</p>
+            </div>
+            <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+              Expanding Collections
+            </h3>
+            <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+              Today, Hirah Attar continues to curate new blends, focusing on
+              quality, affordability, and elegant packaging.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= DESKTOP TIMELINE ================= -->
+    <div class="hidden md:block relative wrap overflow-hidden p-10">
+
+      <!-- CENTER LINE -->
+      <div class="absolute h-full border-2 border-primary/30 border-dashed left-1/2"></div>
+
+      <!-- 2024 -->
+      <div class="mb-8 flex justify-between md:items-center w-full animate-fade-in-up">
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+          <span class="material-symbols-outlined mx-auto text-secondary text-2xl">
+            foundation
+          </span>
+        </div>
+        <div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-5/12 p-6">
+          <p class="mb-3 text-sm font-bold text-primary">2024</p>
+          <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+            Brand Foundation
+          </h3>
+          <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+            Hirah Attar was founded with a simple vision: make refined attars
+            accessible without compromising purity or presentation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Early 2024 -->
+      <div
+        class="mb-8 flex justify-between md:items-center w-full flex-row-reverse animate-fade-in-up"
+        style="animation-delay:0.2s"
+      >
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+          <span class="material-symbols-outlined mx-auto text-secondary text-2xl">
+            spa
+          </span>
+        </div>
+        <div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-5/12 p-6">
+          <p class="mb-3 text-sm font-bold text-primary">Early 2024</p>
+          <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+            First Signature Blends
+          </h3>
+          <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+            Our early collections focused on balance — combining premium
+            fragrance oils with BB oil to ensure smooth wear and longevity.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div
+        class="mb-8 flex justify-between md:items-center w-full animate-fade-in-up"
+        style="animation-delay:0.4s"
+      >
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+          <span class="material-symbols-outlined mx-auto text-secondary text-2xl">
+            local_florist
+          </span>
+        </div>
+        <div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-5/12 p-6">
+          <p class="mb-3 text-sm font-bold text-primary">2025</p>
+          <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+            Customer-Driven Refinement
+          </h3>
+          <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+            We refined our blends based on customer feedback, improving
+            projection, smoothness, and consistency.
+          </p>
+        </div>
+      </div>
+
+      <!-- Present -->
+      <div
+        class="mb-8 flex justify-between md:items-center w-full flex-row-reverse animate-fade-in-up"
+        style="animation-delay:0.6s"
+      >
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+          <span class="material-symbols-outlined mx-auto text-secondary text-2xl">
+            local_shipping
+          </span>
+        </div>
+        <div class="order-1 bg-white/50 dark:bg-secondary/40 rounded-xl shadow-lg w-5/12 p-6">
+          <p class="mb-3 text-sm font-bold text-primary">Present</p>
+          <h3 class="mb-3 font-bold text-light-text dark:text-white text-xl">
+            Expanding Collections
+          </h3>
+          <p class="text-sm leading-snug tracking-wide text-light-text/80 dark:text-dark-text/80">
+            Today, Hirah Attar continues to curate new blends, focusing on
+            quality, affordability, and elegant packaging.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
-<section class="h-screen bg-primary-dark bg-primary-light flex flex-col">
+
+<!-- MOBILE AUTO SLIDESHOW (SAFE) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("timelineSlider");
+    if (!slider) return;
+
+    let index = 0;
+    let timer;
+
+    function start() {
+      timer = setInterval(() => {
+        index = (index + 1) % slider.children.length;
+        slider.scrollTo({
+          left: slider.children[index].offsetLeft,
+          behavior: "smooth"
+        });
+      }, 4000);
+    }
+
+    function stop() {
+      clearInterval(timer);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting ? start() : stop(),
+      { threshold: 0.6 }
+    );
+
+    observer.observe(slider);
+
+    slider.addEventListener("touchstart", stop);
+    slider.addEventListener("mousedown", stop);
+  });
+</script>
+<section class="h-screen bg-primary-dark bg-primary-light flex flex-col md:hidden">
+  <div class="p-8 text-center">
+    <h2 class="text-xs tracking-[1em] uppercase text-[var(--primary)]">
+      Alchemy & Art
+    </h2>
+  </div>
+
+  <div
+  id="alchemyMobileSlider"
+  class="flex-grow flex overflow-x-auto overflow-y-hidden
+         snap-x snap-mandatory no-scrollbar scroll-smooth"
+>
+    <!-- PANEL I -->
+    <div class="relative min-w-full h-full snap-center overflow-hidden">
+      <img class="absolute inset-0 w-full h-full object-cover opacity-90"
+           src="assets/images/alchemy1.png"/>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute bottom-10 left-6 right-6">
+        <span class="text-5xl font-display text-[var(--primary)] block mb-4">I</span>
+        <h3 class="text-xl tracking-[0.2em] text-white uppercase mb-3">
+          The Sourcing
+        </h3>
+        <p class="text-xs text-white/70 leading-loose">
+          We carefully select high-quality fragrance oils from trusted suppliers,
+          choosing profiles that feel rich, smooth, and long-lasting.
+        </p>
+      </div>
+    </div>
+
+    <!-- PANEL II -->
+    <div class="relative min-w-full h-full snap-center overflow-hidden">
+      <img class="absolute inset-0 w-full h-full object-cover opacity-90"
+      src="assets/images/alchemy2.png"/>
+            <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute bottom-10 left-6 right-6">
+        <span class="text-5xl font-display text-[var(--primary)] block mb-4">II</span>
+        <h3 class="text-xl tracking-[0.2em] text-white uppercase mb-3">
+          The Blending
+        </h3>
+        <p class="text-xs text-white/70 leading-loose">
+          Each attar is blended in small batches using BB oil as a carrier,
+          ensuring skin-friendly application and consistent performance.
+        </p>
+      </div>
+    </div>
+
+    <!-- PANEL III -->
+    <div class="relative min-w-full h-full snap-center overflow-hidden">
+      <img class="absolute inset-0 w-full h-full object-cover opacity-90"
+      src="assets/images/alchemy3.png"/>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute bottom-10 left-6 right-6">
+        <span class="text-5xl font-display text-[var(--primary)] block mb-4">III</span>
+        <h3 class="text-xl tracking-[0.2em] text-white uppercase mb-3">
+          The Maturation
+        </h3>
+        <p class="text-xs text-white/70 leading-loose">
+          In obsidian glass, our blends mature until the scent becomes a story.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("alchemyMobileSlider");
+    if (!slider) return;
+  
+    const slideCount = slider.children.length;
+    let index = 0;
+    const INTERVAL = 4500;
+  
+    setInterval(() => {
+      index = (index + 1) % slideCount;
+  
+      slider.scrollTo({
+        left: index * slider.clientWidth,
+        behavior: "smooth"
+      });
+    }, INTERVAL);
+  });
+  </script>
+<section class="h-screen bg-primary-dark bg-primary-light flex flex-col hidden md:flex">  <!-- ALCHEMY & ART – MOBILE -->
+
   <div class="p-12">
   <h2 class="text-xs tracking-[1em] uppercase text-[var(--primary)]">Alchemy &amp; Art</h2>
   </div>
   <div class="flex-grow flex panel-container">
   <div class="panel-expand relative h-full w-1/3 border-r border-white/5 overflow-hidden group">
-  <img alt="Raw Wood" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu0qnI4LDWlKqcwsQ4l8UyaE-CrQ736uWpunFgsI6lVuQeOf2EoCglqRpiPKe-z7Wq1LNPX_hrRKWpELrpB7BBE1o8C7729VMsOjttxE9oqLh-0lVCJ0O6LokAECl53tE5bpLdHRhX1KxSIcjfcARyQO84Cnuf2_hr3ks1-z3n7dGeP62-kzask9QoFqVstJqOROd2CqZ3bYwjFP6UOwQebc3DO7s6CAATsDI_jtTfrCK80QcZ4QD-n5cotEa9s6AGgOIcsV8_2wA9"/>
+  <img alt="Raw Wood" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="assets/images/alchemy1.png"/>
   <div class="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0"></div>
   <div class="absolute bottom-12 left-12 right-12">
   <span class="text-5xl font-display text-[var(--primary)] mb-4 block">I</span>
@@ -534,7 +809,7 @@
   </div>
   </div>
   <div class="panel-expand relative h-full w-1/3 border-r border-white/5 overflow-hidden group">
-  <img alt="Distillation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMCpW-IwTwQGhq7L-9_jQaUoB6mRFcrxYmWt6eF-WwgHAmXEJV84qOe8L_oFRFWFguY3qrlod-CqLMicDHv5KruGudBn6X1b8ER6N8uK81mEjsTK0k-oahPM3TVACVauCLPJ5T9H8fWWD5e8KfKKXiokOjfIgaRyp7nUFtLBP_p8MrNJA5tjB43LKpZkld3gOE7qvPSm3MROSc0tDdGnaaIEVtP9OHsISoFg2omljiBOfsZw-aEufpfFTTnZOeovl5E64qxsZXNBmz"/>
+  <img alt="Distillation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="assets/images/alchemy2.png"/>
   <div class="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0"></div>
   <div class="absolute bottom-12 left-12 right-12">
   <span class="text-5xl font-display text-[var(--primary)] mb-4 block">II</span>
@@ -543,7 +818,7 @@
   </div>
   </div>
   <div class="panel-expand relative h-full w-1/3 overflow-hidden group">
-  <img alt="Aging" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoUHZZ7vkVVRRbmoFUxBO0S3gXvc2krhXuwTFnEglpL2y7Smzdz2GIwQYmCthxKN_qItPCOlhKAx5qItpZdGx_asG9Tb3CNNz8G3NHFd_FjHCR83lXpcvcrgz3k_loiGUFUnwOxfgbi0dQN7OifxB7byXmkPIP4UO8tJcGHR2P6YqO0Ls5bCiZeDJYCxbgShsMNZT4hk7Gfx9IPyliy7oCf1i-Oz3OV9uPs6F0QaqlGTXXIif1rIwYSO4wrZCqnB0OuZDbOYiJd4U3"/>
+  <img alt="Aging" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-100" src="assets/images/alchemy3.png"/>
   <div class="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0"></div>
   <div class="absolute bottom-12 left-12 right-12">
   <span class="text-5xl font-display text-[var(--primary)] mb-4 block">III</span>
@@ -763,9 +1038,11 @@
       <div class="md:col-span-1 flex flex-col items-center md:items-start">
         <div class="flex items-center gap-3">
           <div class="h-8 w-8 text-bronze dark:text-primary">
-            <svg fill="currentColor" viewBox="0 0 48 48">
-              <path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"/>
-            </svg>
+            <img
+          src="assets/images/logo.png"
+          alt="Attar Store Logo"
+          class="h-8 w-8 object-cover rounded-full"
+          />
           </div>
           <span class="text-xl font-bold font-display text-light-text dark:text-accent">
             Hirah Attar
@@ -990,20 +1267,41 @@ Terms of Service
       </div>
 
       <!-- Tabs -->
-      <div class="px-8 pb-5">
-        <div class="flex h-12 rounded-xl bg-gray-100 dark:bg-surface-dark p-1">
-          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
-            has-[:checked]:bg-primary has-[:checked]:text-black">
-            Log In
-            <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
-          </label>
-          <label class="flex-1 flex items-center justify-center cursor-pointer rounded-lg font-bold
-            has-[:checked]:bg-primary has-[:checked]:text-black">
-            Sign Up
-            <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
-          </label>
-        </div>
-      </div>
+  <!-- Tabs -->
+<div class="px-8 pb-5">
+  <div
+    class="flex h-12 rounded-xl p-1
+           bg-gray-100 dark:bg-[#23201a]"
+  >
+
+    <!-- LOG IN -->
+    <label
+      class="flex-1 flex items-center justify-center cursor-pointer rounded-lg
+             font-bold transition-all duration-300
+             text-gray-700 dark:text-gray-300
+             has-[:checked]:bg-primary
+             has-[:checked]:text-secondary
+             has-[:checked]:shadow-glow-gold"
+    >
+      Log In
+      <input checked id="tab-login" type="radio" name="auth_tab" class="hidden">
+    </label>
+
+    <!-- SIGN UP -->
+    <label
+      class="flex-1 flex items-center justify-center cursor-pointer rounded-lg
+             font-bold transition-all duration-300
+             text-gray-700 dark:text-gray-300
+             has-[:checked]:bg-primary
+             has-[:checked]:text-secondary
+             has-[:checked]:shadow-glow-gold"
+    >
+      Sign Up
+      <input id="tab-signup" type="radio" name="auth_tab" class="hidden">
+    </label>
+
+  </div>
+</div>
 
       <!-- Content -->
       <div class="overflow-y-auto flex-1 px-8 pb-6">
@@ -1046,6 +1344,9 @@ Terms of Service
       class="w-full h-12 bg-primary text-black rounded-xl font-bold">
       Sign Up
     </button>
+    <p id="authNotice" class="hidden mt-2 text-sm text-red-500 font-medium text-center">
+      Please use Google Sign-In for faster access.
+    </p>
   </form>
 </div>
 

@@ -202,7 +202,17 @@ window.CONTACT_CONFIG = {
     tiktok: "https://www.tiktok.com/@hirahattar"
   }
 };
+// ================= CONTACT US PAGE FIX =================
+document.addEventListener("DOMContentLoaded", () => {
+  const emailEl = document.getElementById("contact-email");
+  if (!emailEl) return;
 
+  // ✅ Pick ONE email explicitly
+  const email = window.CONTACT_CONFIG.email.support;
+
+  emailEl.textContent = email;
+  emailEl.href = `mailto:${email}`;
+});
 // ================= WHATSAPP FLOAT BUTTON (TEMP) =================
 // ================= WHATSAPP FLOAT BUTTON (DRAGGABLE) =================
 
@@ -331,3 +341,30 @@ function createWhatsAppButton() {
 }
 
 document.addEventListener("DOMContentLoaded", createWhatsAppButton);
+
+
+/* ================= TEMP AUTH BLOCK ================= */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const notice = document.getElementById("authNotice");
+
+  // Block Email Signup
+  const signupBtn = document.getElementById("signupBtn");
+  if (signupBtn) {
+    signupBtn.onclick = (e) => {
+      e.preventDefault();
+      if (notice) notice.classList.remove("hidden");
+    };
+  }
+
+  // Block Facebook Login
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.textContent.trim() === "Facebook") {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        if (notice) notice.classList.remove("hidden");
+      };
+    }
+  });
+
+});
