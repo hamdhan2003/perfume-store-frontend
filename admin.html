@@ -8542,4 +8542,11 @@ function globalModal() {
     </div>
   </div>
 </div>
+<script>
+  function resolveProductImage(img) {
+  if (!img) return "/assets/placeholder-product.png";
+  if (img.startsWith("http")) return img;
+  return `${API_BASE_URL}/${img}`;
+}
+</script>
 </body></html>
