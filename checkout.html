@@ -973,7 +973,7 @@ const res = await fetch(url, {
   <div class="flex items-center gap-4 mb-6">    <div class="w-20 h-24 flex-shrink-0 overflow-hidden rounded-lg border border-gray-200 dark:border-white/10">
       <img
         class="w-full h-full object-cover"
-        :src="product.images?.[0] || '/placeholder.png'"
+       :src= "product.images?.[0] || '/placeholder.png'"
         alt="Product image"      />
     </div>
 
