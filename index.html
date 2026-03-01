@@ -449,7 +449,7 @@ z-index:9999;
 <section 
   class="relative flex h-[90vh] min-h-[600px] w-full items-center justify-center 
          overflow-hidden bg-gradient-to-br from-black/0 to-black/0 
-         dark:from-black/0 dark:to-black/0" 
+         dark:from-black/0 dark:to-black/0 "
   id="home"
 >
 
@@ -515,156 +515,161 @@ z-index:9999;
 
 
 <section
-  class="py-20 md:py-28"
-  id="shop"
+class="py-20 md:py-28 reveal-section"  id="shop"
   x-data
   x-init="$store.shop.loadInitial()"
 >
-<div class="container mx-auto px-4 md:px-8 text-center">
-<h2 class="text-3xl md:text-4xl font-display font-bold text-light-text dark:text-accent">Signature Collections</h2>
-<p class="mt-3 max-w-xl mx-auto text-light-text/70 dark:text-dark-text/70">A curated selection of our finest attars, available for wholesale.</p>
+  <div class="container mx-auto px-4 md:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-light-text dark:text-accent">
+      Signature Collections
+    </h2>
 
-<div class="flex justify-center gap-4 mt-8">
-  <button
-    class="px-6 py-2 rounded-full border font-semibold transition"
-    :class="$store.shop.filter === 'normal'
-      ? 'bg-bronze text-white'
-      : 'border-bronze text-bronze'"
-    @click="$store.shop.setFilter('normal')"
-  >
-    Normal
-  </button>
+    <p class="mt-3 max-w-xl mx-auto text-light-text/70 dark:text-dark-text/70">
+      A curated selection of our finest attars, available for wholesale.
+    </p>
 
-  <button
-    class="px-6 py-2 rounded-full border font-semibold transition"
-    :class="$store.shop.filter === 'original'
-      ? 'bg-bronze text-white'
-      : 'border-bronze text-bronze'"
-    @click="$store.shop.setFilter('original')"
-  >
-    Original
-  </button>
-</div>
+    <!-- FILTER BUTTONS -->
+    <div class="flex justify-center gap-4 mt-8">
+      <button
+        class="px-6 py-2 rounded-full border font-semibold transition"
+        :class="$store.shop.filter === 'normal'
+          ? 'bg-bronze text-white'
+          : 'border-bronze text-bronze'"
+        @click="$store.shop.setFilter('normal')"
+      >
+        Normal
+      </button>
 
+      <button
+        class="px-6 py-2 rounded-full border font-semibold transition"
+        :class="$store.shop.filter === 'original'
+          ? 'bg-bronze text-white'
+          : 'border-bronze text-bronze'"
+        @click="$store.shop.setFilter('original')"
+      >
+        Original
+      </button>
+    </div>
 
+<!-- ✅ PRODUCT GRID (SAFE REVEAL) -->
 <div
-  class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+  class="
+    mt-12
+    grid
+    grid-cols-2
+    gap-5
+    sm:grid-cols-2
+    lg:grid-cols-4
+  "
 >
-<template x-for="product in $store.shop.products" :key="product._id">
-  <div
-    class="relative overflow-hidden rounded-xl shadow-lg
+  <template x-for="(product, index) in $store.shop.products" :key="product._id">
+    <div
+    class="stagger relative overflow-hidden rounded-xl shadow-lg
            border border-bronze/10 dark:border-primary/20
            dark:bg-secondary/50"
   >
+  
 
-    <!-- IMAGE -->
-    <img
-    class="w-full h-72 object-cover"
-    :src="product.images?.[0] || '/placeholder.png'"
-    alt="Product image"
-  />
+      <!-- IMAGE -->
+      <img
+        class="w-full h-56 md:h-72 object-cover"
+        :src="product.images?.[0] || '/placeholder.png'"
+        alt="Product image"
+      />
 
-    <!-- CONTENT -->
-    <div class="p-6 text-center">
+      <!-- CONTENT -->
+      <div class="p-6 text-center">
+        <h3
+          class="text-xl font-display font-bold text-light-text dark:text-white"
+          x-text="product.name"
+        ></h3>
 
-      <h3
-        class="text-xl font-display font-bold text-light-text dark:text-white"
-        x-text="product.name"
-      ></h3>
+        <p
+          class="text-sm font-semibold text-bronze dark:text-primary mt-1"
+          x-text="product.quality"
+        ></p>
 
-      <!-- QUALITY -->
-      <p
-        class="text-sm font-semibold text-bronze dark:text-primary mt-1"
-        x-text="product.quality"
-      ></p>
+        <p
+          class="text-sm text-light-text/70 dark:text-dark-text/70 mt-2 line-clamp-3"
+          x-text="product.description"
+        ></p>
 
-      <!-- DESCRIPTION -->
-      <p
-        class="text-sm text-light-text/70 dark:text-dark-text/70 mt-2
-               line-clamp-3"
-        x-text="product.description"
-      ></p>
-
-      <!-- VIEW PRODUCT BUTTON (ALWAYS VISIBLE) -->
-      <button
-        class="mt-5 inline-flex items-center justify-center
-               rounded-full
-               bg-bronze dark:bg-primary
-               px-6 py-2.5
-               text-sm font-semibold
-               text-white dark:text-secondary
-               transition-all duration-300 ease-in-out
-               hover:shadow-glow-gold hover:scale-105
-               active:scale-95"
-        @click="window.location.href = `product.html?id=${product._id}&slug=${product.slug}`"
-      >
-        View Product
-        <span class="material-symbols-outlined ml-2 text-sm transition-transform duration-300 group-hover:translate-x-1">
-          arrow_forward
-        </span>
-      </button>
-
+        <button
+          class="mt-5 inline-flex items-center justify-center
+                 rounded-full
+                 bg-bronze dark:bg-primary
+                 px-6 py-2.5
+                 text-sm font-semibold
+                 text-white dark:text-secondary
+                 transition-all duration-300 ease-in-out
+                 hover:shadow-glow-gold hover:scale-105
+                 active:scale-95"
+          @click="window.location.href = `product.html?id=${product._id}&slug=${product.slug}`"
+        >
+          View Product
+          <span class="material-symbols-outlined ml-2 text-sm">
+            arrow_forward
+          </span>
+        </button>
+      </div>
     </div>
+  </template>
+</div>
   </div>
-</template>
-</div>
 
-</div>
-<div class="text-center py-12">
-  <button
-    @click="window.location.href='ProductListed.html'"
-    class="group mt-8 inline-flex items-center justify-center rounded-full
-           bg-transparent px-8 py-3 text-lg font-semibold
-           text-bronze dark:text-primary
-           border-2 border-bronze dark:border-primary
-           transition-all duration-300 ease-in-out
-           hover:bg-bronze hover:text-white
-           dark:hover:bg-primary dark:hover:text-secondary
-           hover:shadow-lg dark:hover:shadow-glow-gold"
-  >
-    Explore More
-  </button>
-</div>
+  <!-- EXPLORE MORE -->
+  <div class="text-center py-12">
+    <button
+      @click="window.location.href='ProductListed.html'"
+      class="group mt-8 inline-flex items-center justify-center rounded-full
+             bg-transparent px-8 py-3 text-lg font-semibold
+             text-bronze dark:text-primary
+             border-2 border-bronze dark:border-primary
+             transition-all duration-300 ease-in-out
+             hover:bg-bronze hover:text-white
+             dark:hover:bg-primary dark:hover:text-secondary
+             hover:shadow-lg dark:hover:shadow-glow-gold"
+    >
+      Explore More
+    </button>
+  </div>
 
-<script>
-  document.addEventListener("alpine:init", () => {
-    Alpine.store("shop", {
-      products: [],
-      filter: "normal", // default
-  
-      async loadInitial() {
-        this.products = [];
-  
-        const res = await fetch(
-          `https://perfume-store-production.up.railway.app/api/products?quality=${this.filter}`
-        );
-        const data = await res.json();
-  
-        if (!data.success) return;
-  
-        // ✅ RANDOMIZE
-        const shuffled = data.products
-          .filter(p => p.active !== false)
-          .sort(() => 0.5 - Math.random());
-  
-        // ✅ TAKE ONLY 4
-        this.products = shuffled.slice(0, 4);
-      },
-  
-      setFilter(type) {
-        if (this.filter === type) return;
-        this.filter = type;
-        this.loadInitial();
-      }
+  <!-- STORE -->
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.store("shop", {
+        products: [],
+        filter: "normal",
+
+        async loadInitial() {
+          this.products = [];
+
+          const res = await fetch(
+            `https://perfume-store-production.up.railway.app/api/products?quality=${this.filter}`
+          );
+          const data = await res.json();
+          if (!data.success) return;
+
+          const shuffled = data.products
+            .filter(p => p.active !== false)
+            .sort(() => 0.5 - Math.random());
+
+          this.products = shuffled.slice(0, 4);
+        },
+
+        setFilter(type) {
+          if (this.filter === type) return;
+          this.filter = type;
+          this.loadInitial();
+        }
+      });
     });
-  });
   </script>
-  
-  
-  
+
+
+
 </section>
-<section class="py-20 md:py-28 bg-white/50 dark:bg-secondary/30" id="about">
-<div class="container mx-auto px-4 md:px-8">
+<section class="py-20 md:py-28 bg-white/50 dark:bg-secondary/30 reveal-section" id="about"><div class="container mx-auto px-4 md:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 <div class="grid grid-cols-2 gap-4">
 <img alt="Perfume distillation equipment" class="rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoUHZZ7vkVVRRbmoFUxBO0S3gXvc2krhXuwTFnEglpL2y7Smzdz2GIwQYmCthxKN_qItPCOlhKAx5qItpZdGx_asG9Tb3CNNz8G3NHFd_FjHCR83lXpcvcrgz3k_loiGUFUnwOxfgbi0dQN7OifxB7byXmkPIP4UO8tJcGHR2P6YqO0Ls5bCiZeDJYCxbgShsMNZT4hk7Gfx9IPyliy7oCf1i-Oz3OV9uPs6F0QaqlGTXXIif1rIwYSO4wrZCqnB0OuZDbOYiJd4U3"/>
@@ -681,7 +686,11 @@ Read More
 </div>
 </div>
 </section>
-<section class="py-20 md:py-28" id="testimonials" x-data="featuredReviews()" x-init="load()">
+<section
+class="py-20 md:py-28 reveal-section"  id="testimonials"
+  x-data="featuredReviews()"
+  x-init="load()"
+>
   <div class="container mx-auto px-4 md:px-8 text-center">
     <h2 class="text-3xl md:text-4xl font-display font-bold">
       Loved by Fragrance Experts
@@ -691,26 +700,44 @@ Read More
       Hear what our valued wholesale partners have to say.
     </p>
 
-    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <template x-for="r in reviews" :key="r.comment">
-        <div class="bg-accent dark:bg-secondary/80 p-8 rounded-xl shadow-lg border">
-          <div class="flex items-center justify-center mb-4">
-            <span class="text-primary text-2xl" x-text="'★'.repeat(r.rating)"></span>
-          </div>
+    <!-- VIEWPORT -->
+    <div class="mt-12 overflow-hidden relative">
+      <!-- TRACK -->
+      <div
+        class="flex gap-6 transition-transform duration-700 ease-in-out"
+        x-ref="track"
+        style="will-change: transform"
+      >
+        <template x-for="r in loopedReviews" :key="r._key">
+          <div
+            class="reveal-item opacity-0
+                   min-w-[90%] sm:min-w-[60%] md:min-w-[32%]
+                   bg-accent dark:bg-secondary/80
+                   p-8 rounded-xl shadow-lg border"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <span
+                class="text-primary text-2xl"
+                x-text="'★'.repeat(r.rating)"
+              ></span>
+            </div>
 
-          <p class="italic" x-text="`“${r.comment}”`"></p>
+            <p class="italic" x-text="`“${r.comment}”`"></p>
 
-          <div class="mt-6 flex items-center justify-center">
-            
-            <img :src="r.userAvatar" class="w-12 h-12 rounded-full object-cover" />
-            
-            <div class="ml-4 text-left">
-              <p class="font-bold" x-text="r.userName"></p>
-              <p class="text-sm opacity-60" x-text="r.location"></p>
+            <div class="mt-6 flex items-center justify-center">
+              <img
+                :src="r.userAvatar"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+
+              <div class="ml-4 text-left">
+                <p class="font-bold" x-text="r.userName"></p>
+                <p class="text-sm opacity-60" x-text="r.location"></p>
+              </div>
             </div>
           </div>
-        </div>
-      </template>
+        </template>
+      </div>
     </div>
   </div>
 </section>
@@ -719,25 +746,72 @@ Read More
 function featuredReviews() {
   return {
     reviews: [],
+    loopedReviews: [],
+    index: 0,
+    cardWidth: 0,
+    interval: null,
 
     async load() {
-      const res = await fetch("https://perfume-store-production.up.railway.app/api/products/reviews/featured");
+      const res = await fetch(
+        "https://perfume-store-production.up.railway.app/api/products/reviews/featured"
+      );
       const data = await res.json();
-      if (data.success) this.reviews = data.reviews;
+      if (!data.success) return;
+
+      this.reviews = data.reviews;
+
+      // clone for infinite loop
+      this.loopedReviews = [
+        ...this.reviews.map((r, i) => ({ ...r, _key: `o-${i}` })),
+        ...this.reviews.map((r, i) => ({ ...r, _key: `c-${i}` }))
+      ];
+
+      this.$nextTick(() => {
+        const first = this.$refs.track.children[0];
+        if (!first) return;
+
+        this.cardWidth = first.offsetWidth + 24;
+        this.start();
+        observeReveals(this.$el);
+      });
+    },
+
+    start() {
+      this.interval = setInterval(() => {
+        this.index++;
+        this.$refs.track.style.transition = "transform 0.7s ease-in-out";
+        this.$refs.track.style.transform =
+          `translateX(-${this.index * this.cardWidth}px)`;
+
+        // reset silently when hitting clone zone
+        if (this.index === this.reviews.length) {
+          setTimeout(() => {
+            this.$refs.track.style.transition = "none";
+            this.index = 0;
+            this.$refs.track.style.transform = "translateX(0)";
+          }, 700);
+        }
+      }, 4000);
     }
   };
 }
 </script>
-<section class="container mx-auto px-4 md:px-8 relative z-20 py-24">
+<section class="container mx-auto px-4 md:px-8 relative z-20 py-24 reveal-section">
   <h2 class="text-5xl font-display font-bold mb-20 text-center">
     Featured Stories
   </h2>
 
-  <div
-    id="featuredBlogsGrid"
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16"
-  ></div>
+  <!-- VIEWPORT -->
+  <div class="overflow-hidden relative">
+    <!-- TRACK -->
+    <div
+      id="featuredBlogsTrack"
+      class="flex gap-6 transition-transform duration-700 ease-in-out"
+      style="will-change: transform"
+    ></div>
+  </div>
 </section>
+
 <script>
   /* ---------- helpers ---------- */
   function imageUrl(path) {
@@ -745,109 +819,135 @@ function featuredReviews() {
     return `https://perfume-store-production.up.railway.app/${path}`;
   }
 
-  /* ---------- animation observer (same as Blogs page logic) ---------- */
+  /* ---------- reveal animation (global) ---------- */
   let revealObserver;
 
   function initRevealObserver() {
     if (revealObserver) return;
 
-    revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-reveal-up");
-            entry.target.style.opacity = "1";
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+    revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-reveal-up");
+          entry.target.style.opacity = "1";
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
   }
 
   function observeReveals(scope = document) {
     initRevealObserver();
-    scope.querySelectorAll(".opacity-0").forEach(el => {
+    scope.querySelectorAll(".reveal-item").forEach(el => {
       revealObserver.observe(el);
     });
   }
 
-  /* ---------- blog card (MATCHES Blogs page) ---------- */
+  /* ---------- blog card ---------- */
   function blogCard(blog) {
     return `
 <article
-  class="group flex flex-col rounded-3xl p-6
+  class="reveal-item opacity-0 min-w-[85%] sm:min-w-[60%] lg:min-w-[32%]
+         group flex flex-col rounded-3xl p-6
          border border-primary/20
          bg-[#FBF6EE] dark:bg-dark-surface
-         shadow-sm hover:shadow-xl
-         transition opacity-0"
+         shadow-sm hover:shadow-xl transition"
 >
-  <!-- IMAGE -->
-  <div
-    class="blog-card-border relative overflow-hidden rounded-2xl mb-10 aspect-[16/10]"
-  >
+  <div class="blog-card-border relative overflow-hidden rounded-2xl mb-10 aspect-[16/10]">
     <img
       src="${imageUrl(blog.mainImage)}"
       alt="${blog.title}"
-      class="w-full h-full object-cover
-             transition-transform duration-1000
-             group-hover:scale-110"
+      class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
     />
   </div>
 
-  <!-- META -->
-  <div
-    class="flex items-center gap-4 text-[11px]
-           text-bronze font-bold mb-6
-           uppercase tracking-[0.25em]"
-  >
+  <div class="flex items-center gap-4 text-[11px] text-bronze font-bold mb-6 uppercase tracking-[0.25em]">
     <span>${new Date(blog.createdAt).toLocaleDateString()}</span>
     <span class="h-1 w-1 rounded-full bg-primary/40"></span>
     <span>${blog.readingTime || 1} MIN READ</span>
   </div>
 
-  <!-- TITLE -->
-  <h3
-    class="text-3xl font-display font-bold mb-8
-           leading-tight group-hover:text-primary
-           transition-colors"
-  >
+  <h3 class="text-3xl font-display font-bold mb-8 leading-tight group-hover:text-primary transition-colors">
     ${blog.title}
   </h3>
 
-  <!-- BUTTON (FIXED LOOK) -->
-  <a
-    href="blogsread.html?slug=${blog.slug}"
-    class="mt-auto fill-btn w-fit relative z-10"
-  >
+  <a href="blogsread.html?slug=${blog.slug}" class="mt-auto fill-btn w-fit relative z-10">
     Read More
   </a>
 </article>`;
   }
 
+  /* ---------- infinite slider ---------- */
+  let index = 0;
+  let cardWidth = 0;
+  let slideInterval;
+
+  function startInfiniteSlider(track, visibleCount) {
+    slideInterval = setInterval(() => {
+      index++;
+      track.style.transition = "transform 0.7s ease-in-out";
+      track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+      // when reaching clone zone
+      if (index === visibleCount) {
+        setTimeout(() => {
+          track.style.transition = "none";
+          index = 0;
+          track.style.transform = "translateX(0)";
+        }, 700);
+      }
+    }, 4000);
+  }
+
   /* ---------- loader ---------- */
   async function loadFeaturedBlogsHome() {
-    const grid = document.getElementById("featuredBlogsGrid");
-    if (!grid) return;
+    const track = document.getElementById("featuredBlogsTrack");
+    if (!track) return;
 
-    const res = await fetch("https://perfume-store-production.up.railway.app/api/blogs/published");
+    const res = await fetch(
+      "https://perfume-store-production.up.railway.app/api/blogs/published"
+    );
     const data = await res.json();
 
     const featured = data.blogs.filter(b => b.featured == true);
+    track.innerHTML = "";
 
-    grid.innerHTML = "";
+    // render originals
     featured.forEach(blog => {
-      grid.insertAdjacentHTML("beforeend", blogCard(blog));
+      track.insertAdjacentHTML("beforeend", blogCard(blog));
     });
 
-    // 🔥 apply reveal animation AFTER insert
-    observeReveals(grid);
+    // clone first cards for looping
+    featured.forEach(blog => {
+      track.insertAdjacentHTML("beforeend", blogCard(blog));
+    });
+
+    requestAnimationFrame(() => {
+      const firstCard = track.children[0];
+      if (!firstCard) return;
+
+      cardWidth = firstCard.offsetWidth + 24;
+      startInfiniteSlider(track, featured.length);
+    });
+
+    observeReveals(track);
   }
 
   document.addEventListener("DOMContentLoaded", loadFeaturedBlogsHome);
 </script>
+
 <style>
-  /* ---------- button (Blogs page exact behavior) ---------- */
+  /* ---------- reveal animation ---------- */
+  .animate-reveal-up {
+    animation: revealUp 0.8s ease forwards;
+  }
+
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- button ---------- */
   .fill-btn {
     position: relative;
     overflow: hidden;
@@ -873,25 +973,15 @@ function featuredReviews() {
     z-index: -1;
   }
 
-  .fill-btn:hover::before {
-    transform: scaleX(1);
-  }
+  .fill-btn:hover::before { transform: scaleX(1); }
+  .fill-btn:hover { color: #1a1a1a; }
 
-  .fill-btn:hover {
-    color: #1a1a1a;
-  }
-
-  /* ---------- blog card border glow ---------- */
-  .blog-card-border {
-    position: relative;
-  }
-
+  /* ---------- border glow ---------- */
   .blog-card-border::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    pointer-events: none;
     background: linear-gradient(
       135deg,
       rgba(200,155,63,0.45),
@@ -902,13 +992,11 @@ function featuredReviews() {
     transition: opacity 0.5s ease;
   }
 
-  .group:hover .blog-card-border::after {
-    opacity: 1;
-  }
+  .group:hover .blog-card-border::after { opacity: 1; }
 </style>
 
     
-<section class="py-20 md:py-28 bg-gradient-to-tr from-bronze/10 to-accent dark:from-primary/10 dark:to-secondary" id="contact">
+<section class="py-20 md:py-28 bg-gradient-to-tr from-bronze/10 to-accent dark:from-primary/10 dark:to-secondary reveal-section" id="contact">
 <div class="container mx-auto px-4 md:px-8 text-center">
 <h2 class="text-3xl md:text-4xl font-display font-bold text-light-text dark:text-accent">Join Our Fragrance Circle</h2>
 <p class="mt-3 max-w-xl mx-auto text-light-text/70 dark:text-dark-text/70">Receive exclusive updates, new collection announcements, and wholesale opportunities.</p>
@@ -1450,7 +1538,55 @@ async function verifyOTP() {
 </script>
 
 
-  
+<script>
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-visible");
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll(".reveal-section")
+      .forEach(sec => sectionObserver.observe(sec));
+  });
+</script>
+
+<style>
+  .reveal-section {
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal-section.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* stagger children automatically */
+  .reveal-section .stagger {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .reveal-section.section-visible .stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-section.section-visible .stagger:nth-child(1) { transition-delay: 0.1s }
+  .reveal-section.section-visible .stagger:nth-child(2) { transition-delay: 0.2s }
+  .reveal-section.section-visible .stagger:nth-child(3) { transition-delay: 0.3s }
+  .reveal-section.section-visible .stagger:nth-child(4) { transition-delay: 0.4s }
+</style>
   <script>
     function toggleTheme() {
       const html = document.documentElement;

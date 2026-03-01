@@ -645,6 +645,7 @@ document.addEventListener("alpine:init", () => {
 
 <section
   id="product-grid"
+  class="reveal-section"
   x-data
   x-init="$store.catalog.init()"
 >
@@ -657,14 +658,22 @@ document.addEventListener("alpine:init", () => {
   </h2>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
+<div
+  :class="{
+    'grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4': $store.catalog.filteredProducts().length !== 1,
+    'flex justify-center': $store.catalog.filteredProducts().length === 1
+  }"
+>
   <template x-for="product in $store.catalog.filteredProducts()" :key="product._id">
     <div
-      class="relative overflow-hidden rounded-xl shadow-lg
-             border border-bronze/10 dark:border-primary/20
-             dark:bg-secondary/50"
-    >
+    class="stagger relative overflow-hidden rounded-xl shadow-lg
+           border border-bronze/10 dark:border-primary/20
+           dark:bg-secondary/50
+           transition-all duration-500"
+    :class="$store.catalog.filteredProducts().length === 1
+      ? 'w-full max-w-xl'
+      : 'w-full'"
+  >
   
       <!-- IMAGE -->
       <img
