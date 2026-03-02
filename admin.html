@@ -2034,13 +2034,8 @@ x-text="user.status.charAt(0).toUpperCase() + user.status.slice(1)"
       <td class="p-4 flex items-center gap-3">
         <img
   class="w-12 h-12 rounded-lg object-cover border"
-  :src="
-    item.image &&
-    !item.image.includes('undefined')
-      ? item.image
-      : '/placeholder.png'
-  "
-  alt="Product image"
+  :src= "product.images?.[0] || '/placeholder.png'"
+  alt="Product"
 />
         <span class="font-semibold" x-text="item.name"></span>
       </td>

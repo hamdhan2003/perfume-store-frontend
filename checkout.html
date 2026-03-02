@@ -609,26 +609,28 @@ x-init="loadCart()">
 
 
 </div>
-<script>
-  async function fakePayment(orderId) {
-    const token = localStorage.getItem("token");
-  
-    const res = await fetch(`https://perfume-store-production.up.railway.app/api/orders/${orderId}/pay`, {
-      method: "PUT",
+
+  <script>
+    if (payNow) {
+  const res = await fetch(
+    "https://yourbackend/api/orders/create-checkout-session",
+    {
+      method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
-      }
-    });
-  
-    const data = await res.json();
-  
-    if (!data.success) {
-      alert("Payment failed");
-      throw new Error("Payment failed");
+      },
+      body: JSON.stringify({ orderId })
     }
+  );
+
+  const data = await res.json();
+
+  if (data.url) {
+    window.location.href = data.url;
   }
+}
   </script>
-  
   
   <script>
     async function placeOrder(mode = "LATTER_SAVE") {
@@ -854,11 +856,11 @@ const res = await fetch(url, {
         // FLOW CONTROL
         // ===============================
     
-        // ONLINE – PAY NOW (FAKE)
         if (payNow) {
-          await fakePayment(orderId);
-          window.location.href = `success.html?orderId=${orderId}&method=online`;
-        }
+  alert("Online payment gateway not configured yet.");
+  return;
+}
+
     
         // COD – DIRECT SUCCESS
         else if (paymentMethod === "cash") {
