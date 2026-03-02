@@ -25,6 +25,10 @@
             --input-bg: rgba(255, 255, 255, 0.03);
             --glow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
+        body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
         .light {
             --bg-color: var(--cream);
             --text-color: #2D241E;
@@ -702,7 +706,8 @@ else if (mode === "ONLINE_PAY_NOW") {
           size: item.size,
           qty: Number(item.qty),
           unitPrice: Number(item.price),
-          variant: item.variant
+          variant: item.variant,
+          image: item.image
         }));
 
 
@@ -972,9 +977,7 @@ const res = await fetch(url, {
 <template x-for="item in items" :key="item.productId + item.size">
   <div class="flex items-center gap-4 mb-6">    <div class="w-20 h-24 flex-shrink-0 overflow-hidden rounded-lg border border-gray-200 dark:border-white/10">
       <img
-        class="w-full h-full object-cover"
-       :src= "product.images?.[0] || '/placeholder.png'"
-        alt="Product image"      />
+      :src="item.image || '/placeholder.png'"      alt="Product image"   />
     </div>
 
     <div class="flex-grow">
