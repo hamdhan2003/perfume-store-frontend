@@ -348,14 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const notice = document.getElementById("authNotice");
 
-  // Block Email Signup
-  const signupBtn = document.getElementById("signupBtn");
-  if (signupBtn) {
-    signupBtn.onclick = (e) => {
-      e.preventDefault();
-      if (notice) notice.classList.remove("hidden");
-    };
-  }
+
 
   // Block Facebook Login
   document.querySelectorAll("button").forEach(btn => {
