@@ -670,9 +670,9 @@ document.addEventListener("alpine:init", () => {
            border border-bronze/10 dark:border-primary/20
            dark:bg-secondary/50
            transition-all duration-500"
-    :class="$store.catalog.filteredProducts().length === 1
-      ? 'w-full max-w-xl'
-      : 'w-full'"
+           :class="$store.catalog.filteredProducts().length === 1
+           ? 'w-full sm:w-[70%] lg:w-[40%]'
+           : 'w-full'"
   >
   
       <!-- IMAGE -->

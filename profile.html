@@ -2015,7 +2015,12 @@ async function payOrder(orderId) {
       return;
     }
 
-    // 🔒 HARD GATE: only open modal AFTER backend confirms delivered
+    console.log("✅ Order marked received. reviewQueue:", data.reviewQueue);
+
+    // Always reset modal state before attempting to open
+    reviewState.open = false;
+
+    // Open review modal if there are unreviewed items
     if (
       data.reviewQueue &&
       Array.isArray(data.reviewQueue) &&
@@ -2023,9 +2028,11 @@ async function payOrder(orderId) {
     ) {
       const cleanQueue = data.reviewQueue
         .filter(q => q.reviewed === false)
-        .map(q => ({ id: q.productId }));
+        .map(q => ({ id: String(q.productId) }));
 
+      console.log("📝 Hydrating review queue:", cleanQueue);
       const hydrated = await hydrateQueue(cleanQueue);
+      console.log("📝 Hydrated:", hydrated);
 
       openReviewModal(hydrated, orderId);
     }
@@ -2077,19 +2084,37 @@ function tryOpenReviewModal() {
       };
     
       function openReviewModal(queue, orderId, startIndex = 0) {
-  if (reviewState.open === true) return;
-  if (!Array.isArray(queue) || queue.length === 0) return;
-  if (!orderId) return;
+  // Always reset first — never block on stale state
+  reviewState.open    = false;
+  reviewState.queue   = [];
+  reviewState.index   = 0;
+  reviewState.rating  = 0;
+  reviewState.comment = "";
+  reviewState.orderId = null;
 
-  reviewState.open = true;
-  reviewState.queue = queue;
-  reviewState.index = startIndex;
-  reviewState.rating = 0;
+  if (!Array.isArray(queue) || queue.length === 0) {
+    console.log("📝 Review queue is empty — modal not opened");
+    return;
+  }
+  if (!orderId) {
+    console.warn("📝 openReviewModal: no orderId");
+    return;
+  }
+
+  reviewState.open    = true;
+  reviewState.queue   = queue;
+  reviewState.index   = startIndex;
+  reviewState.rating  = 0;
   reviewState.comment = "";
   reviewState.orderId = orderId;
 
   renderReview();
-  document.getElementById("reviewModal").classList.remove("hidden");
+  const modal = document.getElementById("reviewModal");
+  if (modal) {
+    modal.classList.remove("hidden");
+  } else {
+    console.error("📝 #reviewModal element not found in DOM");
+  }
 }
 
 

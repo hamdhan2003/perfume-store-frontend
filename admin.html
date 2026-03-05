@@ -144,6 +144,7 @@
         .drag-handle:active { cursor: grabbing; }
     </style>
 <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script defer="" src="https://unpkg.com/sortablejs@1.15.0/Sortable.min.js"></script>
 <script>
 (function () {
@@ -5108,6 +5109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </button>
     </div>
 
+
     <!-- Content -->
     <div
       class="p-6 space-y-10"
@@ -5115,7 +5117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     >
 
 <!-- STATUS BAR -->
-<div class="flex flex-wrap gap-3">
+<div class="flex flex-wrap gap-3 items-center">
 
  <!-- ORDER STATUS -->
 <span
@@ -5157,6 +5159,18 @@ x-text="$store.orders.selectedOrder.orderStatus">
     Payment:
     <span x-text="$store.orders.selectedOrder.paymentStatus"></span>
   </span>
+
+  <!-- MARK AS DELIVERED (Admin – visible only for shipped orders) -->
+  <button
+    x-show="$store.orders.selectedOrder.orderStatus === 'shipped'"
+    @click="adminMarkDelivered($store.orders.selectedOrder._id)"
+    class="ml-auto px-4 py-1.5 rounded-full text-xs font-bold
+           bg-green-600 hover:bg-green-700 text-white transition-colors
+           flex items-center gap-1"
+  >
+    <span class="material-symbols-outlined text-sm">inventory_2</span>
+    Mark as Delivered
+  </button>
 
 </div>
 
@@ -5438,7 +5452,19 @@ x-text="$store.orders.selectedOrder.orderStatus">
     </div>
 
     <!-- Footer -->
-    <div class="p-6 border-t border-gray-200 dark:border-[#3b4754] flex justify-end">
+    <div class="p-6 border-t border-gray-200 dark:border-[#3b4754] flex justify-between items-center gap-3">
+      <!-- Print PNG button -->
+      <button
+        id="printOrderBtn"
+        @click="printOrderModal()"
+        class="flex items-center gap-2 px-5 py-2 rounded-lg
+               bg-[#C89B3F] hover:bg-[#b8893a] text-white text-sm font-semibold
+               transition-colors shadow-sm"
+      >
+        <span class="material-symbols-outlined text-base">print</span>
+        Print PNG
+      </button>
+
       <button
         @click="$store.orders.closeDetails()"
         class="px-6 py-2 rounded-lg bg-gray-200 dark:bg-[#283039] text-sm font-medium">
@@ -5448,6 +5474,123 @@ x-text="$store.orders.selectedOrder.orderStatus">
 
   </div>
 </div>
+
+
+<!-- ======== PRINT ORDER FUNCTION + ADMIN DELIVER ======== -->
+<script>
+// ── Print PNG: capture the full order drawer and trigger browser print ──────
+function printOrderModal() {
+  // Find the scrollable drawer panel (the white/dark panel inside the modal)
+  const drawer = document.querySelector(
+    '[x-show="$store.orders.orderDetailsModalOpen"] .overflow-y-auto'
+  );
+
+  if (!drawer) {
+    alert("Could not find order modal content to print.");
+    return;
+  }
+
+  // Remember scroll position
+  const scrollTop = drawer.scrollTop;
+  drawer.scrollTop = 0;
+
+  const btn = document.getElementById("printOrderBtn");
+  if (btn) btn.style.display = "none";
+
+  html2canvas(drawer, {
+    scale:         2,
+    useCORS:       true,
+    allowTaint:    true,
+    scrollY:       0,
+    height:        drawer.scrollHeight,
+    windowHeight:  drawer.scrollHeight,
+    logging:       false
+  }).then(canvas => {
+    // Restore
+    if (btn) btn.style.display = "";
+    drawer.scrollTop = scrollTop;
+
+    const imgData = canvas.toDataURL("image/png");
+
+    // Open print window
+    const printWin = window.open("", "_blank");
+    if (!printWin) {
+      alert("Pop-up blocked. Please allow pop-ups for this site.");
+      return;
+    }
+
+    printWin.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Order Print</title>
+        <style>
+          body { margin: 0; padding: 0; background: #fff; }
+          img  { width: 100%; height: auto; display: block; }
+          @media print {
+            body { margin: 0; }
+            img  { width: 100%; }
+          }
+        </style>
+      </head>
+      <body>
+        <img src="${imgData}" alt="Order Details" />
+        <script>window.onload = function() { window.print(); };<\/script>
+      </body>
+      </html>
+    `);
+    printWin.document.close();
+
+  }).catch(err => {
+    if (btn) btn.style.display = "";
+    drawer.scrollTop = scrollTop;
+    console.error("Print PNG error:", err);
+    alert("Failed to generate PNG. Please try again.");
+  });
+}
+
+// ── Admin: Mark order as Delivered ─────────────────────────────────────────
+async function adminMarkDelivered(orderId) {
+  if (!confirm("Mark this order as Delivered?")) return;
+
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    const res = await fetch(
+      `https://perfume-store-production.up.railway.app/api/orders/${orderId}/received`,
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    );
+
+    const data = await res.json();
+
+    if (!data.success) {
+      alert(data.message || "Failed to mark as delivered");
+      return;
+    }
+
+    // Update the selected order in the Alpine store
+    const store = Alpine.store("orders");
+    if (store && store.selectedOrder) {
+      store.selectedOrder.orderStatus = "delivered";
+    }
+
+    // Refresh the orders table
+    if (typeof store.loadOrders === "function") {
+      store.loadOrders();
+    }
+
+    alert(`Order has been marked as Delivered successfully.`);
+
+  } catch (err) {
+    console.error("adminMarkDelivered error:", err);
+    alert("Network error. Please try again.");
+  }
+}
+</script>
 
 
 <!-- NEW ORDER – CLEAN ADMIN VERSION -->
