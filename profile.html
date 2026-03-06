@@ -2357,17 +2357,22 @@ function tryOpenReviewModal() {
           >
             Your Thoughts
           </label>
-
           <textarea
-            id="reviewComment"
-            oninput="reviewState.comment = this.value"
-
-            class="glass-input w-full rounded-xl p-4 text-accent
-                   placeholder:text-accent/30 focus:ring-1 focus:ring-primary/50
-                   focus:border-primary/50 outline-none resize-none transition-all"
-            placeholder="Write your review here..."
-            rows="4"
-          ></textarea>
+          id="reviewComment"
+          oninput="reviewState.comment = this.value"
+        
+          class="glass-input w-full rounded-xl p-4
+                 bg-white dark:bg-dark-bg
+                 text-light-text dark:text-dark-text
+                 placeholder:text-light-text/40 dark:placeholder:text-dark-text/40
+                 border border-bronze/20 dark:border-primary/20
+                 focus:ring-1 focus:ring-primary/50
+                 focus:border-primary/50
+                 outline-none resize-none transition-all"
+        
+          placeholder="Write your review here..."
+          rows="4"
+        ></textarea>
         </div>
 
         <!-- Buttons -->
