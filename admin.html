@@ -2035,7 +2035,7 @@ x-text="user.status.charAt(0).toUpperCase() + user.status.slice(1)"
       <td class="p-4 flex items-center gap-3">
         <img
   class="w-12 h-12 rounded-lg object-cover border"
-  :src= "product.images?.[0] || '/placeholder.png'"
+  :src="item.images && item.images[0] ? (item.images[0].startsWith('http') ? item.images[0] : 'https://perfume-store-production.up.railway.app/' + item.images[0]) : '/placeholder.png'"
   alt="Product"
 />
         <span class="font-semibold" x-text="item.name"></span>
@@ -3183,10 +3183,15 @@ document.addEventListener('DOMContentLoaded', () => {
               <!-- USER -->
               <td class="px-6 py-4">
   <div class="flex items-center gap-3">
-    <img
-      :src="item.userAvatar"
-      class="w-10 h-10 rounded-full object-cover border border-bronze/20"
-    />
+    <template x-if="item.userAvatar && item.userAvatar !== '/images/user-placeholder.png'">
+      <img
+        :src="item.userAvatar.startsWith('http') ? item.userAvatar : 'https://perfume-store-production.up.railway.app' + item.userAvatar"
+        class="w-10 h-10 rounded-full object-cover border border-bronze/20"
+      />
+    </template>
+    <template x-if="!item.userAvatar || item.userAvatar === '/images/user-placeholder.png'">
+      <div class="w-10 h-10 rounded-full flex items-center justify-center bg-bronze/20 dark:bg-primary/20 text-bronze dark:text-primary font-bold text-lg" x-text="(item.userName || 'U')[0].toUpperCase()"></div>
+    </template>
     <span class="font-semibold text-sm" x-text="item.userName"></span>
   </div>
 </td>
@@ -3301,11 +3306,16 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="p-8 space-y-6 overflow-y-auto">
 
         <div class="flex items-center gap-4">
-          <img
-  :src="selected?.userAvatar"
-  alt="Reviewer"
-  class="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-lg"
-/>
+          <template x-if="selected?.userAvatar && selected.userAvatar !== '/images/user-placeholder.png'">
+            <img
+              :src="selected.userAvatar.startsWith('http') ? selected.userAvatar : 'https://perfume-store-production.up.railway.app' + selected.userAvatar"
+              alt="Reviewer"
+              class="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-lg"
+            />
+          </template>
+          <template x-if="!selected?.userAvatar || selected.userAvatar === '/images/user-placeholder.png'">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-primary/20 text-primary font-bold text-2xl border-2 border-primary shadow-lg" x-text="(selected?.userName || 'U')[0].toUpperCase()"></div>
+          </template>
 
           <div>
             <h4 class="font-bold text-lg" x-text="selected?.userName"></h4>
@@ -5121,7 +5131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  <!-- ORDER STATUS -->
 <span
-class="px-4 py-1 rounded-full text-xs font-bold uppercase"
+class="px-4 py-1 rounded-full text-xs font-bold uppercase inline-block align-middle leading-normal"
 :class="{
   'bg-yellow-100 text-yellow-800': $store.orders.selectedOrder.orderStatus === 'pending',
   'bg-teal-100 text-teal-800': $store.orders.selectedOrder.orderStatus === 'confirmed',
@@ -5137,7 +5147,7 @@ x-text="$store.orders.selectedOrder.orderStatus">
 
 <!-- PAYMENT METHOD -->
 <span
-  class="px-4 py-1 rounded-full text-xs font-bold uppercase"
+  class="px-4 py-1 rounded-full text-xs font-bold uppercase inline-block align-middle leading-normal"
   :class="{
     'bg-gray-100 text-gray-700': $store.orders.selectedOrder.paymentMethod === null,
     'bg-purple-100 text-purple-800': $store.orders.selectedOrder.paymentMethod === 'cash',
@@ -5155,7 +5165,7 @@ x-text="$store.orders.selectedOrder.orderStatus">
 
 
   <!-- PAYMENT STATUS -->
-  <span class="px-4 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
+  <span class="px-4 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 inline-block align-middle leading-normal">
     Payment:
     <span x-text="$store.orders.selectedOrder.paymentStatus"></span>
   </span>
