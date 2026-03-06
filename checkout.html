@@ -611,24 +611,22 @@ x-init="loadCart()">
 </div>
 
   <script>
-    if (payNow) {
-  const res = await fetch(
-    "https://yourbackend/api/orders/create-checkout-session",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify({ orderId })
+    function showOnlinePaymentDisabledMessage() {
+      const btn = event.currentTarget;
+      const original = btn.textContent;
+      btn.textContent = "Online payment not available yet";
+      btn.disabled = true;
+      btn.classList.add("opacity-70", "cursor-not-allowed");
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        btn.classList.remove("opacity-70", "cursor-not-allowed");
+      }, 3000);
     }
-  );
 
-  const data = await res.json();
-
-  if (data.url) {
-    window.location.href = data.url;
-  }
+    if (payNow) {
+  alert("Online payment gateway not configured yet.");
+  return;
 }
   </script>
   
@@ -1048,7 +1046,7 @@ const res = await fetch(url, {
     <div class="space-y-4 mt-8">
       <button
         type="button"
-        onclick="placeOrder('ONLINE_PAY_NOW')"
+        onclick="showOnlinePaymentDisabledMessage()"
                 class="w-full py-5 rounded-xl font-bold uppercase tracking-widest text-sm
                bg-bronze text-white hover:bg-bronze/90 transition-all">
         Pay Now

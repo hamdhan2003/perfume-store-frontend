@@ -1888,7 +1888,7 @@ function getStatusBadge(status) {
   if (order.orderStatus === "shipped") {
     buttons += `
       <button
-        onclick="markReceived('${order._id}')"
+        onclick="showReceiveConfirm('${order._id}')"
         title="Mark as Received"
         class="ml-2 p-2 rounded-full
                bg-green-600 hover:bg-green-700
@@ -2069,6 +2069,67 @@ function tryOpenReviewModal() {
 
   document.addEventListener("DOMContentLoaded", loadMyOrders);
   </script>
+
+<!-- ================= RECEIVE CONFIRMATION MODAL ================= -->
+<div id="receiveConfirmModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+  <!-- Backdrop -->
+  <div onclick="cancelReceiveConfirm()" class="fixed inset-0 bg-black/70 backdrop-blur-md"></div>
+
+  <!-- Box -->
+  <div class="relative w-full max-w-sm bg-[#070b14]/95 border border-primary/20 rounded-2xl
+              shadow-[0_25px_60px_rgba(0,0,0,0.8)] p-8 text-center z-10 animate-fade-in">
+    <div class="mx-auto mb-4 h-14 w-14 rounded-full bg-green-600/20 flex items-center justify-center">
+      <span class="material-symbols-outlined text-3xl text-green-400">inventory_2</span>
+    </div>
+    <h3 class="text-xl font-bold text-accent mb-2">Confirm Receipt</h3>
+    <p class="text-sm text-dark-text/70 mb-6">
+      Have you received this order? This action cannot be undone.
+    </p>
+    <div class="flex gap-3">
+      <button
+        onclick="cancelReceiveConfirm()"
+        class="flex-1 py-3 rounded-xl border border-primary/30 text-primary
+               font-semibold hover:bg-primary/10 transition-all"
+      >
+        Cancel
+      </button>
+      <button
+        onclick="confirmReceiveOrder()"
+        class="flex-1 py-3 rounded-xl bg-green-600 hover:bg-green-700
+               text-white font-bold transition-all"
+      >
+        Yes, Received
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let __pendingReceiveOrderId = null;
+
+  function showReceiveConfirm(orderId) {
+    __pendingReceiveOrderId = orderId;
+    const modal = document.getElementById("receiveConfirmModal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function cancelReceiveConfirm() {
+    __pendingReceiveOrderId = null;
+    const modal = document.getElementById("receiveConfirmModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+
+  async function confirmReceiveOrder() {
+    const orderId = __pendingReceiveOrderId;
+    cancelReceiveConfirm();
+    if (orderId) {
+      await markReceived(orderId);
+    }
+  }
+</script>
+
     <!-- ================= REVIEW MODAL ================= -->
 
 
@@ -2360,9 +2421,7 @@ function tryOpenReviewModal() {
           result.push({
             ...q,
             name: data.product.name,
-            image: data.product.images?.[0]
-  ? `https://perfume-store-production.up.railway.app/${data.product.images[0]}`
-  : (data.product.image || "")
+            image: data.product.images?.[0] || data.product.image || ""
           });
         } else {
           result.push({ ...q, name: "Product", image: "" });
@@ -2489,7 +2548,8 @@ async function reviewOrderManually(orderId, startProductId = null) {
   const waitForOrders = setInterval(() => {
     attempts++;
 
-    if (window.myOrders && window.myOrders.length > 0) {
+    // Use myOrders directly (it's in scope) — not window.myOrders
+    if (myOrders && myOrders.length > 0) {
       clearInterval(waitForOrders);
 
       reviewOrderManually(orderId, productId);

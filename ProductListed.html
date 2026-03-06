@@ -511,7 +511,7 @@
                rounded-lg md:rounded-xl
                transition-transform duration-300
                hover:scale-105"
-               :src="product.images?.[0] || '/placeholder.png'"
+               :src="$store.topSold.product?.images?.[0] || '/placeholder.png'"
                alt="Product image"
       />
 
