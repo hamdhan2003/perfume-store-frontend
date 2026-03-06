@@ -1999,26 +1999,6 @@ async function payOrder(orderId) {
   const token = localStorage.getItem("token");
   if (!token) return;
 
-  // Show confirmation modal
-  const confirmModal = document.getElementById("receiveConfirmModal");
-  if (confirmModal) {
-    confirmModal.classList.remove("hidden");
-    confirmModal.classList.add("flex");
-    // Store orderId for later use
-    window.__pendingReceiveOrderId = orderId;
-  }
-}
-
-async function confirmReceiveOrder() {
-  const orderId = window.__pendingReceiveOrderId;
-  if (!orderId) return;
-
-  const token = localStorage.getItem("token");
-  if (!token) return;
-
-  // Close modal
-  closeReceiveConfirmModal();
-
   try {
     const res = await fetch(
       `https://perfume-store-production.up.railway.app/api/orders/${orderId}/received`,
@@ -2064,15 +2044,6 @@ async function confirmReceiveOrder() {
     console.error("markReceived failed:", err);
     alert("Network error");
   }
-}
-
-function closeReceiveConfirmModal() {
-  const modal = document.getElementById("receiveConfirmModal");
-  if (modal) {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-  }
-  window.__pendingReceiveOrderId = null;
 }
 
 
@@ -2389,7 +2360,9 @@ function tryOpenReviewModal() {
           result.push({
             ...q,
             name: data.product.name,
-            image: data.product.images?.[0] || ""
+            image: data.product.images?.[0]
+  ? `https://perfume-store-production.up.railway.app/${data.product.images[0]}`
+  : (data.product.image || "")
           });
         } else {
           result.push({ ...q, name: "Product", image: "" });
