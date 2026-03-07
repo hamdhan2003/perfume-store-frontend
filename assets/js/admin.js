@@ -2056,3 +2056,119 @@ function closeAddProductModal() {
     if (el) el.checked = false;
   });
 }
+
+
+// ── Print PNG: capture the full order drawer and trigger browser print ──────
+function printOrderModal() {
+  // Find the scrollable drawer panel (the white/dark panel inside the modal)
+  const drawer = document.querySelector(
+    '[x-show="$store.orders.orderDetailsModalOpen"] .overflow-y-auto'
+  );
+
+  if (!drawer) {
+    alert("Could not find order modal content to print.");
+    return;
+  }
+
+  // Remember scroll position
+  const scrollTop = drawer.scrollTop;
+  drawer.scrollTop = 0;
+
+  const btn = document.getElementById("printOrderBtn");
+  if (btn) btn.style.display = "none";
+
+  html2canvas(drawer, {
+    scale:         2,
+    useCORS:       true,
+    allowTaint:    true,
+    scrollY:       0,
+    height:        drawer.scrollHeight,
+    windowHeight:  drawer.scrollHeight,
+    logging:       false
+  }).then(canvas => {
+    // Restore
+    if (btn) btn.style.display = "";
+    drawer.scrollTop = scrollTop;
+
+    const imgData = canvas.toDataURL("image/png");
+
+    // Open print window
+    const printWin = window.open("", "_blank");
+    if (!printWin) {
+      alert("Pop-up blocked. Please allow pop-ups for this site.");
+      return;
+    }
+
+    printWin.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Order Print</title>
+        <style>
+          body { margin: 0; padding: 0; background: #fff; }
+          img  { width: 100%; height: auto; display: block; }
+          @media print {
+            body { margin: 0; }
+            img  { width: 100%; }
+          }
+        </style>
+      </head>
+      <body>
+        <img src="${imgData}" alt="Order Details" />
+        <script>window.onload = function() { window.print(); };<\/script>
+        <script src="/assets/js/admin.js" defer></script>
+</body>
+      </html>
+    `);
+    printWin.document.close();
+
+  }).catch(err => {
+    if (btn) btn.style.display = "";
+    drawer.scrollTop = scrollTop;
+    console.error("Print PNG error:", err);
+    alert("Failed to generate PNG. Please try again.");
+  });
+}
+
+// ── Admin: Mark order as Delivered ─────────────────────────────────────────
+async function adminMarkDelivered(orderId) {
+  if (!confirm("Mark this order as Delivered?")) return;
+
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    const res = await fetch(
+      `https://perfume-store-production.up.railway.app/api/orders/${orderId}/received`,
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    );
+
+    const data = await res.json();
+
+    if (!data.success) {
+      alert(data.message || "Failed to mark as delivered");
+      return;
+    }
+
+    // Update the selected order in the Alpine store
+    const store = Alpine.store("orders");
+    if (store && store.selectedOrder) {
+      store.selectedOrder.orderStatus = "delivered";
+    }
+
+    // Refresh the orders table
+    if (typeof store.loadOrders === "function") {
+      store.loadOrders();
+    }
+
+    alert(`Order has been marked as Delivered successfully.`);
+
+  } catch (err) {
+    console.error("adminMarkDelivered error:", err);
+    alert("Network error. Please try again.");
+  }
+}
+
