@@ -553,6 +553,16 @@ class="py-20 md:py-28 reveal-section"  id="shop"
 
 <!-- ✅ PRODUCT GRID (SAFE REVEAL) -->
 <div
+  x-show="$store.shop.products.length === 0"
+  class="w-full py-20 text-center"
+>
+  <h2 class="text-2xl font-bold text-bronze dark:text-primary">
+    No products available for this category.
+  </h2>
+</div>
+
+<div
+  x-show="$store.shop.products.length > 0"
   class="
     mt-12
     grid
@@ -563,6 +573,7 @@ class="py-20 md:py-28 reveal-section"  id="shop"
   "
 >
   <template x-for="(product, index) in $store.shop.products" :key="product._id">
+
     <div
     class="stagger relative overflow-hidden rounded-xl shadow-lg
            border border-bronze/10 dark:border-primary/20
@@ -645,7 +656,7 @@ class="py-20 md:py-28 reveal-section"  id="shop"
           this.products = [];
 
           const res = await fetch(
-            `https://perfume-store-production.up.railway.app/api/products?quality=${this.filter}`
+            `https://perfume-store-production.up.railway.app/api/products?quality=${this.filter}&limit=1000`
           );
           const data = await res.json();
           if (!data.success) return;
@@ -656,6 +667,7 @@ class="py-20 md:py-28 reveal-section"  id="shop"
 
           this.products = shuffled.slice(0, 4);
         },
+
 
         setFilter(type) {
           if (this.filter === type) return;

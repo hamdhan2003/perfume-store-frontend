@@ -650,21 +650,23 @@ document.addEventListener("alpine:init", () => {
   x-init="$store.catalog.init()"
 >
 <div
-  x-show="$store.catalog.filteredProducts().length === 0"
+  x-show="$store.catalog.filteredProducts().length === 0 && !$store.catalog.loading"
   class="w-full py-20 text-center"
 >
   <h2 class="text-2xl font-bold text-bronze dark:text-primary">
-    No products available for this quality
+    No products available for this category.
   </h2>
 </div>
 
 <div
+  x-show="$store.catalog.filteredProducts().length > 0"
   :class="{
-    'grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4': $store.catalog.filteredProducts().length !== 1,
-    'flex justify-center': $store.catalog.filteredProducts().length === 1
+    'grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4': $store.catalog.displayedProducts().length !== 1,
+    'flex justify-center': $store.catalog.displayedProducts().length === 1
   }"
 >
-  <template x-for="product in $store.catalog.filteredProducts()" :key="product._id">
+  <template x-for="product in $store.catalog.displayedProducts()" :key="product._id">
+
     <div
     class="stagger relative overflow-hidden rounded-xl shadow-lg
            border border-bronze/10 dark:border-primary/20
@@ -725,9 +727,7 @@ document.addEventListener("alpine:init", () => {
           </span>
         </button>
   
-      </div>
-  
-    </div>
+</div>
   </template>
 
 </div>
@@ -749,6 +749,7 @@ document.addEventListener("alpine:init", () => {
   </button>
 </div>
 
+
 </section>
 <script>
   document.addEventListener("alpine:init", () => {
@@ -757,10 +758,10 @@ document.addEventListener("alpine:init", () => {
       products: [],
       tags: [],
       searchQuery: '',
-      limit: 12,
-      skip: 0,
+      displayLimit: 12,
       total: 0,
       loading: false,
+
   
       activeTag: "all",   // MASTER
       filter: "normal",   // SECONDARY (quality)
@@ -795,33 +796,35 @@ document.addEventListener("alpine:init", () => {
   
       /* ================= INITIAL PRODUCT LOAD ================= */
       async loadInitial() {
-        this.products = [];
-        this.skip = 0;
-        await this.loadMore();
-      },
-  
-      /* ================= LOAD MORE PRODUCTS ================= */
-      async loadMore() {
-        if (this.loading) return;
         this.loading = true;
-  
+        this.products = [];
+        this.displayLimit = 12; // Reset display limit
+
         const url =
           `https://perfume-store-production.up.railway.app/api/products` +
-          `?limit=${this.limit}` +
-          `&skip=${this.skip}` +
+          `?limit=1000` + // Fetch all products
           `&quality=${this.filter}`;
-  
-        const res = await fetch(url);
-        const data = await res.json();
-  
-        if (data.success) {
-          this.products.push(...data.products);
-          this.total = data.total;
-          this.skip += this.limit;
+
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+
+          if (data.success) {
+            this.products = data.products;
+            this.total = data.total;
+          }
+        } catch (e) {
+          console.error("Failed to load products", e);
+        } finally {
+          this.loading = false;
         }
-  
-        this.loading = false;
       },
+
+      /* ================= LOAD MORE PRODUCTS (UI ONLY) ================= */
+      loadMore() {
+        this.displayLimit += 12;
+      },
+
   
       /* ================= QUALITY CHANGE ================= */
       async setQuality(type) {
@@ -842,13 +845,6 @@ applySearch() {
 /* ================= FILTERED PRODUCTS ================= */
 filteredProducts() {
   return this.products.filter(p => {
-
-    // 🔒 QUALITY FILTER
-    if (
-      p.quality?.toLowerCase() !== this.filter.toLowerCase()
-    ) {
-      return false;
-    }
 
     // 🔒 PRIMARY TAG FILTER
     if (
@@ -872,23 +868,22 @@ filteredProducts() {
   });
 },
 
+/* ================= DISPLAYED PRODUCTS (PAGINATED UI) ================= */
+displayedProducts() {
+  return this.filteredProducts().slice(0, this.displayLimit);
+},
+
 /* ================= HELPERS ================= */
       hasMore() {
-        return this.products.length < this.total;
+        return this.displayLimit < this.filteredProducts().length;
       }
+
     });
   });
   </script>
-  
-  
-  
-<div class="text-center py-12">
-<button class="group mt-8 inline-flex items-center justify-center rounded-full bg-transparent px-8 py-3 text-lg font-semibold text-bronze dark:text-primary border-2 border-bronze dark:border-primary transition-all duration-300 ease-in-out hover:bg-bronze hover:text-white dark:hover:bg-primary dark:hover:text-secondary hover:shadow-lg dark:hover:shadow-glow-gold">
-                        Load More
-                    </button>
-</div>
 </div>
 </main>
+
 <footer class="bg-accent/50 dark:bg-secondary/50 pt-20 pb-8">
   <div class="container mx-auto px-4 md:px-8">
 
